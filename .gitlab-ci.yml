@@ -1,0 +1,223 @@
+# This file is a template, and might need editing before it works on your project.
+# To contribute improvements to CI/CD templates, please follow the Development guide at:
+# https://docs.gitlab.com/ee/development/cicd/templates.html
+# This specific template is located at:
+# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Android.gitlab-ci.yml
+
+# Read more about this script on this blog post https://about.gitlab.com/2018/10/24/setting-up-gitlab-ci-for-android-projects/, by Jason Lenny
+# If you are interested in using Android with FastLane for publishing take a look at the Android-Fastlane template.
+
+stages:
+  - sonarqube
+  - apk-dev
+  - apk-prod
+  - ipa-dev
+  - ipa-prod
+  - dev-apk-distribute
+  - dev-ipa-distribute
+  - prod-apk-distribute
+  - prod-ipa-distribute
+
+before_script:
+  - make denied
+  - make pre-bootstrap
+  - make pub-get
+  - make build-init flavor=dev
+  - make build-init flavor=prod
+  - make build-runner
+
+# Make Android Project
+apkDev:
+  variables:
+    GIT_CLEAN_FLAGS: none
+    ENV: $ENV
+  stage: apk-dev
+  tags:
+    - m1-shell
+  script:
+    - cd configs
+    - echo -n ${ENV} | base64 -d > .env.zip
+    - jar xf .env.zip
+    - cd ..
+    - make build-android-apk flavor=dev
+    - echo "Execute android assembleDevRelease completed!!!"
+  retry: 1
+  only:
+    - merge_request
+    - main
+
+# Make Android Project
+apkProd:
+  variables:
+    GIT_CLEAN_FLAGS: none
+    ENV: $ENV
+  stage: apk-prod
+  tags:
+    - m1-shell
+  script:
+    - cd configs
+    - echo -n ${ENV} | base64 -d > .env.zip
+    - jar xf .env.zip
+    - cd ..
+    - make build-android-apk flavor=prod
+    - echo "Execute android assembleProdRelease completed!!!"
+  retry: 1
+  only:
+    - merge_request
+    - main
+
+# Make IOS Project
+ipaDev:
+  variables:
+    GIT_CLEAN_FLAGS: none
+    ENV: $ENV
+  stage: ipa-dev
+  tags:
+    - m1-shell
+  script:
+    - cd configs
+    - echo -n ${ENV} | base64 -d > .env.zip
+    - jar xf .env.zip
+    - cd ..
+    - make build-ios flavor=dev
+    - echo "Execute ios assembleDevRelease completed!!!"
+  retry: 1
+  only:
+    - merge_request
+    - main
+
+# Make IOS Project
+ipaProd:
+  variables:
+    GIT_CLEAN_FLAGS: none
+    ENV: $ENV
+  stage: ipa-prod
+  tags:
+    - m1-shell
+  script:
+    - cd configs
+    - echo -n ${ENV} | base64 -d > .env.zip
+    - jar xf .env.zip
+    - cd ..
+    - make build-ios flavor=prod
+    - echo "Execute ios assembleProdRelease completed!!!"
+  retry: 1
+  only:
+    - merge_request
+    - main
+
+# Sonarqube
+sonarqubeRelease:
+  stage: sonarqube
+  tags:
+    - m1-shell
+  script:
+    - sonar-scanner
+  after_script:
+    - echo "Execute sonarqubeRelease completed!!!"
+  retry: 1
+  allow_failure: true
+  only:
+    - merge_request
+    - main
+
+# Distribution
+dev-apk-distribute:
+  interruptible: true
+  variables:
+    ENV: $ENV
+    FIREBASE_APP_DEV: $FIREBASE_APP_DEV
+  stage: dev-apk-distribute
+  tags:
+    - m1-shell
+  script:
+    - cd configs
+    - echo -n ${ENV} | base64 -d > .env.zip
+    - jar xf .env.zip
+    - cd ..
+    - build_name="$(cut -d'/' -f2 <<<"$CI_COMMIT_TAG")"
+    - echo $build_name
+    - build_number="$(cut -d'/' -f3 <<<"$CI_COMMIT_TAG")"
+    - echo $build_number
+    - make build-android-apk flavor=dev buildName=$build_name buildNumber=$build_number
+    - firebase appdistribution:distribute app/build/app/outputs/flutter-apk/app-dev-release.apk --app ${FIREBASE_APP_DEV} --groups "gu"
+    - echo "Execute android assembleDevRelease completed!!!"
+  retry: 1
+  only:
+    variables:
+      - $CI_COMMIT_TAG =~ /^dev\/\d+.\d+.\d+\/\d+/
+
+dev-ipa-distribute:
+  interruptible: true
+  stage: dev-ipa-distribute
+  variables:
+    ENV: $ENV
+    APP_STORE_EMAIL: $APP_STORE_EMAIL
+    APP_STORE_PASSWORD: $APP_STORE_PASSWORD
+  tags:
+    - m1-shell
+  script:
+    - cd configs
+    - echo -n ${ENV} | base64 -d > .env.zip
+    - jar xf .env.zip
+    - cd ..
+    - build_name="$(cut -d'/' -f2 <<<"$CI_COMMIT_TAG")"
+    - echo $build_name
+    - build_number="$(cut -d'/' -f3 <<<"$CI_COMMIT_TAG")"
+    - echo $build_number
+    - make build-ios flavor=dev buildName=$build_name buildNumber=$build_number
+    - xcrun altool --upload-app -f app/build/ios/ipa/AppSkeleton.ipa --type ios -u ${APP_STORE_EMAIL} -p ${APP_STORE_PASSWORD}
+    - echo "Execute ios assembleDevIpaRelease completed!!!"
+  retry: 1
+  only:
+    variables:
+      - $CI_COMMIT_TAG =~ /^dev\/\d+.\d+.\d+\/\d+/
+
+prod-apk-distribute:
+  variables:
+    ENV: $ENV
+    FIREBASE_APP_PROD: $FIREBASE_APP_PROD
+  stage: prod-apk-distribute
+  tags:
+    - m1-shell
+  script:
+    - cd configs
+    - echo -n ${ENV} | base64 -d > .env.zip
+    - jar xf .env.zip
+    - cd ..
+    - build_name="$(cut -d'/' -f2 <<<"$CI_COMMIT_TAG")"
+    - echo $build_name
+    - build_number="$(cut -d'/' -f3 <<<"$CI_COMMIT_TAG")"
+    - echo $build_number
+    - make build-android-apk flavor=prod buildName=$build_name buildNumber=$build_number
+    - firebase appdistribution:distribute app/build/app/outputs/flutter-apk/app-prod-release.apk --app ${FIREBASE_APP_PROD} --groups "gu"
+    - echo "Execute android assembleProdRelease completed!!!"
+  retry: 1
+  only:
+    variables:
+      - $CI_COMMIT_TAG =~ /^prod\/\d+.\d+.\d+\/\d+/
+
+prod-ipa-distribute:
+  stage: prod-ipa-distribute
+  variables:
+    ENV: $ENV
+    APP_STORE_EMAIL: $APP_STORE_EMAIL
+    APP_STORE_PASSWORD: $APP_STORE_PASSWORD
+  tags:
+    - m1-shell
+  script:
+    - cd configs
+    - echo -n ${ENV} | base64 -d > .env.zip
+    - jar xf .env.zip
+    - cd ..
+    - build_name="$(cut -d'/' -f2 <<<"$CI_COMMIT_TAG")"
+    - echo $build_name
+    - build_number="$(cut -d'/' -f3 <<<"$CI_COMMIT_TAG")"
+    - echo $build_number
+    - make build-ios flavor=prod buildName=$build_name buildNumber=$build_number
+    - xcrun altool --upload-app -f app/build/ios/ipa/AppSkeleton.ipa --type ios -u ${APP_STORE_EMAIL} -p ${APP_STORE_PASSWORD}
+    - echo "Execute ios assembleProdRelease completed!!!"
+  retry: 1
+  only:
+    variables:
+      - $CI_COMMIT_TAG =~ /^prod\/\d+.\d+.\d+\/\d+/
