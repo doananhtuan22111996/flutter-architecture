@@ -4,8 +4,8 @@ denied:
 
 pre-bootstrap:
 	cd scripts && ./pre-bootstrap.sh
-	fvm install 3.10.6
-	fvm use 3.10.6 --force
+	fvm install 3.22.3
+	fvm use 3.22.3 --force
 	fvm flutter --version
 
 pub-get:
@@ -14,7 +14,7 @@ pub-get:
 
 build-init: 
 	@melos gen-app-icon
-	@melos gen-app-splash $(flavor)
+	@melos gen-app-splash
 	
 build-runner: 
 	@melos build-domain
@@ -44,9 +44,7 @@ build-android-aab:
 	@melos gen-env $(flavor)
 	dart run scripts/build.dart $(flavor) build aab $(buildName) $(buildNumber)
 
-unused:
-	@melos unused-string-resource
-	@melos unused-file-app
-	@melos unused-file-domain
-	@melos unused-file-data
-	@melos unused-file-resource
+## TODO [remove] command below when create new project.
+widget-book:
+	@melos gen-web
+	dart run scripts/build_widget_book.dart

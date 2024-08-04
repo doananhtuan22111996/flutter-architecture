@@ -30,4 +30,7 @@ migrate_working_dir/
 build/
 .flutter-plugins
 .flutter-plugins-dependencies
-.fvm/*
+.fvm/
+.fvmrc
+.vscode
+*.g.dart

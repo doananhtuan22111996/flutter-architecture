@@ -1,7 +1,7 @@
 part of 'main_controller.dart';
 
 class MainPage extends GetView<MainController> {
-  const MainPage({Key? key}) : super(key: key);
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class MainPage extends GetView<MainController> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _ui(context),
-            _data(context),
+            if (!kIsWeb) _data(context),
             _theme(context),
           ],
         ),
@@ -65,6 +65,11 @@ class MainPage extends GetView<MainController> {
                 AppFilledButtonWidget(
                   buttonText: 'Badge',
                   onPressed: () => BadgePage.open(),
+                ),
+                SizedBox(height: AppThemeExt.of.majorScale(2)),
+                AppFilledButtonWidget(
+                  buttonText: 'Toast',
+                  onPressed: () => ToastPage.open(),
                 ),
               ],
             ),
@@ -116,20 +121,8 @@ class MainPage extends GetView<MainController> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             AppFilledButtonWidget(
-              buttonText: 'Network',
-              onPressed: () => HospitalPage.open(),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: AppThemeExt.of.majorScale(2)),
-              child: AppFilledButtonWidget(
-                buttonText: 'Database',
-                onPressed: () => HospitalLocalPage.open(),
-              ),
-            ),
-            AppFilledButtonWidget(
-              buttonText: 'Page View',
-              onPressed: () => HomePage.open,
+              buttonText: 'Workflow',
+              onPressed: () => LoginPage.open(),
             ),
           ],
         ),
@@ -149,17 +142,18 @@ class MainPage extends GetView<MainController> {
         Obx(
           () => ToggleButtons(
             isSelected: [
-              controller.lnCode.value == 'vi',
-              controller.lnCode.value == 'en'
+              controller.langCode.value == AppLanguageKey.en.langCode,
+              controller.langCode.value == AppLanguageKey.vi.langCode,
             ],
             onPressed: (int index) async {
-              final code = index == 0 ? 'vi' : 'en';
-              controller.executeUpdateLanguage(code);
+              final langCode = index == 0
+                  ? AppLanguageKey.en.langCode
+                  : AppLanguageKey.vi.langCode;
+              controller.executeUpdateLanguage(langCode);
             },
-            children: [
-              AppTextBody1Widget(text: R.strings.vietNamLanguage),
-              AppTextBody1Widget(text: R.strings.englishLanguage),
-            ],
+            children: controller.languages
+                .map((e) => AppTextBody1Widget(text: e.name))
+                .toList(),
           ),
         ),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
@@ -167,16 +161,17 @@ class MainPage extends GetView<MainController> {
         Obx(
           () => ToggleButtons(
             isSelected: [
-              !controller.isDarkMode.value,
-              controller.isDarkMode.value
+              controller.theme.value == ThemeMode.light.name,
+              controller.theme.value == ThemeMode.dark.name,
             ],
-            children: const [
-              Icon(Icons.light_mode),
-              Icon(Icons.dark_mode),
-            ],
+            children: controller.themes
+                .map((e) => e == ThemeMode.light.name
+                    ? const Icon(Icons.light_mode)
+                    : const Icon(Icons.dark_mode))
+                .toList(),
             onPressed: (int index) {
-              controller.executeChangeThemeMode(
-                index == 0 ? ThemeMode.light : ThemeMode.dark,
+              controller.executeUpdateTheme(
+                index == 0 ? ThemeMode.light.name : ThemeMode.dark.name,
               );
             },
           ),
