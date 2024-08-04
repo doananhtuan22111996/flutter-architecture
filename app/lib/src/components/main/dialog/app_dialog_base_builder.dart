@@ -3,7 +3,8 @@ import 'package:app/src/components/main/text/app_text_base_builder.dart';
 import 'package:app/src/config/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:resources/resources.dart';
+
+import '../../../exts/R.dart';
 
 part 'app_dialog_default_widget.dart';
 
@@ -20,8 +21,6 @@ enum AppDialogType {
 }
 
 abstract class AppDialogBaseBuilder extends Dialog {
-  // @protected
-  // final Dialog? dialog;
   @protected
   final String? title;
   @protected
@@ -39,7 +38,6 @@ abstract class AppDialogBaseBuilder extends Dialog {
 
   const AppDialogBaseBuilder({
     super.key,
-    // this.dialog,
     this.title,
     this.content,
     this.positiveText,
@@ -49,7 +47,6 @@ abstract class AppDialogBaseBuilder extends Dialog {
     this.onNegative,
   });
 
-  // AppDialogBaseBuilder buildDialog(BuildContext context);
 
   void show() {
     if (Get.isDialogOpen == true) return;

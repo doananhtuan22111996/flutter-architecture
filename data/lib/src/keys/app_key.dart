@@ -1,7 +1,7 @@
 class AppPrefKey {
   static const String token = 'token';
   static const String refreshToken = 'refreshToken';
-  static const String language = 'language';
+  static const String languageCode = 'languageCode';
   static const String theme = 'theme';
 }
 
@@ -13,7 +13,5 @@ class AppNetworkKey {
 }
 
 class AppBoxKey {
-  static const String hospital = 'hospital_box';
-  static const String doctor = 'doctor_box';
-  static const String sickType = 'sickType_box';
+  static const String user = 'user_box';
 }

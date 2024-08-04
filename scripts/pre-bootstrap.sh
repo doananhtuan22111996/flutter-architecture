@@ -1,11 +1,9 @@
 #!/bin/zsh
 echo "Installing fvm..."
 dart pub global activate fvm
-echo "Installing Melos..."
-dart pub global activate melos
-echo "Installing FlutterGen..."
+echo "Installing melos..."
+dart pub global activate melos 4.1.0
+echo "Installing flutter_gen..."
 dart pub global activate flutter_gen
-echo "Installing Lefthook..."
-dart pub global activate lefthook
-echo "Installing Dart code metrics..."
-dart pub global activate dart_code_metrics
+echo "Installing flutterfire_cli..."
+dart pub global activate flutterfire_cli
