@@ -11,8 +11,6 @@ abstract class AppMainPageBaseBuilder extends StatelessWidget {
   @protected
   final Widget? endDrawer;
   @protected
-  final Color? backgroundColor;
-  @protected
   final void Function(bool)? onEndDrawerChanged;
 
   const AppMainPageBaseBuilder({
@@ -20,7 +18,6 @@ abstract class AppMainPageBaseBuilder extends StatelessWidget {
     this.body,
     this.appBar,
     this.endDrawer,
-    this.backgroundColor,
     this.onEndDrawerChanged,
   });
 }
