@@ -86,6 +86,9 @@ dev_dependencies:
   flutter_gen_runner: 5.6.0
 
 flutter_gen:
+  assets:
+    outputs:
+      directory_path_enabled: true # <- Add this line.
   output: lib/src/generated/assets
 
   # Optional
@@ -119,47 +122,35 @@ flutter:
   assets:
     - assets/pngs/
     - assets/svgs/
-    - assets/svgs/avatar/
-    - assets/svgs/dialog/
-    - assets/svgs/filled/tab/
-    - assets/svgs/outline/tab/
-    - assets/svgs/outline/appBar/
-    - assets/svgs/outline/tagBadge/
-    - assets/svgs/outline/progress/
-    - assets/svgs/outline/textField/
-    - assets/svgs/solid/progress/
-    - assets/svgs/solid/textField/
-    - assets/svgs/solid/datePicker/
-    - assets/svgs/solid/toast/
 
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/assets-and-images/#resolution-aware
+    # An image asset can refer to one or more resolution-specific "variants", see
+    # https://flutter.dev/assets-and-images/#resolution-aware
 
-  # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/assets-and-images/#from-packages
+    # For details regarding adding assets from package dependencies, see
+    # https://flutter.dev/assets-and-images/#from-packages
 
-  # To add custom fonts to your application, add a fonts section here,
-  # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
-  # fonts:
-  #   - family: Poppins
-  #     fonts:
-  #       - asset: assets/fonts/Poppins-Regular.ttf
-  #         weight: 300
-  #       - asset: assets/fonts/Poppins-Medium.ttf
-  #         weight: 500
-  #       - asset: assets/fonts/Poppins-SemiBold.ttf
-  #         weight: 700
-  #   - family: Cairo
-  #     fonts:
-  #       - asset: assets/fonts/Cairo-Regular.ttf
-  #         weight: 300
-  #       - asset: assets/fonts/Cairo-Medium.ttf
-  #         weight: 500
-  #       - asset: assets/fonts/Cairo-SemiBold.ttf
-  #         weight: 900
+    # To add custom fonts to your application, add a fonts section here,
+    # in this "flutter" section. Each entry in this list should have a
+    # "family" key with the font family name, and a "fonts" key with a
+    # list giving the asset and other descriptors for the font. For
+    # example:
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+          weight: 300
+        - asset: assets/fonts/Roboto-Medium.ttf
+          weight: 700
+        - asset: assets/fonts/Roboto-Bold.ttf
+          weight: 900
+  #    - family: Cairo
+  #      fonts:
+  #        - asset: assets/fonts/Cairo-Regular.ttf
+  #          weight: 300
+  #        - asset: assets/fonts/Cairo-Medium.ttf
+  #          weight: 500
+  #        - asset: assets/fonts/Cairo-SemiBold.ttf
+  #          weight: 900
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

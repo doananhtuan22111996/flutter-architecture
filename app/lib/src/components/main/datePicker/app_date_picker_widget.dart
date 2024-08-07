@@ -55,14 +55,15 @@ class AppDatePickerWidget extends AppDatePickerBaseBuilder {
                     appDatePickerSize?.value ?? AppDatePickerSize.medium.value),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(AppThemeExt.of.majorScale(1)),
-              borderSide: BorderSide(color: AppColors.of.neutralColor[5]!),
+              borderSide: BorderSide(color: AppThemeExt.of.colorScheme.primary),
             ),
             disabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(AppThemeExt.of.majorScale(1)),
-              borderSide: BorderSide(color: AppColors.of.neutralColor[2]!),
+              borderSide:
+                  BorderSide(color: AppThemeExt.of.colorScheme.onSurface),
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: AppColors.of.neutralColor[5]!),
+              borderSide: BorderSide(color: AppThemeExt.of.colorScheme.primary),
             ),
             contentPadding: contentPadding,
             suffixIconConstraints: suffixIconConstraints,
@@ -70,8 +71,8 @@ class AppDatePickerWidget extends AppDatePickerBaseBuilder {
               Icons.calendar_today,
               size: iconSize,
               color: isDisabled == true
-                  ? AppColors.of.neutralColor[5]
-                  : AppColors.of.neutralColor,
+                  ? AppThemeExt.of.colorScheme.onSurface
+                  : AppThemeExt.of.colorScheme.primary,
             ),
           ),
           child: field.value == null
@@ -84,17 +85,15 @@ class AppDatePickerWidget extends AppDatePickerBaseBuilder {
 
   Widget _text(BuildContext context, DateTime? initialDate) {
     final textColor = isDisabled == true
-        ? AppColors.of.neutralColor[5]
-        : AppColors.of.neutralColor;
+        ? AppThemeExt.of.colorScheme.onSurface
+        : AppThemeExt.of.colorScheme.primary;
     if (appDatePickerSize == AppDatePickerSize.large) {
       return AppTextBody1Widget(
         text: DateTimeExt.dateTimeToDisplay(dateTime: initialDate),
-        textStyle: AppTextStyleExt.of.textBody1r?.copyWith(color: textColor),
       );
     }
     return AppTextBody2Widget(
       text: DateTimeExt.dateTimeToDisplay(dateTime: initialDate),
-      textStyle: AppTextStyleExt.of.textBody2r?.copyWith(color: textColor),
     );
   }
 
@@ -102,14 +101,10 @@ class AppDatePickerWidget extends AppDatePickerBaseBuilder {
     if (appDatePickerSize == AppDatePickerSize.large) {
       return AppTextBody1Widget(
         text: hintText ?? R.strings.datePickerHint,
-        textStyle: AppTextStyleExt.of.textBody1r
-            ?.copyWith(color: AppColors.of.neutralColor[5]),
       );
     }
     return AppTextBody2Widget(
       text: hintText ?? R.strings.datePickerHint,
-      textStyle: AppTextStyleExt.of.textBody2r
-          ?.copyWith(color: AppColors.of.neutralColor[5]),
     );
   }
 
@@ -125,19 +120,14 @@ class AppDatePickerWidget extends AppDatePickerBaseBuilder {
           data: context.theme.copyWith(
             // TODO update theme follow syntax document flutter
             datePickerTheme: context.theme.datePickerTheme.copyWith(
-              backgroundColor: AppColors.of.neutralColor[1],
-              surfaceTintColor: AppColors.of.neutralColor[1],
-            ),
-            textButtonTheme: TextButtonThemeData(
-              style: AppButtonStyle.textButtonStyle,
+              backgroundColor: AppThemeExt.of.colorScheme.surface,
+              surfaceTintColor: AppThemeExt.of.colorScheme.surfaceTint,
             ),
             colorScheme: context.theme.colorScheme.copyWith(
-              brightness: AppColors.of.brightness,
-              primary: AppColors.of.primaryColor,
+              brightness: Get.theme.brightness,
+              primary: AppThemeExt.of.colorScheme.primary,
             ),
-            textTheme: context.textTheme.copyWith(
-              bodySmall: AppTextStyleExt.of.textBody2r,
-            ),
+            textTheme: context.textTheme.copyWith(),
           ),
           child: child!,
         );

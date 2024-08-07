@@ -1,8 +1,10 @@
 import 'package:app/src/components/main/badge/app_badge_base_builder.dart';
 import 'package:app/src/components/main/text/app_text_base_builder.dart';
-import 'package:app/src/config/app_theme.dart';
+import 'package:app/src/config/app_theme_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+part 'app_tab_bar_widget.dart';
 
 part 'app_tab_only_text_widget.dart';
 
@@ -62,14 +64,14 @@ abstract class AppTabBaseBuilder extends StatelessWidget {
   TextStyle? textStyle(BuildContext context) => appTabSize == AppTabSize.large
       ? isSelected == true
           ? context.textTheme.bodyLarge?.copyWith(color: colorBase)
-          : AppTextStyleExt.of.textBody1r?.copyWith(color: colorBase)
+          : AppThemeExt.of.textTheme.bodyMedium?.copyWith(color: colorBase)
       : isSelected == true
           ? context.textTheme.bodyMedium?.copyWith(color: colorBase)
-          : AppTextStyleExt.of.textBody2r?.copyWith(color: colorBase);
+          : AppThemeExt.of.textTheme.bodyMedium?.copyWith(color: colorBase);
 
   Color? get colorBase => isSelected == true
-      ? AppColors.of.primaryColor
-      : AppColors.of.neutralColor;
+      ? AppThemeExt.of.colorScheme.primary
+      : AppThemeExt.of.colorScheme.secondary;
 
   EdgeInsetsGeometry get paddingBase => appTabSize == AppTabSize.large
       ? EdgeInsets.symmetric(

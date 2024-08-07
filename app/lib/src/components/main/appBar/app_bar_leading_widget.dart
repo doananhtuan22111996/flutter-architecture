@@ -25,14 +25,14 @@ class AppBarLeadingWidget extends AppBarBaseBuilder {
   PreferredSizeWidget build(BuildContext context) {
     return AppBar(
       leading: leading ??
-          AppButtonAppBarWidget(
-            prefixIcon: R.svgs.outline.appBar.arrowLineLeft.svg(),
+          AppIconFilledTonalButtonWidget(
+            icon: R.svgs.arrowBack24px.svg(),
             onPressed: () => Get.back(),
           ),
       title: AppTextHeading5Widget(text: headerPage),
       centerTitle: _centerTitle,
       actions: actions,
-      backgroundColor: backgroundColor ?? AppColors.of.neutralColor[1],
+      backgroundColor: backgroundColor ?? AppThemeExt.of.colorScheme.surface,
       bottom: bottom,
     );
   }

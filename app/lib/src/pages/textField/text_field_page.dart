@@ -1,7 +1,7 @@
 part of 'text_field_controller.dart';
 
 class TextFieldPage extends GetView<TextFieldController> {
-  const TextFieldPage({Key? key}) : super(key: key);
+  const TextFieldPage({super.key});
 
   static void open() {
     Get.toNamed(Routes.textField);
@@ -43,8 +43,8 @@ class TextFieldPage extends GetView<TextFieldController> {
               SizedBox(height: AppThemeExt.of.majorScale(4)),
               SizedBox(
                 width: double.infinity,
-                child: AppFilledButtonWidget(
-                  buttonText: 'buttonText',
+                child: AppFilledButtonWidget.text(
+                  label: 'buttonText',
                   onPressed: () {
                     controller.formKey.currentState?.saveAndValidate();
                   },

@@ -55,15 +55,16 @@ class AppDateRangePickerWidget extends AppDatePickerBaseBuilder {
                     appDatePickerSize?.value ?? AppDatePickerSize.medium.value),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(AppThemeExt.of.majorScale(1)),
-              borderSide: BorderSide(color: AppColors.of.neutralColor[5]!),
+              borderSide: BorderSide(color: AppThemeExt.of.colorScheme.primary),
             ),
             disabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(AppThemeExt.of.majorScale(1)),
-              borderSide: BorderSide(color: AppColors.of.neutralColor[2]!),
+              borderSide:
+                  BorderSide(color: AppThemeExt.of.colorScheme.onSurface),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(AppThemeExt.of.majorScale(1)),
-              borderSide: BorderSide(color: AppColors.of.neutralColor[5]!),
+              borderSide: BorderSide(color: AppThemeExt.of.colorScheme.primary),
             ),
             contentPadding: contentPadding,
             suffixIconConstraints: suffixIconConstraints,
@@ -71,8 +72,8 @@ class AppDateRangePickerWidget extends AppDatePickerBaseBuilder {
               Icons.calendar_today,
               size: iconSize,
               color: isDisabled == true
-                  ? AppColors.of.neutralColor[5]
-                  : AppColors.of.neutralColor,
+                  ? AppThemeExt.of.colorScheme.onSurface
+                  : AppThemeExt.of.colorScheme.primary,
             ),
           ),
           child: field.value == null
@@ -85,18 +86,16 @@ class AppDateRangePickerWidget extends AppDatePickerBaseBuilder {
 
   Widget _text(BuildContext context, DateTimeRange? initialDateRange) {
     final textColor = isDisabled == true
-        ? AppColors.of.neutralColor[5]
-        : AppColors.of.neutralColor;
+        ? AppThemeExt.of.colorScheme.onSurface
+        : AppThemeExt.of.colorScheme.primary;
     if (appDatePickerSize == AppDatePickerSize.large) {
       return AppTextBody1Widget(
         text:
             DateTimeExt.dateTimeRangeToDisplay(dateTimeRange: initialDateRange),
-        textStyle: AppTextStyleExt.of.textBody1r?.copyWith(color: textColor),
       );
     }
     return AppTextBody2Widget(
       text: DateTimeExt.dateTimeRangeToDisplay(dateTimeRange: initialDateRange),
-      textStyle: AppTextStyleExt.of.textBody2r?.copyWith(color: textColor),
     );
   }
 
@@ -104,14 +103,10 @@ class AppDateRangePickerWidget extends AppDatePickerBaseBuilder {
     if (appDatePickerSize == AppDatePickerSize.large) {
       return AppTextBody1Widget(
         text: hintText ?? R.strings.datePickerRangeHint,
-        textStyle: AppTextStyleExt.of.textBody1r
-            ?.copyWith(color: AppColors.of.neutralColor[5]),
       );
     }
     return AppTextBody2Widget(
       text: hintText ?? R.strings.datePickerRangeHint,
-      textStyle: AppTextStyleExt.of.textBody2r
-          ?.copyWith(color: AppColors.of.neutralColor[5]),
     );
   }
 
@@ -131,31 +126,28 @@ class AppDateRangePickerWidget extends AppDatePickerBaseBuilder {
         return Theme(
           data: context.theme.copyWith(
             dialogTheme: context.theme.dialogTheme.copyWith(
-              surfaceTintColor: AppColors.of.neutralColor[1],
+              surfaceTintColor: AppThemeExt.of.colorScheme.surfaceTint,
             ),
             // TODO update theme follow syntax document flutter
             // datePickerTheme: context.theme.datePickerTheme.copyWith(
             //   surfaceTintColor: AppColors.of.neutralColor[1],
             // ),
             appBarTheme: context.theme.appBarTheme.copyWith(
-              backgroundColor: AppColors.of.primaryColor,
+              backgroundColor: AppThemeExt.of.colorScheme.surface,
               iconTheme: context.theme.iconTheme.copyWith(
-                color: AppColors.of.neutralColor[1],
+                color: AppThemeExt.of.colorScheme.primary,
               ),
             ),
             textButtonTheme: TextButtonThemeData(
-              style: AppButtonStyle.textButtonStyle?.copyWith(
-                overlayColor: MaterialStateProperty.resolveWith<Color?>(
-                  (Set<MaterialState> states) => AppColors.of.primaryColor[6],
+                // style: AppButtonStyle.textButtonStyle?.copyWith(
+                //   overlayColor: MaterialStateProperty.resolveWith<Color?>(
+                //     (Set<MaterialState> states) => AppColors.of.primaryColor[6],
+                //   ),
+                // ),
                 ),
-              ),
-            ),
             colorScheme: context.theme.colorScheme.copyWith(
-              brightness: AppColors.of.brightness,
-              primary: AppColors.of.primaryColor,
-            ),
-            textTheme: context.textTheme.copyWith(
-              bodyMedium: AppTextStyleExt.of.textBody3r,
+              brightness: Get.theme.brightness,
+              primary: AppThemeExt.of.colorScheme.primary,
             ),
           ),
           child: child!,

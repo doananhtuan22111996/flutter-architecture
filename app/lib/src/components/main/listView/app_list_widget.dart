@@ -76,8 +76,8 @@ class AppListWidget<BM extends BaseModel, BC extends AppListController<BM>>
             textAlign: TextAlign.center,
           ),
         ),
-        AppFilledButtonWidget(
-          buttonText: R.strings.retry,
+        AppFilledButtonWidget.text(
+          label: R.strings.retry,
           onPressed: () => controller.initFetch(),
         ).build(context),
       ],

@@ -1,7 +1,7 @@
 part of 'dialog_controller.dart';
 
 class DialogPage extends GetView<DialogController> {
-  const DialogPage({Key? key}) : super(key: key);
+  const DialogPage({super.key});
 
   static void open() {
     Get.toNamed(Routes.dialog);
@@ -27,49 +27,43 @@ class DialogPage extends GetView<DialogController> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AppFilledButtonWidget(
-                buttonText: 'Dialog Success',
-                appButtonSize: AppButtonSize.small,
+              AppFilledButtonWidget.text(
+                label: 'Dialog Success',
                 onPressed: () => controller.dialogSuccess(),
-              ).build(context),
+              ),
               Padding(
                 padding: EdgeInsets.symmetric(
                     vertical: AppThemeExt.of.majorScale(2)),
-                child: AppFilledButtonWidget(
-                  buttonText: 'Dialog error',
-                  appButtonSize: AppButtonSize.small,
+                child: AppFilledButtonWidget.text(
+                  label: 'Dialog error',
                   onPressed: () => controller.dialogError(),
-                ).build(context),
+                ),
               ),
-              AppFilledButtonWidget(
-                buttonText: 'Dialog confirm',
-                appButtonSize: AppButtonSize.small,
+              AppFilledButtonWidget.text(
+                label: 'Dialog confirm',
                 onPressed: () => controller.dialogConfirm(),
-              ).build(context),
+              ),
             ],
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AppFilledButtonWidget(
-                buttonText: 'Dialog Screen Success',
-                appButtonSize: AppButtonSize.small,
+              AppFilledButtonWidget.text(
+                label: 'Dialog Screen Success',
                 onPressed: () => controller.dialogScreenSuccess(),
-              ).build(context),
+              ),
               Padding(
                 padding: EdgeInsets.symmetric(
                     vertical: AppThemeExt.of.majorScale(2)),
-                child: AppFilledButtonWidget(
-                  buttonText: 'Dialog Screen error',
-                  appButtonSize: AppButtonSize.small,
+                child: AppFilledButtonWidget.text(
+                  label: 'Dialog Screen error',
                   onPressed: () => controller.dialogScreenError(),
-                ).build(context),
+                ),
               ),
-              AppFilledButtonWidget(
-                buttonText: 'Dialog Screen confirm',
-                appButtonSize: AppButtonSize.small,
+              AppFilledButtonWidget.text(
+                label: 'Dialog Screen confirm',
                 onPressed: () => controller.dialogScreenConfirm(),
-              ).build(context),
+              ),
             ],
           ),
         ],

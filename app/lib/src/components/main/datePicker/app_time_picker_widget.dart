@@ -55,15 +55,17 @@ class AppTimePickerWidget extends AppDatePickerBaseBuilder {
                     appDatePickerSize?.value ?? AppDatePickerSize.medium.value),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(AppThemeExt.of.majorScale(1)),
-              borderSide: BorderSide(color: AppColors.of.neutralColor[5]!),
+              borderSide:
+                  BorderSide(color: AppThemeExt.of.colorScheme.onSurface),
             ),
             disabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(AppThemeExt.of.majorScale(1)),
-              borderSide: BorderSide(color: AppColors.of.neutralColor[2]!),
+              borderSide:
+                  BorderSide(color: AppThemeExt.of.colorScheme.onSurface),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(AppThemeExt.of.majorScale(1)),
-              borderSide: BorderSide(color: AppColors.of.neutralColor[5]!),
+              borderSide: BorderSide(color: AppThemeExt.of.colorScheme.primary),
             ),
             contentPadding: contentPadding,
             suffixIconConstraints: suffixIconConstraints,
@@ -71,8 +73,8 @@ class AppTimePickerWidget extends AppDatePickerBaseBuilder {
               Icons.timelapse_outlined,
               size: iconSize,
               color: isDisabled == true
-                  ? AppColors.of.neutralColor[5]
-                  : AppColors.of.neutralColor,
+                  ? AppThemeExt.of.colorScheme.onSurface
+                  : AppThemeExt.of.colorScheme.primary,
             ),
           ),
           child: field.value == null
@@ -85,31 +87,26 @@ class AppTimePickerWidget extends AppDatePickerBaseBuilder {
 
   Widget _text(BuildContext context, TimeOfDay? initialTime) {
     final textColor = isDisabled == true
-        ? AppColors.of.neutralColor[5]
-        : AppColors.of.neutralColor;
+        ? AppThemeExt.of.colorScheme.onSurface
+        : AppThemeExt.of.colorScheme.primary;
     if (appDatePickerSize == AppDatePickerSize.large) {
       return AppTextBody1Widget(
         text: initialTime?.format(context),
-        textStyle: AppTextStyleExt.of.textBody1r?.copyWith(color: textColor),
       );
     }
     return AppTextBody2Widget(
       text: initialTime?.format(context),
-      textStyle: AppTextStyleExt.of.textBody2r?.copyWith(color: textColor),
     );
   }
 
   Widget _hint(BuildContext context) {
     if (appDatePickerSize == AppDatePickerSize.large) {
       return AppTextBody1Widget(
-          text: hintText ?? R.strings.timePickerHint,
-          textStyle: AppTextStyleExt.of.textBody1r
-              ?.copyWith(color: AppColors.of.neutralColor[5]));
+        text: hintText ?? R.strings.timePickerHint,
+      );
     }
     return AppTextBody2Widget(
       text: hintText ?? R.strings.timePickerHint,
-      textStyle: AppTextStyleExt.of.textBody2r
-          ?.copyWith(color: AppColors.of.neutralColor[5]),
     );
   }
 
@@ -122,21 +119,17 @@ class AppTimePickerWidget extends AppDatePickerBaseBuilder {
         return Theme(
           data: context.theme.copyWith(
             dialogTheme: context.theme.dialogTheme.copyWith(
-              surfaceTintColor: AppColors.of.neutralColor[1],
+              surfaceTintColor: AppThemeExt.of.colorScheme.surfaceTint,
             ),
             // TODO update theme follow syntax document flutter
             // timePickerTheme: context.theme.timePickerTheme.copyWith(
             //   surfaceTintColor: AppColors.of.neutralColor[1],
             // ),
-            textButtonTheme:
-                TextButtonThemeData(style: AppButtonStyle.textButtonStyle),
             colorScheme: context.theme.colorScheme.copyWith(
-              brightness: AppColors.of.brightness,
-              primary: AppColors.of.primaryColor,
+              brightness: Get.theme.brightness,
+              primary: AppThemeExt.of.colorScheme.primary,
             ),
-            textTheme: context.textTheme.copyWith(
-              bodyMedium: AppTextStyleExt.of.textBody3r,
-            ),
+            textTheme: context.textTheme.copyWith(),
           ),
           child: child!,
         );

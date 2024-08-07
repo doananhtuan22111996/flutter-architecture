@@ -13,7 +13,6 @@ import 'package:app/src/components/main/appBar/app_bar_base_builder.dart';
 import 'package:app/src/components/main/button/app_button_base_builder.dart';
 import 'package:app/src/components/main/page/app_main_page_base_builder.dart';
 import 'package:app/src/components/main/text/app_text_base_builder.dart';
-import 'package:app/src/config/app_theme.dart';
 import 'package:app/src/pages/avatar/avatar_controller.dart';
 import 'package:app/src/pages/button/button_controller.dart';
 import 'package:app/src/pages/datePicker/date_picker_controller.dart';
@@ -21,7 +20,9 @@ import 'package:app/src/pages/dialog/dialog_controller.dart';
 import 'package:app/src/pages/progress/progress_controller.dart';
 import 'package:app/src/pages/selectionControl/selection_control_controller.dart';
 import 'package:app/src/pages/textField/text_field_controller.dart';
+import 'package:utilities/utilities.dart';
 
+import '../../config/app_theme_ext.dart';
 import '../../exts/R.dart';
 
 part 'main_binding.dart';
@@ -113,8 +114,8 @@ class MainController extends GetxController {
       await _appUseCase.setThemeMode(theme);
       Get.changeThemeMode(themeMode);
       Get.changeTheme(themeMode == ThemeMode.dark
-          ? AppThemeData.darkTheme
-          : AppThemeData.lightTheme);
+          ? AppThemeExt.of.darkTheme
+          : AppThemeExt.of.lightTheme);
     } on AppException catch (e) {
       AppToastWidget(
               title: 'Theme Mode',

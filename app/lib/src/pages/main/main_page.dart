@@ -42,33 +42,33 @@ class MainPage extends GetView<MainController> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AppFilledButtonWidget(
-                  buttonText: R.strings.button,
+                AppFilledButtonWidget.text(
+                  label: R.strings.button,
                   onPressed: () => ButtonPage.open(),
                 ),
                 SizedBox(height: AppThemeExt.of.majorScale(2)),
-                AppFilledButtonWidget(
-                  buttonText: R.strings.avatar,
+                AppFilledButtonWidget.text(
+                  label: R.strings.avatar,
                   onPressed: () => AvatarPage.open(),
                 ),
                 SizedBox(height: AppThemeExt.of.majorScale(2)),
-                AppFilledButtonWidget(
-                  buttonText: R.strings.datePicker,
+                AppFilledButtonWidget.text(
+                  label: R.strings.datePicker,
                   onPressed: () => DatePickerPage.open(),
                 ),
                 SizedBox(height: AppThemeExt.of.majorScale(2)),
-                AppFilledButtonWidget(
-                  buttonText: R.strings.textField,
+                AppFilledButtonWidget.text(
+                  label: R.strings.textField,
                   onPressed: () => TextFieldPage.open(),
                 ),
                 SizedBox(height: AppThemeExt.of.majorScale(2)),
-                AppFilledButtonWidget(
-                  buttonText: 'Badge',
+                AppFilledButtonWidget.text(
+                  label: 'Badge',
                   onPressed: () => BadgePage.open(),
                 ),
                 SizedBox(height: AppThemeExt.of.majorScale(2)),
-                AppFilledButtonWidget(
-                  buttonText: 'Toast',
+                AppFilledButtonWidget.text(
+                  label: 'Toast',
                   onPressed: () => ToastPage.open(),
                 ),
               ],
@@ -76,28 +76,28 @@ class MainPage extends GetView<MainController> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AppFilledButtonWidget(
-                  buttonText: R.strings.dialog,
+                AppFilledButtonWidget.text(
+                  label: R.strings.dialog,
                   onPressed: () => DialogPage.open(),
                 ),
                 SizedBox(height: AppThemeExt.of.majorScale(2)),
-                AppFilledButtonWidget(
-                  buttonText: R.strings.progress,
+                AppFilledButtonWidget.text(
+                  label: R.strings.progress,
                   onPressed: () => ProgressPage.open(),
                 ),
                 SizedBox(height: AppThemeExt.of.majorScale(2)),
-                AppFilledButtonWidget(
-                  buttonText: R.strings.selectionControl,
+                AppFilledButtonWidget.text(
+                  label: R.strings.selectionControl,
                   onPressed: () => SelectionControlPage.open(),
                 ),
                 SizedBox(height: AppThemeExt.of.majorScale(2)),
-                AppFilledButtonWidget(
-                  buttonText: 'TabBar',
+                AppFilledButtonWidget.text(
+                  label: 'TabBar',
                   onPressed: () => TabBarPage.open(),
                 ),
                 SizedBox(height: AppThemeExt.of.majorScale(2)),
-                AppFilledButtonWidget(
-                  buttonText: 'Tooltip',
+                AppFilledButtonWidget.text(
+                  label: 'Tooltip',
                   onPressed: () => TooltipPage.open(),
                 ),
               ],
@@ -120,8 +120,8 @@ class MainPage extends GetView<MainController> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            AppFilledButtonWidget(
-              buttonText: 'Workflow',
+            AppFilledButtonWidget.text(
+              label: 'Workflow',
               onPressed: () => LoginPage.open(),
             ),
           ],

@@ -1,6 +1,7 @@
-import 'package:app/src/config/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_loadingindicator/flutter_loadingindicator.dart';
+
+import '../../../config/app_theme_ext.dart';
 
 class AppLoadingOverlayWidget {
   static TransitionBuilder init() {
@@ -13,11 +14,11 @@ class AppLoadingOverlayWidget {
       ..indicatorType = EasyLoadingIndicatorType.circle
       ..indicatorSize = AppThemeExt.of.majorScale(12)
       ..radius = AppThemeExt.of.majorScale(2)
-      ..backgroundColor = AppColors.of.neutralColor[3]
-      ..indicatorColor = AppColors.of.primaryColor
-      ..progressColor = AppColors.of.primaryColor.withOpacity(0.6)
-      ..textColor = AppColors.of.neutralColor[10]
-      ..maskColor = AppColors.of.neutralColor[2]?.withOpacity(0.6)
+      ..backgroundColor = AppThemeExt.of.colorScheme.surface
+      ..indicatorColor = AppThemeExt.of.colorScheme.primary
+      ..progressColor = AppThemeExt.of.colorScheme.primary.withOpacity(0.6)
+      ..textColor = AppThemeExt.of.colorScheme.surface
+      ..maskColor = AppThemeExt.of.colorScheme.surface.withOpacity(0.6)
       ..userInteractions = false
       ..dismissOnTap = false;
   }

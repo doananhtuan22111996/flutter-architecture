@@ -1,7 +1,8 @@
 import 'package:app/src/components/main/text/app_text_base_builder.dart';
-import 'package:app/src/config/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:just_the_tooltip/just_the_tooltip.dart';
+
+import '../../../config/app_theme_ext.dart';
 
 class AppTooltipWidget extends StatelessWidget {
   const AppTooltipWidget(
@@ -13,7 +14,7 @@ class AppTooltipWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return JustTheTooltip(
-      backgroundColor: AppColors.of.neutralColor,
+      backgroundColor: AppThemeExt.of.colorScheme.surface,
       triggerMode: TooltipTriggerMode.tap,
       content: Padding(
           padding: EdgeInsets.symmetric(
@@ -21,8 +22,8 @@ class AppTooltipWidget extends StatelessWidget {
               horizontal: AppThemeExt.of.majorScale(3)),
           child: AppTextBody1Widget(
             text: message,
-            textStyle: AppTextStyleExt.of.textBody1r
-                ?.copyWith(color: AppColors.of.neutralColor[1]),
+            textStyle: AppThemeExt.of.textTheme.bodyMedium
+                ?.copyWith(color: AppThemeExt.of.colorScheme.onSurface),
           )),
       child: child,
     );

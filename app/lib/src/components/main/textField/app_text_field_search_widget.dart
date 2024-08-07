@@ -30,7 +30,7 @@ class AppTextFieldSearchWidget extends AppTextFieldBaseBuilder {
         valueListenable: _errorNotifier,
         builder: (context, value, child) => Padding(
           padding: _prefixPadding,
-          child: R.svgs.outline.textField.search.svg(
+          child: R.svgs.search24px.svg(
               colorFilter: ColorFilter.mode(_prefixColor!, BlendMode.srcIn)),
         ),
       ),
@@ -40,7 +40,7 @@ class AppTextFieldSearchWidget extends AppTextFieldBaseBuilder {
               valueListenable: textNotifier!,
               child: IconButton(
                 onPressed: () => _fieldState.currentState?.didChange(null),
-                icon: R.svgs.solid.textField.closeCircle.svg(),
+                icon: R.svgs.close24px.svg(),
               ),
               builder: (context, value, child) =>
                   (value?.isEmpty ?? true) ? const SizedBox() : child!,
@@ -51,10 +51,10 @@ class AppTextFieldSearchWidget extends AppTextFieldBaseBuilder {
   }
 
   Color? get _prefixColor => isDisabled == true
-      ? AppColors.of.neutralColor[5]
+      ? AppThemeExt.of.colorScheme.onSurface
       : _errorNotifier.value?.isNotEmpty == true
-          ? AppColors.of.errorColor
-          : AppColors.of.neutralColor;
+          ? AppThemeExt.of.colorScheme.error
+          : AppThemeExt.of.colorScheme.surface;
 
   EdgeInsets get _prefixPadding => appTextFieldSize == AppTextFieldSize.large
       ? EdgeInsets.all(AppThemeExt.of.majorScale(4))

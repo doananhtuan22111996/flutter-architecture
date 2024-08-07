@@ -25,7 +25,7 @@ class AppBarWidget extends AppBarBaseBuilder {
       title: AppTextHeading5Widget(text: headerPage),
       centerTitle: _centerTitle,
       actions: actions,
-      backgroundColor: backgroundColor ?? AppColors.of.neutralColor[1],
+      backgroundColor: backgroundColor ?? AppThemeExt.of.colorScheme.surface,
       bottom: bottom,
     );
   }

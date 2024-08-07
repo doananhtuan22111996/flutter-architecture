@@ -15,15 +15,15 @@ class AppDefaultDialogWidget extends AppDialogBaseBuilder {
   @override
   Widget build(BuildContext context) {
     Widget icon = appDialogType == AppDialogType.success
-        ? R.svgs.dialog.success.svg()
+        ? R.svgs.check24px.svg()
         : appDialogType == AppDialogType.error
-            ? R.svgs.dialog.error.svg()
-            : R.svgs.dialog.confirm.svg();
+            ? R.svgs.error24px.svg()
+            : R.svgs.accessTime24px.svg();
     return Dialog(
       insetPadding: EdgeInsets.all(AppThemeExt.of.majorScale(6)),
       child: Container(
         decoration: BoxDecoration(
-          color: AppColors.of.neutralColor[1],
+          color: AppThemeExt.of.colorScheme.primary,
           borderRadius: BorderRadius.circular(AppThemeExt.of.majorScale(3)),
         ),
         padding: EdgeInsets.all(AppThemeExt.of.majorScale(6)),
@@ -46,7 +46,6 @@ class AppDefaultDialogWidget extends AppDialogBaseBuilder {
             if (content != null)
               AppTextBody1Widget(
                 text: content,
-                textStyle: AppTextStyleExt.of.textBody1r,
                 textAlign: TextAlign.center,
               ),
             SizedBox(height: AppThemeExt.of.majorScale(8)),
@@ -56,9 +55,8 @@ class AppDefaultDialogWidget extends AppDialogBaseBuilder {
               children: [
                 if (negativeText != null)
                   Expanded(
-                    child: AppOutlinedButtonWidget(
-                      buttonText: negativeText,
-                      appButtonSize: AppButtonSize.large,
+                    child: AppOutlinedButtonWidget.text(
+                      label: negativeText!,
                       onPressed: () {
                         Get.back();
                         onNegative?.call();
@@ -69,9 +67,8 @@ class AppDefaultDialogWidget extends AppDialogBaseBuilder {
                   SizedBox(width: AppThemeExt.of.majorScale(3)),
                 if (positiveText != null)
                   Expanded(
-                    child: AppFilledButtonWidget(
-                      buttonText: positiveText,
-                      appButtonSize: AppButtonSize.large,
+                    child: AppFilledButtonWidget.text(
+                      label: positiveText!,
                       onPressed: () {
                         Get.back();
                         onPositive?.call();

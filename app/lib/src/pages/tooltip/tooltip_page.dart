@@ -21,8 +21,8 @@ class TooltipPage extends GetWidget<TooltipController> {
       child: const AppTooltipWidget(
         message:
             'This is message a long. Message will show full content when hovering. This is message a long.',
-        child: AppOutlinedButtonWidget(
-          buttonText: 'Tooltip',
+        child: AppOutlinedButtonWidget.text(
+          label: 'Tooltip',
           isDisabled: true,
         ),
       ),

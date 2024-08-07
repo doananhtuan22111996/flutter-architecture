@@ -1,6 +1,5 @@
 import 'package:app/src/components/main/appBar/app_bar_base_builder.dart';
 import 'package:app/src/components/main/page/app_main_page_base_builder.dart';
-import 'package:app/src/components/main/tabBar/app_tab_bar_widget.dart';
 import 'package:app/src/components/main/tabBar/app_tab_base_builder.dart';
 import 'package:app/src/pages/home/view/paging/paging_controller.dart';
 import 'package:app/src/pages/home/view/pagingLocal/paging_local_controller.dart';

@@ -37,7 +37,7 @@ class AppTabWithNumberWidget extends AppTabBaseBuilder {
         ? AppBadgeNumberWidget(
             number: number,
             appBadgeBaseType: AppBadgeBaseType.filled,
-            color: AppColors.of.primaryColor,
+            color: AppThemeExt.of.colorScheme.primary,
           )
         : AppBadgeNumberWidget(
             number: number,

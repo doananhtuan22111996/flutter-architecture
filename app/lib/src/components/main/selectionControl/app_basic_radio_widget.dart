@@ -30,20 +30,20 @@ class AppBasicRadioWidget<T> extends AppSelectionControlBaseBuilder<T> {
           Radio<T>(
             value: value,
             groupValue: field.value,
-            overlayColor: MaterialStateProperty.resolveWith<Color?>(
-              (Set<MaterialState> states) => AppColors.of.neutralColor[3],
-            ),
-            fillColor: MaterialStateProperty.resolveWith<Color?>(
-              (Set<MaterialState> states) {
-                if (states.contains(MaterialState.selected)) {
-                  return AppColors.of.primaryColor;
-                }
-                if (states.contains(MaterialState.disabled)) {
-                  return AppColors.of.neutralColor[3];
-                }
-                return AppColors.of.neutralColor[5];
-              },
-            ),
+            // overlayColor: MaterialStateProperty.resolveWith<Color?>(
+            //   (Set<MaterialState> states) => AppColors.of.neutralColor[3],
+            // ),
+            // fillColor: MaterialStateProperty.resolveWith<Color?>(
+            //   (Set<MaterialState> states) {
+            //     if (states.contains(MaterialState.selected)) {
+            //       return AppColors.of.primaryColor;
+            //     }
+            //     if (states.contains(MaterialState.disabled)) {
+            //       return AppColors.of.neutralColor[3];
+            //     }
+            //     return AppColors.of.neutralColor[5];
+            //   },
+            // ),
             onChanged: isDisabled == true
                 ? null
                 : (value) {
@@ -51,18 +51,13 @@ class AppBasicRadioWidget<T> extends AppSelectionControlBaseBuilder<T> {
                     onValueChanged?.call(value);
                   },
           ),
-          if (label != null)
-            AppTextBody2Widget(
-              text: label,
-              textStyle:
-                  AppTextStyleExt.of.textBody2r?.copyWith(color: _labelColor),
-            )
+          if (label != null) AppTextBody2Widget(text: label)
         ],
       ),
     );
   }
 
   Color? get _labelColor => isDisabled == true
-      ? AppColors.of.neutralColor[5]
-      : AppColors.of.neutralColor;
+      ? AppThemeExt.of.colorScheme.onSurfaceVariant
+      : AppThemeExt.of.colorScheme.primary;
 }

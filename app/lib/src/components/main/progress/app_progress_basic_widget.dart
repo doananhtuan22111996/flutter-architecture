@@ -15,20 +15,17 @@ class AppProgressBasicWidget extends AppProgressBaseBuilder {
     double lineHeight = AppThemeExt.of.majorScale(2);
     Widget? trailing = AppTextBody2Widget(
       text: '${(progress ?? 0) * 100}%',
-      textStyle: AppTextStyleExt.of.textBody2r,
     );
     if (appProgressSize == AppProgressSize.basicSmall) {
       lineHeight = AppThemeExt.of.majorScale(6 / 4);
       trailing = AppTextBody3Widget(
         text: '${(progress ?? 0) * 100}%',
-        textStyle: AppTextStyleExt.of.textBody3r,
       );
     }
     if (appProgressSize == AppProgressSize.basicMedium) {
       lineHeight = AppThemeExt.of.majorScale(2 / 4);
       trailing = AppTextBody3Widget(
         text: '${(progress ?? 0) * 100}%',
-        textStyle: AppTextStyleExt.of.textBody3r,
       );
     }
 
@@ -37,8 +34,8 @@ class AppProgressBasicWidget extends AppProgressBaseBuilder {
       lineHeight: lineHeight,
       percent: progress ?? 0,
       barRadius: Radius.circular(AppThemeExt.of.majorScale(25)),
-      backgroundColor: AppColors.of.neutralColor[3],
-      progressColor: AppColors.of.processInformColor,
+      backgroundColor: AppThemeExt.of.colorScheme.surface,
+      progressColor: AppThemeExt.of.colorScheme.primary,
       trailing: isWithNumber == true ? trailing : null,
     );
   }

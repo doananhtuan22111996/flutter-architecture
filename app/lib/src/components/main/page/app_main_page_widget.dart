@@ -16,7 +16,7 @@ class AppMainPageWidget extends AppMainPageBaseBuilder {
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
         key: key,
-        backgroundColor: backgroundColor ?? AppColors.of.neutralColor[2],
+        backgroundColor: backgroundColor ?? AppThemeExt.of.colorScheme.surface,
         appBar: appBar,
         endDrawer: endDrawer,
         endDrawerEnableOpenDragGesture: false,

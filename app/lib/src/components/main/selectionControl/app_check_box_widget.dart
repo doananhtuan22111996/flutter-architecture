@@ -28,9 +28,9 @@ class AppCheckBoxWidget extends AppSelectionControlBaseBuilder {
           Checkbox(
             value: field.value ?? false,
             activeColor: _activeColor,
-            overlayColor: MaterialStateProperty.resolveWith<Color?>(
-              (Set<MaterialState> states) => AppColors.of.neutralColor[3],
-            ),
+            // overlayColor: MaterialStateProperty.resolveWith<Color?>(
+            //   (Set<MaterialState> states) => AppColors.of.neutralColor[3],
+            // ),
             side: BorderSide(color: _sideColor),
             onChanged: isDisabled == true
                 ? null
@@ -39,26 +39,21 @@ class AppCheckBoxWidget extends AppSelectionControlBaseBuilder {
                     onValueChanged?.call(value);
                   },
           ),
-          if (label != null)
-            AppTextBody2Widget(
-              text: label,
-              textStyle:
-                  AppTextStyleExt.of.textBody2r?.copyWith(color: _labelColor),
-            )
+          if (label != null) AppTextBody2Widget(text: label)
         ],
       ),
     );
   }
 
   Color? get _activeColor => isDisabled == true
-      ? AppColors.of.neutralColor[4]
-      : AppColors.of.primaryColor;
+      ? AppThemeExt.of.colorScheme.surface
+      : AppThemeExt.of.colorScheme.primary;
 
   Color get _sideColor => isDisabled == true
-      ? AppColors.of.neutralColor[3]!
-      : AppColors.of.neutralColor[5]!;
+      ? AppThemeExt.of.colorScheme.surface
+      : AppThemeExt.of.colorScheme.onSurface;
 
   Color? get _labelColor => isDisabled == true
-      ? AppColors.of.neutralColor[5]
-      : AppColors.of.neutralColor;
+      ? AppThemeExt.of.colorScheme.onSurface
+      : AppThemeExt.of.colorScheme.primary;
 }

@@ -1,4 +1,5 @@
 import '../generated/assets/assets.gen.dart';
+import '../generated/assets/fonts.gen.dart';
 import '../generated/strings/l10n.dart';
 
 class R {
@@ -8,4 +9,6 @@ class R {
 
   static $AssetsSvgsGen svgs = Assets.svgs;
   static $AssetsPngsGen pngs = Assets.pngs;
+
+  static String roboto = FontFamily.roboto;
 }

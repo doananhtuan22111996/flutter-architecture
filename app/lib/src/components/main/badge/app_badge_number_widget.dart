@@ -28,14 +28,14 @@ class AppBadgeNumberWidget extends AppBadgeBaseBuilder {
   }
 
   Border? get _border => isDisabled == true
-      ? Border.all(color: AppColors.of.neutralColor[3]!)
+      ? Border.all(color: AppThemeExt.of.colorScheme.onSurface)
       : appBadgeBaseType == AppBadgeBaseType.outlined
-          ? Border.all(color: AppColors.of.neutralColor[4]!)
+          ? Border.all(color: AppThemeExt.of.colorScheme.outline)
           : null;
 
   Color? get _textColor => isDisabled == true
-      ? AppColors.of.neutralColor[5]
+      ? AppThemeExt.of.colorScheme.onSurface
       : appBadgeBaseType == AppBadgeBaseType.outlined
-          ? AppColors.of.neutralColor
-          : AppColors.of.neutralColor[1];
+          ? AppThemeExt.of.colorScheme.outline
+          : AppThemeExt.of.colorScheme.primary;
 }

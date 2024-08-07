@@ -31,8 +31,8 @@ class ToastPage extends GetWidget<ToastController> {
   }
 
   Widget _success() {
-    return AppFilledButtonWidget(
-      buttonText: 'Toast Success',
+    return AppFilledButtonWidget.text(
+      label: 'Toast Success',
       onPressed: () {
         AppToastWidget(
             appToastType: AppToastType.success,
@@ -51,8 +51,8 @@ class ToastPage extends GetWidget<ToastController> {
   }
 
   Widget _info() {
-    return AppFilledButtonWidget(
-      buttonText: 'Toast Info',
+    return AppFilledButtonWidget.text(
+      label: 'Toast Info',
       onPressed: () {
         const AppToastWidget(
           appToastType: AppToastType.info,
@@ -65,8 +65,8 @@ class ToastPage extends GetWidget<ToastController> {
   }
 
   Widget _warning() {
-    return AppFilledButtonWidget(
-      buttonText: 'Warning Info',
+    return AppFilledButtonWidget.text(
+      label: 'Warning Info',
       onPressed: () {
         const AppToastWidget(
           appToastType: AppToastType.warning,
@@ -79,8 +79,8 @@ class ToastPage extends GetWidget<ToastController> {
   }
 
   Widget _error() {
-    return AppFilledButtonWidget(
-      buttonText: 'Error Info',
+    return AppFilledButtonWidget.text(
+      label: 'Error Info',
       onPressed: () {
         const AppToastWidget(
           appToastType: AppToastType.error,

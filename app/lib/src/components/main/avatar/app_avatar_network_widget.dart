@@ -16,7 +16,7 @@ class AppAvatarNetworkWidget extends AppAvatarBaseBuilder {
           height: size?.value,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            border: Border.all(color: AppColors.of.neutralColor[3]!),
+            border: Border.all(color: AppThemeExt.of.colorScheme.primary),
           ),
           child: ClipOval(child: Image.network(link!, fit: BoxFit.fill)),
         ),

@@ -1,4 +1,4 @@
-import 'package:app/src/config/app_theme.dart';
+import 'package:app/src/config/app_theme_ext.dart';
 import 'package:flutter/material.dart';
 
 part 'app_main_page_widget.dart';

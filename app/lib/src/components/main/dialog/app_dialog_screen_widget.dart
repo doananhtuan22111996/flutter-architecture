@@ -13,13 +13,13 @@ class AppScreenDialogWidget extends AppDialogBaseBuilder {
   @override
   Widget build(BuildContext context) {
     Widget icon = appDialogType == AppDialogType.success
-        ? R.svgs.dialog.success.svg()
+        ? R.svgs.check24px.svg()
         : appDialogType == AppDialogType.error
-            ? R.svgs.dialog.error.svg()
-            : R.svgs.dialog.confirm.svg();
+            ? R.svgs.error24px.svg()
+            : R.svgs.accessTime24px.svg();
     return Dialog.fullscreen(
       child: Container(
-        color: AppColors.of.neutralColor[1],
+        color: AppThemeExt.of.colorScheme.primary,
         padding: EdgeInsets.all(AppThemeExt.of.majorScale(6)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -33,9 +33,8 @@ class AppScreenDialogWidget extends AppDialogBaseBuilder {
               children: [
                 if (negativeText != null)
                   Expanded(
-                    child: AppOutlinedButtonWidget(
-                      buttonText: negativeText,
-                      appButtonSize: AppButtonSize.large,
+                    child: AppOutlinedButtonWidget.text(
+                      label: negativeText!,
                       onPressed: () {
                         Get.back();
                         onNegative?.call();
@@ -46,9 +45,8 @@ class AppScreenDialogWidget extends AppDialogBaseBuilder {
                   SizedBox(width: AppThemeExt.of.majorScale(3)),
                 if (positiveText != null)
                   Expanded(
-                    child: AppFilledButtonWidget(
-                      buttonText: positiveText,
-                      appButtonSize: AppButtonSize.large,
+                    child: AppFilledButtonWidget.text(
+                      label: positiveText!,
                       onPressed: () {
                         Get.back();
                         onPositive?.call();
@@ -81,7 +79,6 @@ class AppScreenDialogWidget extends AppDialogBaseBuilder {
         if (content != null)
           AppTextBody1Widget(
             text: content,
-            textStyle: AppTextStyleExt.of.textBody1r,
             textAlign: TextAlign.center,
           ),
       ],

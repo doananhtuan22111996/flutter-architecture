@@ -1,7 +1,7 @@
 part of 'date_picker_controller.dart';
 
 class DatePickerPage extends GetView<DatePickerController> {
-  const DatePickerPage({Key? key}) : super(key: key);
+  const DatePickerPage({super.key});
 
   static void open() {
     Get.toNamed(Routes.datePicker);

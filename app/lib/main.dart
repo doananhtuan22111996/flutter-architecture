@@ -1,3 +1,4 @@
+import 'package:app/src/config/app_theme_ext.dart';
 import 'package:data/data.dart';
 import 'package:domain/domain.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -11,7 +12,6 @@ import 'package:utilities/utilities.dart';
 
 import 'firebase_options.dart';
 import 'src/components/main/loading/app_loading_overlay_indicator.dart';
-import 'src/config/app_theme.dart';
 import 'src/exts/R.dart';
 import 'src/exts/fsplash.dart';
 import 'src/routes/app_pages.dart';
@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AppLoadingOverlayWidget.configure(context);
-
+    // Wrap MaterialApp with a DynamicColorBuilder.
     return GetMaterialApp(
       debugShowCheckedModeBanner: true,
       enableLog: true,
@@ -62,8 +62,8 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      theme: AppThemeData.lightTheme,
-      darkTheme: AppThemeData.darkTheme,
+      theme: AppThemeExt.of.lightTheme,
+      darkTheme: AppThemeExt.of.darkTheme,
       themeMode: ThemeMode.system,
       getPages: AppPages.routes,
       initialRoute: Routes.main,

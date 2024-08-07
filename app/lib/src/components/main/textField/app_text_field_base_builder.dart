@@ -1,9 +1,9 @@
-import 'package:app/src/config/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
 
+import '../../../config/app_theme_ext.dart';
 import '../../../exts/R.dart';
 
 part 'app_text_field_widget.dart';
@@ -101,7 +101,7 @@ abstract class AppTextFieldBaseBuilder extends StatelessWidget {
       readOnly: isDisabled == true,
       enabled: isDisabled == null || isDisabled == false,
       style: _textStyle,
-      cursorColor: AppColors.of.primaryColor,
+      cursorColor: AppThemeExt.of.colorScheme.primary,
       obscureText: obscureText ?? this.obscureText ?? false,
       validator: (value) {
         /// Error value Callback
@@ -112,26 +112,26 @@ abstract class AppTextFieldBaseBuilder extends StatelessWidget {
       textInputAction: textInputAction,
       onSubmitted: onFieldSubmitted,
       decoration: InputDecoration(
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColors.of.neutralColor[5]!),
-        ),
-        disabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColors.of.neutralColor[3]!),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColors.of.primaryColor),
-        ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColors.of.errorColor),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: AppColors.of.errorColor),
-        ),
+        // enabledBorder: OutlineInputBorder(
+        //   borderSide: BorderSide(color: App.of.neutralColor[5]!),
+        // ),
+        // disabledBorder: OutlineInputBorder(
+        //   borderSide: BorderSide(color: AppColors.of.neutralColor[3]!),
+        // ),
+        // focusedBorder: OutlineInputBorder(
+        //   borderSide: BorderSide(color: AppColors.of.primaryColor),
+        // ),
+        // focusedErrorBorder: OutlineInputBorder(
+        //   borderSide: BorderSide(color: AppColors.of.errorColor),
+        // ),
+        // errorBorder: OutlineInputBorder(
+        //   borderSide: BorderSide(color: AppColors.of.errorColor),
+        // ),
         hintText: hintText,
-        hintStyle: _textStyle?.copyWith(color: AppColors.of.neutralColor[6]),
+        // hintStyle: _textStyle?.copyWith(color: AppColors.of.neutralColor[6]),
         contentPadding: _contentPadding,
-        errorStyle: AppTextStyleExt.of.textBody3r
-            ?.copyWith(color: AppColors.of.errorColor),
+        errorStyle: AppThemeExt.of.textTheme.bodyMedium
+            ?.copyWith(color: AppThemeExt.of.colorScheme.error),
         isDense: true,
         suffixIcon: suffixIcon,
         suffixIconConstraints:
@@ -144,10 +144,10 @@ abstract class AppTextFieldBaseBuilder extends StatelessWidget {
   }
 
   TextStyle? get _textStyle => appTextFieldSize == AppTextFieldSize.large
-      ? AppTextStyleExt.of.textBody2r
+      ? AppThemeExt.of.textTheme.bodyMedium
       : appTextFieldSize == AppTextFieldSize.small
-          ? AppTextStyleExt.of.textBody2r
-          : AppTextStyleExt.of.textBody1r;
+          ? AppThemeExt.of.textTheme.bodyMedium
+          : AppThemeExt.of.textTheme.bodyMedium;
 
   EdgeInsets get _contentPadding => appTextFieldSize == AppTextFieldSize.large
       ? EdgeInsets.symmetric(

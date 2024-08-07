@@ -1,7 +1,7 @@
 part of 'avatar_controller.dart';
 
 class AvatarPage extends GetView<AvatarController> {
-  const AvatarPage({Key? key}) : super(key: key);
+  const AvatarPage({super.key});
 
   static void open() {
     Get.toNamed(Routes.avatar);
@@ -116,22 +116,22 @@ class AvatarPage extends GetView<AvatarController> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             AppAvatarSvgWidget(
-              svg: R.svgs.avatar.account1.svg(),
+              svg: R.svgs.account1.svg(),
               size: AppAvatarSize.small,
               onPressed: () => controller.toast(),
             ),
             AppAvatarSvgWidget(
-              svg: R.svgs.avatar.account.svg(),
+              svg: R.svgs.account.svg(),
               size: AppAvatarSize.medium,
               onPressed: () => controller.toast(),
             ),
             AppAvatarSvgWidget(
-              svg: R.svgs.avatar.account2.svg(),
+              svg: R.svgs.account2.svg(),
               size: AppAvatarSize.large,
               onPressed: () => controller.toast(),
             ),
             AppAvatarSvgWidget(
-              svg: R.svgs.avatar.account3.svg(),
+              svg: R.svgs.account3.svg(),
               size: AppAvatarSize.extraLarge,
               onPressed: () => controller.toast(),
             ),

@@ -1,8 +1,9 @@
 import 'dart:io';
 
 import 'package:app/src/components/main/text/app_text_base_builder.dart';
-import 'package:app/src/config/app_theme.dart';
 import 'package:flutter/material.dart';
+
+import '../../../config/app_theme_ext.dart';
 
 part 'app_avatar_network_widget.dart';
 

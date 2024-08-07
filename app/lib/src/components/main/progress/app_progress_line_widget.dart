@@ -21,7 +21,7 @@ class AppProgressLineWidget extends AppProgressBaseBuilder {
       lineHeight: lineHeight,
       percent: progress ?? 0,
       barRadius: Radius.circular(AppThemeExt.of.majorScale(25)),
-      backgroundColor: AppColors.of.neutralColor[3],
+      backgroundColor: AppThemeExt.of.colorScheme.onSurface,
       progressColor: _progressColor,
       trailing: _trainingW(context),
     );
@@ -29,23 +29,23 @@ class AppProgressLineWidget extends AppProgressBaseBuilder {
 
   Widget _trainingW(BuildContext context) {
     Widget? trailing = appProgressSize == AppProgressSize.lineMedium
-        ? R.svgs.solid.progress.clockCircle.svg()
-        : R.svgs.solid.progress.clockCircle.svg(
+        ? R.svgs.accessTime24px.svg()
+        : R.svgs.accessTime24px.svg(
             width: AppThemeExt.of.majorScale(4),
             height: AppThemeExt.of.majorScale(4),
           );
     if (appProgressType == AppProgressType.success) {
       trailing = appProgressSize == AppProgressSize.lineMedium
-          ? R.svgs.solid.progress.checked.svg()
-          : R.svgs.solid.progress.checked.svg(
+          ? R.svgs.check24px.svg()
+          : R.svgs.check24px.svg(
               width: AppThemeExt.of.majorScale(4),
               height: AppThemeExt.of.majorScale(4),
             );
     }
     if (appProgressType == AppProgressType.error) {
       trailing = appProgressSize == AppProgressSize.lineMedium
-          ? R.svgs.solid.progress.closeCircle.svg()
-          : R.svgs.solid.progress.closeCircle.svg(
+          ? R.svgs.close24px.svg()
+          : R.svgs.close24px.svg(
               width: AppThemeExt.of.majorScale(4),
               height: AppThemeExt.of.majorScale(4),
             );
@@ -55,11 +55,11 @@ class AppProgressLineWidget extends AppProgressBaseBuilder {
 
   Color get _progressColor {
     if (appProgressType == AppProgressType.error) {
-      return AppColors.of.errorColor;
+      return AppThemeExt.of.colorScheme.error;
     }
     if (appProgressType == AppProgressType.success) {
-      return AppColors.of.successColor;
+      return AppThemeExt.of.colorScheme.primary;
     }
-    return AppColors.of.processInformColor;
+    return AppThemeExt.of.colorScheme.secondary;
   }
 }

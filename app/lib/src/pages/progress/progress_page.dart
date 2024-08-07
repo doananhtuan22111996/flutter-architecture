@@ -1,7 +1,7 @@
 part of 'progress_controller.dart';
 
 class ProgressPage extends GetView<ProgressController> {
-  const ProgressPage({Key? key}) : super(key: key);
+  const ProgressPage({super.key});
 
   static void open() {
     Get.toNamed(Routes.progress);

@@ -16,7 +16,7 @@ class AppProgressCircleWidget extends AppProgressBaseBuilder {
       percent: progress ?? 0,
       center: _center(context),
       progressColor: _progressColor,
-      backgroundColor: AppColors.of.neutralColor[3]!,
+      backgroundColor: AppThemeExt.of.colorScheme.onSurface,
       circularStrokeCap: CircularStrokeCap.round,
     );
   }
@@ -24,16 +24,16 @@ class AppProgressCircleWidget extends AppProgressBaseBuilder {
   Widget _center(BuildContext context) {
     if (appProgressType == AppProgressType.error) {
       return appProgressSize == AppProgressSize.circleLarge
-          ? R.svgs.outline.progress.close.svg()
-          : R.svgs.outline.progress.close.svg(
+          ? R.svgs.close24px.svg()
+          : R.svgs.close24px.svg(
               width: AppThemeExt.of.majorScale(8),
               height: AppThemeExt.of.majorScale(8),
             );
     }
     if (appProgressType == AppProgressType.success) {
       return appProgressSize == AppProgressSize.circleLarge
-          ? R.svgs.outline.progress.check.svg()
-          : R.svgs.outline.progress.check.svg(
+          ? R.svgs.check24px.svg()
+          : R.svgs.check24px.svg(
               width: AppThemeExt.of.majorScale(8),
               height: AppThemeExt.of.majorScale(8),
             );
@@ -45,12 +45,12 @@ class AppProgressCircleWidget extends AppProgressBaseBuilder {
 
   Color get _progressColor {
     if (appProgressType == AppProgressType.error) {
-      return AppColors.of.errorColor;
+      return AppThemeExt.of.colorScheme.error;
     }
     if (appProgressType == AppProgressType.success) {
-      return AppColors.of.successColor;
+      return AppThemeExt.of.colorScheme.primary;
     }
-    return AppColors.of.processInformColor;
+    return AppThemeExt.of.colorScheme.secondary;
   }
 
   double get _progressSize {

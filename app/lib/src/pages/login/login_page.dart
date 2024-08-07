@@ -21,8 +21,8 @@ class LoginPage extends GetWidget<LoginController> {
             padding: EdgeInsets.symmetric(
                 vertical: AppThemeExt.of.majorScale(2),
                 horizontal: AppThemeExt.of.majorScale(4)),
-            child: AppFilledButtonWidget(
-              buttonText: R.strings.login,
+            child: AppFilledButtonWidget.text(
+              label: R.strings.login,
               onPressed: () => controller.executeLogin(),
             ),
           )

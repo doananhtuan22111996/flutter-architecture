@@ -26,22 +26,22 @@ class AppBarLeadingAvatarWidget extends AppBarBaseBuilder {
     return AppBar(
       titleSpacing: 0,
       leading: leading ??
-          AppButtonAppBarWidget(
-            prefixIcon: R.svgs.outline.appBar.arrowLineLeft.svg(),
+          AppIconFilledTonalButtonWidget(
+            icon: R.svgs.arrowBack24px.svg(),
             onPressed: () => Get.back(),
           ),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           AppAvatarSvgWidget(
-              svg: R.svgs.avatar.account.svg(), size: AppAvatarSize.medium),
+              svg: R.svgs.account.svg(), size: AppAvatarSize.medium),
           Flexible(child: AppTextHeading5Widget(text: headerPage)),
         ],
       ),
       centerTitle: _centerTitle,
       actions: actions ??
-          [const AppButtonAppBarWidget(prefixIcon: Icon(Icons.more_horiz))],
-      backgroundColor: backgroundColor ?? AppColors.of.neutralColor[1],
+          [AppIconFilledTonalButtonWidget(icon: R.svgs.moreVert24px.svg())],
+      backgroundColor: backgroundColor ?? AppThemeExt.of.colorScheme.surface,
       bottom: bottom,
     );
   }

@@ -1,13 +1,12 @@
 import 'package:app/src/components/main/appBar/app_bar_base_builder.dart';
 import 'package:app/src/components/main/page/app_main_page_base_builder.dart';
-import 'package:app/src/components/main/tabBar/app_tab_bar_widget.dart';
 import 'package:app/src/components/main/tabBar/app_tab_base_builder.dart';
 import 'package:app/src/components/main/text/app_text_base_builder.dart';
-import 'package:app/src/config/app_theme.dart';
 import 'package:app/src/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../config/app_theme_ext.dart';
 import '../../exts/R.dart';
 
 part 'tab_bar_binding.dart';
@@ -28,20 +27,20 @@ class TabBarController extends GetxController {
   final List<AppTabWithIconWidget> iconTabs = [
     AppTabWithIconWidget(
       label: 'Label 1',
-      iconSelected: R.svgs.filled.tab.bulb.svg(),
-      iconUnselected: R.svgs.outline.tab.bulb.svg(),
+      iconSelected: R.svgs.check24px.svg(),
+      iconUnselected: R.svgs.error24px.svg(),
       appTabSize: AppTabSize.large,
     ),
     AppTabWithIconWidget(
       label: 'Label 2',
-      iconSelected: R.svgs.filled.tab.bulb.svg(),
-      iconUnselected: R.svgs.outline.tab.bulb.svg(),
+      iconSelected: R.svgs.check24px.svg(),
+      iconUnselected: R.svgs.error24px.svg(),
       appTabSize: AppTabSize.large,
     ),
     AppTabWithIconWidget(
       label: 'Label 3',
-      iconUnselected: R.svgs.outline.tab.bulb.svg(),
-      iconSelected: R.svgs.filled.tab.bulb.svg(),
+      iconUnselected: R.svgs.check24px.svg(),
+      iconSelected: R.svgs.error24px.svg(),
       appTabSize: AppTabSize.large,
     ),
   ];

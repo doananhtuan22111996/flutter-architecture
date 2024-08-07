@@ -1,6 +1,4 @@
-import 'package:app/src/components/main/tabBar/app_tab_base_builder.dart';
-import 'package:app/src/config/app_theme.dart';
-import 'package:flutter/material.dart';
+part of 'app_tab_base_builder.dart';
 
 class AppTabBarWidget extends StatefulWidget {
   const AppTabBarWidget({
@@ -86,11 +84,11 @@ class _AppTabBarWidgetState extends State<AppTabBarWidget>
         padding: EdgeInsets.zero,
         labelPadding: EdgeInsets.zero,
         dividerColor: Colors.transparent,
-        indicatorColor: AppColors.of.primaryColor,
+        indicatorColor: AppThemeExt.of.colorScheme.primary,
         indicatorPadding: EdgeInsets.zero,
         indicatorSize: TabBarIndicatorSize.tab,
-        overlayColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) => AppColors.of.neutralColor[3],
-        ),
+        // overlayColor: MaterialStateProperty.resolveWith<Color?>(
+        //   (Set<MaterialState> states) => AppColors.of.neutralColor[3],
+        // ),
       );
 }

@@ -17,8 +17,8 @@ class AppAvatarSvgWidget extends AppAvatarBaseBuilder {
           padding: _padding,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: AppColors.of.neutralColor[5],
-            border: Border.all(color: AppColors.of.neutralColor[3]!),
+            color: AppThemeExt.of.colorScheme.onSurface,
+            border: Border.all(color: AppThemeExt.of.colorScheme.primary),
           ),
           child: ClipOval(child: svg),
         ),
