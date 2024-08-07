@@ -14,7 +14,7 @@ abstract class AppButtonBaseBuilder extends StatelessWidget {
   @protected
   final String label;
   @protected
-  final Widget? icon;
+  final IconData? icon;
   @protected
   final bool? isDisabled;
   @protected

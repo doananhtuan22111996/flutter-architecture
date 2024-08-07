@@ -29,7 +29,7 @@ class AppElevatedButtonWidget extends AppButtonBaseBuilder {
     return ElevatedButton.icon(
       onPressed: isDisabled == true ? null : onPressed,
       label: Text(label),
-      icon: icon,
+      icon: Icon(icon),
     );
   }
 }

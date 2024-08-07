@@ -29,7 +29,7 @@ class AppTonalButtonWidget extends AppButtonBaseBuilder {
     return FilledButton.tonalIcon(
       onPressed: isDisabled == true ? null : onPressed,
       label: Text(label),
-      icon: icon,
+      icon: Icon(icon),
     );
   }
 }

@@ -29,7 +29,7 @@ class AppFilledButtonWidget extends AppButtonBaseBuilder {
     return FilledButton.icon(
       onPressed: isDisabled == true ? null : onPressed,
       label: Text(label),
-      icon: icon,
+      icon: Icon(icon),
     );
   }
 }

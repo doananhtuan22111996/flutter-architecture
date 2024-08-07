@@ -62,7 +62,7 @@ class ButtonPage extends GetView<ButtonController> {
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         AppFilledButtonWidget.icon(
           label: R.strings.button,
-          icon: R.svgs.add24px.svg(),
+          icon: Icons.add,
           onPressed: () => controller.toast(),
         ),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
@@ -73,7 +73,7 @@ class ButtonPage extends GetView<ButtonController> {
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         AppFilledButtonWidget.icon(
           label: R.strings.button,
-          icon: R.svgs.add24px.svg(),
+          icon: Icons.add,
           isDisabled: true,
         ),
       ],
@@ -93,7 +93,7 @@ class ButtonPage extends GetView<ButtonController> {
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         AppOutlinedButtonWidget.icon(
           label: R.strings.button,
-          icon: R.svgs.add24px.svg(),
+          icon: Icons.add,
           onPressed: () => controller.toast(),
         ),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
@@ -104,7 +104,7 @@ class ButtonPage extends GetView<ButtonController> {
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         AppOutlinedButtonWidget.icon(
           label: R.strings.button,
-          icon: R.svgs.add24px.svg(),
+          icon: Icons.add,
           isDisabled: true,
         ),
       ],
@@ -124,7 +124,7 @@ class ButtonPage extends GetView<ButtonController> {
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         AppTextButtonWidget.icon(
           label: R.strings.button,
-          icon: R.svgs.add24px.svg(),
+          icon: Icons.add,
           onPressed: () => controller.toast(),
         ),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
@@ -135,7 +135,7 @@ class ButtonPage extends GetView<ButtonController> {
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         AppTextButtonWidget.icon(
           label: R.strings.button,
-          icon: R.svgs.add24px.svg(),
+          icon: Icons.add,
           isDisabled: true,
         ),
       ],
@@ -155,7 +155,7 @@ class ButtonPage extends GetView<ButtonController> {
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         AppElevatedButtonWidget.icon(
           label: R.strings.button,
-          icon: R.svgs.add24px.svg(),
+          icon: Icons.add,
           onPressed: () => controller.toast(),
         ),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
@@ -166,7 +166,7 @@ class ButtonPage extends GetView<ButtonController> {
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         AppElevatedButtonWidget.icon(
           label: R.strings.button,
-          icon: R.svgs.add24px.svg(),
+          icon: Icons.add,
           isDisabled: true,
         ),
       ],
@@ -186,7 +186,7 @@ class ButtonPage extends GetView<ButtonController> {
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         AppTonalButtonWidget.icon(
           label: R.strings.button,
-          icon: R.svgs.add24px.svg(),
+          icon: Icons.add,
           onPressed: () => controller.toast(),
         ),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
@@ -197,7 +197,7 @@ class ButtonPage extends GetView<ButtonController> {
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         AppTonalButtonWidget.icon(
           label: R.strings.button,
-          icon: R.svgs.add24px.svg(),
+          icon: Icons.add,
           isDisabled: true,
         ),
       ],

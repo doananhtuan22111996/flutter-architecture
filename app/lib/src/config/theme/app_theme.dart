@@ -34,6 +34,8 @@ class _AppThemeData {
           TextButtonThemeData(style: _AppButtonStyle.textButtonStyle),
       outlinedButtonTheme:
           OutlinedButtonThemeData(style: _AppButtonStyle.outlinedButtonStyle),
+      elevatedButtonTheme:
+          ElevatedButtonThemeData(style: _AppButtonStyle.elevatedButtonStyle),
       // textSelectionTheme: TextSelectionThemeData(
       //   cursorColor: appColor.primaryColor,
       //   selectionColor: appColor.primaryColor,

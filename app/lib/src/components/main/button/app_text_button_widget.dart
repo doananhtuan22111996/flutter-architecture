@@ -29,7 +29,7 @@ class AppTextButtonWidget extends AppButtonBaseBuilder {
     return TextButton.icon(
       onPressed: isDisabled == true ? null : onPressed,
       label: Text(label),
-      icon: icon,
+      icon: Icon(icon),
     );
   }
 }

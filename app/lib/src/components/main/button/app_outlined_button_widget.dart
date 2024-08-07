@@ -29,7 +29,7 @@ class AppOutlinedButtonWidget extends AppButtonBaseBuilder {
     return OutlinedButton.icon(
       onPressed: isDisabled == true ? null : onPressed,
       label: Text(label),
-      icon: icon,
+      icon: Icon(icon),
     );
   }
 }
