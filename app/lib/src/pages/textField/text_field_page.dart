@@ -10,48 +10,51 @@ class TextFieldPage extends GetView<TextFieldController> {
   @override
   Widget build(BuildContext context) {
     return AppMainPageWidget(
-      appBar: AppBarWidget(headerPage: R.strings.textField).build(context),
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
+        AppTopBarWidget(
+          title: R.strings.textField,
+          forceElevated: innerBoxIsScrolled,
+        )
+      ],
       body: _body(context),
     );
   }
 
   Widget _body(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: EdgeInsets.all(AppThemeExt.of.majorScale(4)),
-        child: FormBuilder(
-          key: controller.formKey,
-          initialValue: const {
-            'textField2': 'Text Field Medium',
-            'textField1': 'Text Field Medium',
-            'textField99': 'Text Field Medium Disabled',
-            'textField3': 'Text Field Large',
-            'textField4': 'Text Field Large Disabled',
-            'textField5': 'Text Field Small',
-            'textField6': 'Text Field Small Disabled',
-          },
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              _small(context),
-              SizedBox(height: AppThemeExt.of.majorScale(4)),
-              _medium(context),
-              SizedBox(height: AppThemeExt.of.majorScale(4)),
-              _large(context),
-              SizedBox(height: AppThemeExt.of.majorScale(4)),
-              _search(context),
-              SizedBox(height: AppThemeExt.of.majorScale(4)),
-              SizedBox(
-                width: double.infinity,
-                child: AppFilledButtonWidget.text(
-                  label: 'buttonText',
-                  onPressed: () {
-                    controller.formKey.currentState?.saveAndValidate();
-                  },
-                ).build(context),
-              ),
-            ],
-          ),
+    return Padding(
+      padding: EdgeInsets.all(AppThemeExt.of.majorScale(4)),
+      child: FormBuilder(
+        key: controller.formKey,
+        initialValue: const {
+          'textField2': 'Text Field Medium',
+          'textField1': 'Text Field Medium',
+          'textField99': 'Text Field Medium Disabled',
+          'textField3': 'Text Field Large',
+          'textField4': 'Text Field Large Disabled',
+          'textField5': 'Text Field Small',
+          'textField6': 'Text Field Small Disabled',
+        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            _small(context),
+            SizedBox(height: AppThemeExt.of.majorScale(4)),
+            _medium(context),
+            SizedBox(height: AppThemeExt.of.majorScale(4)),
+            _large(context),
+            SizedBox(height: AppThemeExt.of.majorScale(4)),
+            _search(context),
+            SizedBox(height: AppThemeExt.of.majorScale(4)),
+            SizedBox(
+              width: double.infinity,
+              child: AppFilledButtonWidget.text(
+                label: 'buttonText',
+                onPressed: () {
+                  controller.formKey.currentState?.saveAndValidate();
+                },
+              ).build(context),
+            ),
+          ],
         ),
       ),
     );

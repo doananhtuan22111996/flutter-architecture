@@ -10,24 +10,28 @@ class AvatarPage extends GetView<AvatarController> {
   @override
   Widget build(BuildContext context) {
     return AppMainPageWidget(
-        appBar: AppBarWidget(headerPage: R.strings.avatar).build(context),
-        body: _body(context));
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
+        AppTopBarWidget(
+          title: R.strings.avatar,
+          forceElevated: innerBoxIsScrolled,
+        )
+      ],
+      body: _body(context),
+    );
   }
 
   Widget _body(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: AppThemeExt.of.majorScale(4)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _network(context),
-            SizedBox(height: AppThemeExt.of.majorScale(2)),
-            _label(context),
-            SizedBox(height: AppThemeExt.of.majorScale(2)),
-            _default(context),
-          ],
-        ),
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: AppThemeExt.of.majorScale(4)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _network(context),
+          SizedBox(height: AppThemeExt.of.majorScale(2)),
+          _label(context),
+          SizedBox(height: AppThemeExt.of.majorScale(2)),
+          _default(context),
+        ],
       ),
     );
   }

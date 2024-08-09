@@ -10,9 +10,12 @@ class DialogPage extends GetView<DialogController> {
   @override
   Widget build(BuildContext context) {
     return AppMainPageWidget(
-      appBar: AppBarWidget(
-        headerPage: R.strings.dialog,
-      ).build(context),
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
+        AppTopBarWidget(
+          title: R.strings.dialog,
+          forceElevated: innerBoxIsScrolled,
+        )
+      ],
       body: _body(context),
     );
   }

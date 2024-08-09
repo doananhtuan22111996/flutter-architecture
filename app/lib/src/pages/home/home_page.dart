@@ -10,9 +10,12 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return AppMainPageWidget(
-      appBar: AppBarWidget(
-        headerPage: R.strings.homeView,
-      ).build(context),
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
+        AppTopBarWidget(
+          title: R.strings.homeView,
+          forceElevated: innerBoxIsScrolled,
+        )
+      ],
       body: _body(context),
     );
   }

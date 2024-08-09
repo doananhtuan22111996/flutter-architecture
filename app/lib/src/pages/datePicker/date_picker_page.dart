@@ -10,27 +10,28 @@ class DatePickerPage extends GetView<DatePickerController> {
   @override
   Widget build(BuildContext context) {
     return AppMainPageWidget(
-      appBar: AppBarWidget(
-        headerPage: R.strings.datePicker,
-      ).build(context),
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
+        AppTopBarWidget(
+          title: R.strings.datePicker,
+          forceElevated: innerBoxIsScrolled,
+        )
+      ],
       body: _body(context),
     );
   }
 
   Widget _body(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: AppThemeExt.of.majorScale(4)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _date(context),
-            SizedBox(height: AppThemeExt.of.majorScale(2)),
-            _dateRange(context),
-            SizedBox(height: AppThemeExt.of.majorScale(2)),
-            _time(context),
-          ],
-        ),
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: AppThemeExt.of.majorScale(4)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _date(context),
+          SizedBox(height: AppThemeExt.of.majorScale(2)),
+          _dateRange(context),
+          SizedBox(height: AppThemeExt.of.majorScale(2)),
+          _time(context),
+        ],
       ),
     );
   }

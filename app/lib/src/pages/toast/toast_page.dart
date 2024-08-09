@@ -10,7 +10,12 @@ class ToastPage extends GetWidget<ToastController> {
   @override
   Widget build(BuildContext context) {
     return AppMainPageWidget(
-      appBar: const AppBarWidget(headerPage: 'Toast').build(context),
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
+        AppTopBarWidget(
+          title: "Toast",
+          forceElevated: innerBoxIsScrolled,
+        )
+      ],
       body: _body(context),
     );
   }

@@ -10,8 +10,19 @@ class ButtonPage extends GetView<ButtonController> {
   @override
   Widget build(BuildContext context) {
     return AppMainPageWidget(
-        appBar: AppBarWidget(headerPage: R.strings.button).build(context),
-        body: _body(context));
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+        return [
+          AppTopBarWidget.large(
+            title: R.strings.button,
+            leading: AppIconButtonWidget(
+              icon: Icons.arrow_back,
+              onPressed: () => Get.back(),
+            ),
+          )
+        ];
+      },
+      body: _body(context),
+    );
   }
 
   Widget _body(BuildContext context) {

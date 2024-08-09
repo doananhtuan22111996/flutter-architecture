@@ -10,7 +10,12 @@ class TooltipPage extends GetWidget<TooltipController> {
   @override
   Widget build(BuildContext context) {
     return AppMainPageWidget(
-      appBar: const AppBarWidget(headerPage: 'Tooltip').build(context),
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
+        AppTopBarWidget(
+          title: "Tooltip",
+          forceElevated: innerBoxIsScrolled,
+        )
+      ],
       body: _body(context),
     );
   }

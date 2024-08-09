@@ -10,7 +10,12 @@ class TabBarPage extends GetView<TabBarController> {
   @override
   Widget build(BuildContext context) {
     return AppMainPageWidget(
-      appBar: const AppBarWidget(headerPage: 'Tab Bar').build(context),
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
+        AppTopBarWidget(
+          title: "Tab Bar",
+          forceElevated: innerBoxIsScrolled,
+        )
+      ],
       body: _body(context),
     );
   }

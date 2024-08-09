@@ -10,8 +10,12 @@ class SelectionControlPage extends GetWidget<SelectionControlController> {
   @override
   Widget build(BuildContext context) {
     return AppMainPageWidget(
-      appBar:
-          AppBarWidget(headerPage: R.strings.selectionControl).build(context),
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
+        AppTopBarWidget(
+          title: R.strings.selectionControl,
+          forceElevated: innerBoxIsScrolled,
+        )
+      ],
       body: _body(context),
     );
   }

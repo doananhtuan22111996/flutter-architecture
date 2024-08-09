@@ -10,7 +10,12 @@ class BadgePage extends GetView<BadgeController> {
   @override
   Widget build(BuildContext context) {
     return AppMainPageWidget(
-      appBar: const AppBarWidget(headerPage: 'Badge').build(context),
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
+        AppTopBarWidget(
+          title: "Badge",
+          forceElevated: innerBoxIsScrolled,
+        )
+      ],
       body: _body(context),
     );
   }

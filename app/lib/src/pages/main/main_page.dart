@@ -6,23 +6,26 @@ class MainPage extends GetView<MainController> {
   @override
   Widget build(BuildContext context) {
     return AppMainPageWidget(
-      appBar: AppBarWidget(headerPage: R.strings.homeView).build(context),
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
+        AppTopBarWidget(
+          title: R.strings.homeView,
+          forceElevated: innerBoxIsScrolled,
+        )
+      ],
       body: _body(context),
     );
   }
 
   Widget _body(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: AppThemeExt.of.majorScale(4)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _ui(context),
-            if (!kIsWeb) _data(context),
-            _theme(context),
-          ],
-        ),
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: AppThemeExt.of.majorScale(4)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _ui(context),
+          if (!kIsWeb) _data(context),
+          _theme(context),
+        ],
       ),
     );
   }

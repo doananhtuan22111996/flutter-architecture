@@ -10,43 +10,44 @@ class ProgressPage extends GetView<ProgressController> {
   @override
   Widget build(BuildContext context) {
     return AppMainPageWidget(
-      appBar: AppBarWidget(
-        headerPage: R.strings.progress,
-      ).build(context),
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
+        AppTopBarWidget(
+          title: R.strings.progress,
+          forceElevated: innerBoxIsScrolled,
+        )
+      ],
       body: _body(context),
     );
   }
 
   Widget _body(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: EdgeInsets.all(AppThemeExt.of.majorScale(4)),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Expanded(child: _basic(context)),
-                Expanded(child: _basicWithNumber(context)),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                _lineMedium(context),
-                _lineLarge(context),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                _circleLarge(context),
-                _circleMedium(context),
-              ],
-            )
-          ],
-        ),
+    return Padding(
+      padding: EdgeInsets.all(AppThemeExt.of.majorScale(4)),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Expanded(child: _basic(context)),
+              Expanded(child: _basicWithNumber(context)),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              _lineMedium(context),
+              _lineLarge(context),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              _circleLarge(context),
+              _circleMedium(context),
+            ],
+          )
+        ],
       ),
     );
   }

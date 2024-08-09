@@ -9,7 +9,6 @@ import 'package:app/src/pages/tooltip/tooltip_controller.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:app/src/components/main/appBar/app_bar_base_builder.dart';
 import 'package:app/src/components/main/button/app_button_base_builder.dart';
 import 'package:app/src/components/main/page/app_main_page_base_builder.dart';
 import 'package:app/src/components/main/text/app_text_base_builder.dart';
@@ -20,8 +19,8 @@ import 'package:app/src/pages/dialog/dialog_controller.dart';
 import 'package:app/src/pages/progress/progress_controller.dart';
 import 'package:app/src/pages/selectionControl/selection_control_controller.dart';
 import 'package:app/src/pages/textField/text_field_controller.dart';
-import 'package:utilities/utilities.dart';
 
+import '../../components/main/topAppBar/app_top_bar_base_builder.dart';
 import '../../config/app_theme_ext.dart';
 import '../../exts/R.dart';
 
