@@ -1,13 +1,12 @@
-import 'package:app/src/config/app_theme_ext.dart';
 import 'package:flutter/material.dart';
 
 part 'app_main_page_widget.dart';
 
 abstract class AppMainPageBaseBuilder extends StatelessWidget {
   @protected
-  final Widget? body;
+  final Widget body;
   @protected
-  final PreferredSizeWidget? appBar;
+  final NestedScrollViewHeaderSliversBuilder headerSliverBuilder;
   @protected
   final Widget? endDrawer;
   @protected
@@ -15,8 +14,8 @@ abstract class AppMainPageBaseBuilder extends StatelessWidget {
 
   const AppMainPageBaseBuilder({
     super.key,
-    this.body,
-    this.appBar,
+    required this.headerSliverBuilder,
+    required this.body,
     this.endDrawer,
     this.onEndDrawerChanged,
   });

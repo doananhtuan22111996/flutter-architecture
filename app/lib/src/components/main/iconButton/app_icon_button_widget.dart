@@ -1,7 +1,7 @@
 part of 'app_icon_button_base_builder.dart';
 
-class AppIconFilledButtonWidget extends AppIconButtonBaseBuilder {
-  const AppIconFilledButtonWidget({
+class AppIconButtonWidget extends AppIconButtonBaseBuilder {
+  const AppIconButtonWidget({
     super.key,
     required super.icon,
     super.isDisabled,
@@ -10,7 +10,7 @@ class AppIconFilledButtonWidget extends AppIconButtonBaseBuilder {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton.filled(
+    return IconButton(
       onPressed: isDisabled == true ? null : onPressed,
       icon: Icon(icon),
     );

@@ -12,7 +12,7 @@ class AppIconOutlineButtonWidget extends AppIconButtonBaseBuilder {
   Widget build(BuildContext context) {
     return IconButton.outlined(
       onPressed: isDisabled == true ? null : onPressed,
-      icon: icon,
+      icon: Icon(icon),
     );
   }
 }

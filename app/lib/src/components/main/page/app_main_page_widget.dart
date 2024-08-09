@@ -3,8 +3,8 @@ part of 'app_main_page_base_builder.dart';
 class AppMainPageWidget extends AppMainPageBaseBuilder {
   const AppMainPageWidget({
     super.key,
-    super.body,
-    super.appBar,
+    required super.body,
+    required super.headerSliverBuilder,
     super.endDrawer,
     super.onEndDrawerChanged,
   });
@@ -15,11 +15,13 @@ class AppMainPageWidget extends AppMainPageBaseBuilder {
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
         key: key,
-        appBar: appBar,
         endDrawer: endDrawer,
         endDrawerEnableOpenDragGesture: false,
         onEndDrawerChanged: onEndDrawerChanged,
-        body: body ?? const SizedBox(),
+        body: NestedScrollView(
+          headerSliverBuilder: headerSliverBuilder,
+          body: body,
+        ),
       ),
     );
   }

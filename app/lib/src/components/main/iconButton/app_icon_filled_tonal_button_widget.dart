@@ -12,7 +12,7 @@ class AppIconFilledTonalButtonWidget extends AppIconButtonBaseBuilder {
   Widget build(BuildContext context) {
     return IconButton.filledTonal(
       onPressed: isDisabled == true ? null : onPressed,
-      icon: icon,
+      icon: Icon(icon),
     );
   }
 }
