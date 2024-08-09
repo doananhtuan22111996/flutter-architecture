@@ -7,6 +7,9 @@ class AppTopBarWidget extends AppTopBarBaseBuilder {
     super.leading,
     super.actions,
     super.forceElevated,
+    super.pinned,
+    super.floating,
+    super.snap,
   }) : _topBarType = _AppTopBarType.small;
 
   const AppTopBarWidget.medium({
@@ -15,6 +18,9 @@ class AppTopBarWidget extends AppTopBarBaseBuilder {
     super.leading,
     super.actions,
     super.forceElevated,
+    super.pinned,
+    super.floating,
+    super.snap,
   }) : _topBarType = _AppTopBarType.medium;
 
   const AppTopBarWidget.large({
@@ -23,6 +29,8 @@ class AppTopBarWidget extends AppTopBarBaseBuilder {
     super.leading,
     super.actions,
     super.forceElevated,
+    super.floating,
+    super.snap,
   }) : _topBarType = _AppTopBarType.large;
 
   final _AppTopBarType _topBarType;
@@ -35,6 +43,9 @@ class AppTopBarWidget extends AppTopBarBaseBuilder {
         leading: leading,
         actions: actions,
         forceElevated: forceElevated,
+        pinned: pinned,
+        floating: floating,
+        snap: snap,
       );
     }
     if (_topBarType == _AppTopBarType.medium) {
@@ -43,6 +54,9 @@ class AppTopBarWidget extends AppTopBarBaseBuilder {
         leading: leading,
         actions: actions,
         forceElevated: forceElevated,
+        pinned: pinned,
+        floating: floating,
+        snap: snap,
       );
     }
     return SliverAppBar(
@@ -50,6 +64,9 @@ class AppTopBarWidget extends AppTopBarBaseBuilder {
       leading: leading,
       actions: actions,
       forceElevated: forceElevated,
+      pinned: pinned,
+      floating: floating,
+      snap: snap,
     );
   }
 }

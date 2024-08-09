@@ -17,6 +17,12 @@ abstract class AppTopBarBaseBuilder extends StatelessWidget {
   final List<Widget>? actions;
   @protected
   final bool forceElevated;
+  @protected
+  final bool pinned;
+  @protected
+  final bool floating;
+  @protected
+  final bool snap;
 
   const AppTopBarBaseBuilder({
     super.key,
@@ -24,6 +30,9 @@ abstract class AppTopBarBaseBuilder extends StatelessWidget {
     this.leading,
     this.actions,
     this.forceElevated = false,
+    this.pinned = true,
+    this.floating = false,
+    this.snap = false,
   });
 
   @override
