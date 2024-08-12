@@ -35,5 +35,6 @@
   "dialog": "Dialog",
   "progress": "Progress",
   "selectionControl": "Selection Control",
-  "textField": "Text Field"
+  "textField": "Text Field",
+  "submit": "Nộp"
 }

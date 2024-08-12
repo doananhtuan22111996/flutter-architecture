@@ -31,7 +31,7 @@ class AppTextFieldWithClearWidget extends AppTextFieldWidget {
               valueListenable: textNotifier ?? ValueNotifier<String?>(null),
               child: IconButton(
                 onPressed: () => _fieldState.currentState?.didChange(null),
-                icon: R.svgs.close24px.svg(),
+                icon:Icon(Icons.close),
               ),
               builder: (context, value, child) =>
                   (value?.isEmpty ?? true) ? const SizedBox() : child!,

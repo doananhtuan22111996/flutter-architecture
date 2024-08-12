@@ -51,7 +51,7 @@ class AppPages {
     ),
     GetPage(
       name: Routes.datePicker,
-      page: () => const DatePickerPage(),
+      page: () => DatePickerPage(),
       binding: DatePickerBinding(),
     ),
     GetPage(

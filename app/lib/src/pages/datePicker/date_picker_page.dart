@@ -1,7 +1,9 @@
 part of 'date_picker_controller.dart';
 
 class DatePickerPage extends GetView<DatePickerController> {
-  const DatePickerPage({super.key});
+  DatePickerPage({super.key});
+
+  final GlobalKey<FormBuilderState> _formKey = GlobalKey<FormBuilderState>();
 
   static void open() {
     Get.toNamed(Routes.datePicker);
@@ -21,75 +23,66 @@ class DatePickerPage extends GetView<DatePickerController> {
   }
 
   Widget _body(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: AppThemeExt.of.majorScale(4)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _date(context),
-          SizedBox(height: AppThemeExt.of.majorScale(2)),
-          _dateRange(context),
-          SizedBox(height: AppThemeExt.of.majorScale(2)),
-          _time(context),
-        ],
+    return SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: AppThemeExt.of.majorScale(4)),
+        child: Column(
+          children: [
+            FormBuilder(
+              key: _formKey,
+              initialValue: {
+                'datePicker2': DateTime.now(),
+                'dateRangePicker2': DateTimeRange(
+                    start: DateTime.now(),
+                    end: DateTime.now().add(const Duration(days: 7))),
+                'timePicker2': DateTime.now(),
+              },
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _date(context),
+                  SizedBox(height: AppThemeExt.of.majorScale(2)),
+                  _dateRange(context),
+                  SizedBox(height: AppThemeExt.of.majorScale(2)),
+                  _time(context),
+                ],
+              ),
+            ),
+            SizedBox(height: AppThemeExt.of.majorScale(4)),
+            SizedBox(
+              width: double.infinity,
+              child: AppFilledButtonWidget.text(
+                label: R.strings.submit,
+                onPressed: () => _formKey.currentState?.saveAndValidate(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 
   Widget _date(BuildContext context) {
-    return FormBuilder(
-      key: GlobalKey<FormBuilderState>(),
-      initialValue: {
-        'datePicker4': DateTime.now(),
-        'datePicker5': DateTime.now(),
-        'datePicker6': DateTime.now(),
-      },
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const AppTextBody1Widget(text: 'Date Picker'),
-          SizedBox(height: AppThemeExt.of.majorScale(2)),
-          AppDatePickerWidget(
-            fieldKey: 'datePicker1',
-            appDatePickerSize: AppDatePickerSize.small,
-            onDatePicked: (datePicker) => controller.toastDate(datePicker),
-          ),
-          Padding(
-            padding:
-                EdgeInsets.symmetric(vertical: AppThemeExt.of.majorScale(2)),
-            child: AppDatePickerWidget(
-              fieldKey: 'datePicker2',
-              appDatePickerSize: AppDatePickerSize.medium,
-              onDatePicked: (datePicker) => controller.toastDate(datePicker),
-            ),
-          ),
-          AppDatePickerWidget(
-            fieldKey: 'datePicker3',
-            appDatePickerSize: AppDatePickerSize.large,
-            onDatePicked: (datePicker) => controller.toastDate(datePicker),
-          ),
-          SizedBox(height: AppThemeExt.of.majorScale(2)),
-          AppDatePickerWidget(
-            fieldKey: 'datePicker4',
-            appDatePickerSize: AppDatePickerSize.small,
-            isDisabled: true,
-          ),
-          Padding(
-            padding:
-                EdgeInsets.symmetric(vertical: AppThemeExt.of.majorScale(2)),
-            child: AppDatePickerWidget(
-              fieldKey: 'datePicker5',
-              appDatePickerSize: AppDatePickerSize.medium,
-              isDisabled: true,
-            ),
-          ),
-          AppDatePickerWidget(
-            fieldKey: 'datePicker6',
-            appDatePickerSize: AppDatePickerSize.large,
-            isDisabled: true,
-          ),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        AppDatePickerWidget(
+          fieldKey: 'datePicker1',
+          labelText: 'Date picker 1',
+          hintText: 'Select date picker',
+          validator: FormBuilderValidators.compose([
+            FormBuilderValidators.required(),
+          ]),
+          onReset: () => _formKey.currentState?.fields["datePicker1"]?.reset(),
+        ),
+        SizedBox(height: AppThemeExt.of.majorScale(2)),
+        AppDatePickerWidget(
+          fieldKey: 'datePicker2',
+          labelText: 'Date picker 2',
+          hintText: 'Select date picker',
+          enabled: false,
+        ),
+      ],
     );
   }
 
@@ -97,53 +90,24 @@ class DatePickerPage extends GetView<DatePickerController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AppTextBody1Widget(text: 'Date Picker'),
-        SizedBox(height: AppThemeExt.of.majorScale(2)),
         AppDateRangePickerWidget(
           fieldKey: 'dateRangePicker1',
-          appDatePickerSize: AppDatePickerSize.small,
-          onDateRangePicked: (dateRangePicker) =>
-              controller.toastDateRange(dateRangePicker),
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: AppThemeExt.of.majorScale(2)),
-          child: AppDateRangePickerWidget(
-            fieldKey: 'dateRangePicker2',
-            appDatePickerSize: AppDatePickerSize.medium,
-            onDateRangePicked: (dateRangePicker) =>
-                controller.toastDateRange(dateRangePicker),
-          ),
-        ),
-        AppDateRangePickerWidget(
-          fieldKey: 'dateRangePicker3',
-          appDatePickerSize: AppDatePickerSize.large,
-          onDateRangePicked: (dateRangePicker) =>
-              controller.toastDateRange(dateRangePicker),
+          labelText: "Date Range Picker",
+          hintText: "Select date range picker",
+          firstDate: DateTime.now(),
+          lastDate: DateTime(DateTime.now().year, DateTime.now().month + 1, 1),
+          validator: FormBuilderValidators.compose([
+            FormBuilderValidators.required(),
+          ]),
         ),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         AppDateRangePickerWidget(
-          fieldKey: 'dateRangePicker4',
-          appDatePickerSize: AppDatePickerSize.small,
-          initialDateRange: DateTimeRange(
-              start: DateTime.now(), end: DateTime.now().addExt(5)),
-          isDisabled: true,
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: AppThemeExt.of.majorScale(2)),
-          child: AppDateRangePickerWidget(
-            fieldKey: 'dateRangePicker5',
-            appDatePickerSize: AppDatePickerSize.medium,
-            initialDateRange: DateTimeRange(
-                start: DateTime.now(), end: DateTime.now().addExt(5)),
-            isDisabled: true,
-          ),
-        ),
-        AppDateRangePickerWidget(
-          fieldKey: 'dateRangePicker6',
-          appDatePickerSize: AppDatePickerSize.large,
-          initialDateRange: DateTimeRange(
-              start: DateTime.now(), end: DateTime.now().addExt(5)),
-          isDisabled: true,
+          fieldKey: 'dateRangePicker2',
+          labelText: "Date Range Picker",
+          hintText: "Select date range picker",
+          firstDate: DateTime.now(),
+          lastDate: DateTime(DateTime.now().year, DateTime.now().month + 1, 1),
+          enabled: false,
         ),
       ],
     );
@@ -153,46 +117,21 @@ class DatePickerPage extends GetView<DatePickerController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AppTextBody1Widget(text: 'Time Picker'),
-        SizedBox(height: AppThemeExt.of.majorScale(2)),
         AppTimePickerWidget(
           fieldKey: 'timePicker1',
-          appDatePickerSize: AppDatePickerSize.small,
-          onTimePicked: (timePicker) => controller.toastTime(timePicker),
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: AppThemeExt.of.majorScale(2)),
-          child: AppTimePickerWidget(
-            fieldKey: 'timePicker2',
-            appDatePickerSize: AppDatePickerSize.medium,
-            onTimePicked: (timePicker) => controller.toastTime(timePicker),
-          ),
-        ),
-        AppTimePickerWidget(
-          fieldKey: 'timePicker3',
-          appDatePickerSize: AppDatePickerSize.large,
-          onTimePicked: (timePicker) => controller.toastTime(timePicker),
+          labelText: "Time Picker",
+          hintText: "Select time picker",
+          validator: FormBuilderValidators.compose([
+            FormBuilderValidators.required(),
+          ]),
         ),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         AppTimePickerWidget(
-            fieldKey: 'timePicker4',
-            appDatePickerSize: AppDatePickerSize.small,
-            initialTime: TimeOfDay.now(),
-            isDisabled: true),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: AppThemeExt.of.majorScale(2)),
-          child: AppTimePickerWidget(
-            fieldKey: 'timePicker5',
-            appDatePickerSize: AppDatePickerSize.medium,
-            initialTime: TimeOfDay.now(),
-            isDisabled: true,
-          ),
+          fieldKey: 'timePicker2',
+          labelText: "Time Picker",
+          hintText: "Select time picker",
+          enabled: false,
         ),
-        AppTimePickerWidget(
-            fieldKey: 'timePicker6',
-            appDatePickerSize: AppDatePickerSize.large,
-            initialTime: TimeOfDay.now(),
-            isDisabled: true),
       ],
     );
   }

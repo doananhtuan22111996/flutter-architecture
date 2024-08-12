@@ -77,14 +77,15 @@ abstract class AppToastBaseBuilder {
   }
 
   Widget icon() {
-    if (appToastType == AppToastType.info) {
-      return R.svgs.error24px.svg();
-    } else if (appToastType == AppToastType.warning) {
-      return R.svgs.error24px.svg();
-    } else if (appToastType == AppToastType.error) {
-      return R.svgs.error24px.svg();
-    }
-    return R.svgs.check24px.svg();
+    // if (appToastType == AppToastType.info) {
+    //   return R.svgs.error24px.svg();
+    // } else if (appToastType == AppToastType.warning) {
+    //   return R.svgs.error24px.svg();
+    // } else if (appToastType == AppToastType.error) {
+    //   return R.svgs.error24px.svg();
+    // }
+    // return R.svgs.check24px.svg();
+    return Container();
   }
 
   Widget button() {
@@ -97,7 +98,7 @@ abstract class AppToastBaseBuilder {
             },
           )
         : IconButton(
-            icon: R.svgs.close24px.svg(),
+            icon: Icon(Icons.add),
             style: IconButton.styleFrom(
                 padding: EdgeInsets.all(AppThemeExt.of.majorScale(1))),
             onPressed: () => Get.closeCurrentSnackbar(),

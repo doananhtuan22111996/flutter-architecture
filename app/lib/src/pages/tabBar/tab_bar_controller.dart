@@ -25,24 +25,24 @@ class TabBarController extends GetxController {
     AppTabOnlyTextWidget(label: 'Label 3', appTabSize: AppTabSize.large),
   ];
   final List<AppTabWithIconWidget> iconTabs = [
-    AppTabWithIconWidget(
-      label: 'Label 1',
-      iconSelected: R.svgs.check24px.svg(),
-      iconUnselected: R.svgs.error24px.svg(),
-      appTabSize: AppTabSize.large,
-    ),
-    AppTabWithIconWidget(
-      label: 'Label 2',
-      iconSelected: R.svgs.check24px.svg(),
-      iconUnselected: R.svgs.error24px.svg(),
-      appTabSize: AppTabSize.large,
-    ),
-    AppTabWithIconWidget(
-      label: 'Label 3',
-      iconUnselected: R.svgs.check24px.svg(),
-      iconSelected: R.svgs.error24px.svg(),
-      appTabSize: AppTabSize.large,
-    ),
+    // AppTabWithIconWidget(
+    //   label: 'Label 1',
+    //   iconSelected: R.svgs.check24px.svg(),
+    //   iconUnselected: R.svgs.error24px.svg(),
+    //   appTabSize: AppTabSize.large,
+    // ),
+    // AppTabWithIconWidget(
+    //   label: 'Label 2',
+    //   iconSelected: R.svgs.check24px.svg(),
+    //   iconUnselected: R.svgs.error24px.svg(),
+    //   appTabSize: AppTabSize.large,
+    // ),
+    // AppTabWithIconWidget(
+    //   label: 'Label 3',
+    //   iconUnselected: R.svgs.check24px.svg(),
+    //   iconSelected: R.svgs.error24px.svg(),
+    //   appTabSize: AppTabSize.large,
+    // ),
   ];
   final List<AppTabWithNumberWidget> numberTabs = const [
     AppTabWithNumberWidget(

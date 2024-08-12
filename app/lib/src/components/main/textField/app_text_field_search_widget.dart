@@ -30,8 +30,7 @@ class AppTextFieldSearchWidget extends AppTextFieldBaseBuilder {
         valueListenable: _errorNotifier,
         builder: (context, value, child) => Padding(
           padding: _prefixPadding,
-          child: R.svgs.search24px.svg(
-              colorFilter: ColorFilter.mode(_prefixColor!, BlendMode.srcIn)),
+          child: Icon(Icons.search),
         ),
       ),
       suffixIcon: isDisabled == true || textNotifier == null
@@ -40,7 +39,7 @@ class AppTextFieldSearchWidget extends AppTextFieldBaseBuilder {
               valueListenable: textNotifier!,
               child: IconButton(
                 onPressed: () => _fieldState.currentState?.didChange(null),
-                icon: R.svgs.close24px.svg(),
+                icon: Icon(Icons.close),
               ),
               builder: (context, value, child) =>
                   (value?.isEmpty ?? true) ? const SizedBox() : child!,

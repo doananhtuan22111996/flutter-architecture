@@ -11,15 +11,7 @@ class ButtonPage extends GetView<ButtonController> {
   Widget build(BuildContext context) {
     return AppMainPageWidget(
       headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-        return [
-          AppTopBarWidget.large(
-            title: R.strings.button,
-            leading: AppIconButtonWidget(
-              icon: Icons.arrow_back,
-              onPressed: () => Get.back(),
-            ),
-          )
-        ];
+        return [AppTopBarWidget(title: R.strings.button)];
       },
       body: _body(context),
     );

@@ -29,26 +29,17 @@ class AppProgressLineWidget extends AppProgressBaseBuilder {
 
   Widget _trainingW(BuildContext context) {
     Widget? trailing = appProgressSize == AppProgressSize.lineMedium
-        ? R.svgs.accessTime24px.svg()
-        : R.svgs.accessTime24px.svg(
-            width: AppThemeExt.of.majorScale(4),
-            height: AppThemeExt.of.majorScale(4),
-          );
+        ? Icon(Icons.timelapse)
+        : Icon(Icons.timelapse);
     if (appProgressType == AppProgressType.success) {
       trailing = appProgressSize == AppProgressSize.lineMedium
-          ? R.svgs.check24px.svg()
-          : R.svgs.check24px.svg(
-              width: AppThemeExt.of.majorScale(4),
-              height: AppThemeExt.of.majorScale(4),
-            );
+          ? Icon(Icons.check)
+          : Icon(Icons.check);
     }
     if (appProgressType == AppProgressType.error) {
       trailing = appProgressSize == AppProgressSize.lineMedium
-          ? R.svgs.close24px.svg()
-          : R.svgs.close24px.svg(
-              width: AppThemeExt.of.majorScale(4),
-              height: AppThemeExt.of.majorScale(4),
-            );
+          ? Icon(Icons.close)
+          : Icon(Icons.close);
     }
     return trailing;
   }

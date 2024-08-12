@@ -13,10 +13,10 @@ class AppScreenDialogWidget extends AppDialogBaseBuilder {
   @override
   Widget build(BuildContext context) {
     Widget icon = appDialogType == AppDialogType.success
-        ? R.svgs.check24px.svg()
+        ? Icon(Icons.check)
         : appDialogType == AppDialogType.error
-            ? R.svgs.error24px.svg()
-            : R.svgs.accessTime24px.svg();
+            ? Icon(Icons.error)
+            : Icon(Icons.warning);
     return Dialog.fullscreen(
       child: Container(
         color: AppThemeExt.of.colorScheme.primary,
