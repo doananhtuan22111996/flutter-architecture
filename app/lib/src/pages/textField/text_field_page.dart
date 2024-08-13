@@ -21,34 +21,31 @@ class TextFieldPage extends GetView<TextFieldController> {
   }
 
   Widget _body(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(AppThemeExt.of.majorScale(4)),
-      child: FormBuilder(
-        key: controller.formKey,
-        initialValue: const {
-          'textField2': 'Text Field Medium',
-          'textField1': 'Text Field Medium',
-          'textField99': 'Text Field Medium Disabled',
-          'textField3': 'Text Field Large',
-          'textField4': 'Text Field Large Disabled',
-          'textField5': 'Text Field Small',
-          'textField6': 'Text Field Small Disabled',
-        },
+    return SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.all(AppThemeExt.of.majorScale(4)),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            _small(context),
-            SizedBox(height: AppThemeExt.of.majorScale(4)),
-            _medium(context),
-            SizedBox(height: AppThemeExt.of.majorScale(4)),
-            _large(context),
-            SizedBox(height: AppThemeExt.of.majorScale(4)),
-            _search(context),
-            SizedBox(height: AppThemeExt.of.majorScale(4)),
-            SizedBox(
+            FormBuilder(
+              key: controller.formKey,
+              initialValue: const {
+                'textField2': 'Value text field 2',
+                'textField4': 'Value text field 4',
+              },
+              child: Column(
+                children: [
+                  _textFieldFilled(),
+                  SizedBox(height: AppThemeExt.of.majorScale(2)),
+                  _textFieldOutlined(),
+                ],
+              ),
+            ),
+            Container(
               width: double.infinity,
+              padding:
+                  EdgeInsets.symmetric(vertical: AppThemeExt.of.majorScale(4)),
               child: AppFilledButtonWidget.text(
-                label: 'buttonText',
+                label: R.strings.submit,
                 onPressed: () {
                   controller.formKey.currentState?.saveAndValidate();
                 },
@@ -60,90 +57,129 @@ class TextFieldPage extends GetView<TextFieldController> {
     );
   }
 
-  Widget _medium(BuildContext context) {
+  Widget _textFieldFilled() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AppTextHeading4Widget(text: 'Text Field Medium'),
-        SizedBox(height: AppThemeExt.of.majorScale(2)),
-        AppTextFieldWithClearWidget(
+        AppTextFieldWidget.filled(
           fieldKey: 'textField1',
-          validator: FormBuilderValidators.required(errorText: 'Required Text'),
-          textNotifier: ValueNotifier<String?>('Text Field Medium Disabled'),
+          labelText: "Text Field 1",
+          hintText: "Hint text field 1",
+          validator: FormBuilderValidators.compose([
+            FormBuilderValidators.required(),
+          ]),
+          onReset: () =>
+              controller.formKey.currentState?.fields["textField1"]?.reset(),
         ),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
-        AppTextFieldWithClearWidget(
-          fieldKey: 'textField77',
-          validator: FormBuilderValidators.required(errorText: 'Required Text'),
-        ),
-        SizedBox(height: AppThemeExt.of.majorScale(2)),
-        AppTextFieldPasswordWidget(fieldKey: 'textField99'),
-        SizedBox(height: AppThemeExt.of.majorScale(2)),
-        AppTextFieldWidget(
+        AppTextFieldWidget.filled(
           fieldKey: 'textField2',
-          isDisabled: true,
+          labelText: "Text Field 2",
+          hintText: "Hint text field 2",
+          enabled: false,
+          readOnly: true,
         ),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
-        AppTextFieldWidget(fieldKey: 'textField98'),
-      ],
-    );
-  }
-
-  Widget _large(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const AppTextHeading4Widget(text: 'Text Field Large'),
-        SizedBox(height: AppThemeExt.of.majorScale(2)),
-        AppTextFieldWidget(
+        AppTextFieldWidget.filled(
           fieldKey: 'textField3',
-          appTextFieldSize: AppTextFieldSize.large,
-          validator: FormBuilderValidators.required(errorText: 'Required Text'),
+          labelText: "Text Field 3",
+          hintText: "Hint text field 3",
+          prefixIcon: const Icon(Icons.search),
+          validator: FormBuilderValidators.compose([
+            FormBuilderValidators.required(),
+          ]),
+          onReset: () =>
+              controller.formKey.currentState?.fields["textField3"]?.reset(),
         ),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
-        AppTextFieldWidget(
-          fieldKey: 'textField04',
-          appTextFieldSize: AppTextFieldSize.large,
-          isDisabled: true,
+        AppTextFieldWidget.filled(
+          fieldKey: 'textField4',
+          labelText: "Text Field 4",
+          hintText: "Hint text field 4",
+          prefixIcon: const Icon(Icons.search),
+          enabled: false,
+          readOnly: true,
+        ),
+        SizedBox(height: AppThemeExt.of.majorScale(2)),
+        Obx(
+          () => AppTextFieldWidget.filled(
+            fieldKey: 'textField5',
+            labelText: "Text Field 5",
+            hintText: "Hint text field 5",
+            maxLines: 1,
+            obscureText: controller.obscureText.value,
+            suffixIcon: AppIconButtonWidget(
+              icon: controller.obscureText.value
+                  ? Icons.visibility
+                  : Icons.visibility_off,
+              onPressed: () =>
+                  controller.obscureText.value = !controller.obscureText.value,
+            ),
+          ),
         ),
       ],
     );
   }
 
-  Widget _small(BuildContext context) {
+  Widget _textFieldOutlined() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AppTextHeading4Widget(text: 'Text Field Small'),
-        SizedBox(height: AppThemeExt.of.majorScale(2)),
-        AppTextFieldWidget(
-          fieldKey: 'textField5',
-          appTextFieldSize: AppTextFieldSize.small,
-          validator: FormBuilderValidators.required(errorText: 'Required Text'),
-        ),
-        SizedBox(height: AppThemeExt.of.majorScale(2)),
-        AppTextFieldWidget(
+        AppTextFieldWidget.outlined(
           fieldKey: 'textField6',
-          appTextFieldSize: AppTextFieldSize.small,
-          isDisabled: true,
-        )
-      ],
-    );
-  }
-
-  Widget _search(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const AppTextHeading4Widget(text: 'Text Field Search'),
+          labelText: "Text Field 6",
+          hintText: "Hint text field 6",
+          validator: FormBuilderValidators.compose([
+            FormBuilderValidators.required(),
+          ]),
+          onReset: () =>
+              controller.formKey.currentState?.fields["textField1"]?.reset(),
+        ),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
-        AppTextFieldSearchWidget(
-          fieldKey: 'textField88',
-          validator: FormBuilderValidators.required(errorText: 'Required Text'),
+        AppTextFieldWidget.outlined(
+          fieldKey: 'textField7',
+          labelText: "Text Field 7",
+          hintText: "Hint text field 7",
+          enabled: false,
+          readOnly: true,
+        ),
+        SizedBox(height: AppThemeExt.of.majorScale(2)),
+        AppTextFieldWidget.outlined(
+          fieldKey: 'textField8',
+          labelText: "Text Field 8",
+          hintText: "Hint text field 8",
+          prefixIcon: const Icon(Icons.search),
+          validator: FormBuilderValidators.compose([
+            FormBuilderValidators.required(),
+          ]),
+          onReset: () => controller.formKey.currentState?.fields["textField8"]
+              ?.didChange(null),
+        ),
+        SizedBox(height: AppThemeExt.of.majorScale(2)),
+        AppTextFieldWidget.outlined(
+          fieldKey: 'textField9',
+          labelText: "Text Field 9",
+          hintText: "Hint text field 9",
+          prefixIcon: const Icon(Icons.search),
+          enabled: false,
+          readOnly: true,
+        ),
+        SizedBox(height: AppThemeExt.of.majorScale(2)),
+        Obx(
+          () => AppTextFieldWidget.outlined(
+            fieldKey: 'textField10',
+            labelText: "Text Field 10",
+            hintText: "Hint text field 10",
+            maxLines: 1,
+            obscureText: controller.obscureText.value,
+            suffixIcon: AppIconButtonWidget(
+              icon: controller.obscureText.value
+                  ? Icons.visibility
+                  : Icons.visibility_off,
+              onPressed: () =>
+                  controller.obscureText.value = !controller.obscureText.value,
+            ),
+          ),
         ),
       ],
     );

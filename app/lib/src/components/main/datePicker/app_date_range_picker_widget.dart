@@ -5,6 +5,7 @@ class AppDateRangePickerWidget extends AppDatePickerBaseBuilder<DateTimeRange> {
     required super.fieldKey,
     required super.labelText,
     required super.hintText,
+    super.fieldState,
     super.key,
     super.initialValue,
     super.helperText,
@@ -26,6 +27,7 @@ class AppDateRangePickerWidget extends AppDatePickerBaseBuilder<DateTimeRange> {
   @override
   Widget build(BuildContext context) {
     return FormBuilderDateRangePicker(
+      key: fieldState,
       name: fieldKey,
       initialValue: initialValue,
       decoration: InputDecoration(
@@ -38,7 +40,7 @@ class AppDateRangePickerWidget extends AppDatePickerBaseBuilder<DateTimeRange> {
           builder: (context, value, child) =>
               value == null || value.isEmpty == true
                   ? AppIconButtonWidget(
-                      icon: Icons.clear,
+                      icon: Icons.cancel_outlined,
                       onPressed: onReset,
                     )
                   : const Icon(Icons.error),

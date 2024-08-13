@@ -5,6 +5,7 @@ class AppDatePickerWidget extends AppDatePickerBaseBuilder<DateTime> {
     required super.fieldKey,
     required super.labelText,
     required super.hintText,
+    super.fieldState,
     super.key,
     super.helperText,
     super.errorText,
@@ -21,7 +22,7 @@ class AppDatePickerWidget extends AppDatePickerBaseBuilder<DateTime> {
   @override
   Widget build(BuildContext context) {
     return FormBuilderDateTimePicker(
-      key: _fieldState,
+      key: fieldState,
       name: fieldKey,
       initialValue: initialValue,
       decoration: InputDecoration(
@@ -34,7 +35,7 @@ class AppDatePickerWidget extends AppDatePickerBaseBuilder<DateTime> {
           builder: (context, value, child) =>
               value == null || value.isEmpty == true
                   ? AppIconButtonWidget(
-                      icon: Icons.clear,
+                      icon: Icons.cancel_outlined,
                       onPressed: onReset,
                     )
                   : const Icon(Icons.error),
