@@ -12,7 +12,6 @@ import 'package:get/get.dart';
 import 'package:app/src/components/main/button/app_button_base_builder.dart';
 import 'package:app/src/components/main/page/app_main_page_base_builder.dart';
 import 'package:app/src/components/main/text/app_text_base_builder.dart';
-import 'package:app/src/pages/avatar/avatar_controller.dart';
 import 'package:app/src/pages/button/button_controller.dart';
 import 'package:app/src/pages/datePicker/date_picker_controller.dart';
 import 'package:app/src/pages/dialog/dialog_controller.dart';

@@ -85,15 +85,15 @@ dev_dependencies:
   build_runner: 2.4.11
   flutter_gen_runner: 5.6.0
 
-flutter_gen:
-  assets:
-    outputs:
-      directory_path_enabled: true # <- Add this line.
-  output: lib/src/generated/assets
+  #flutter_gen:
+  #  assets:
+  #    outputs:
+  #      directory_path_enabled: true # <- Add this line.
+  #  output: lib/src/generated/assets
 
   # Optional
-  integrations:
-    flutter_svg: true
+  #  integrations:
+  #    flutter_svg: true
 
   # If you want to generate assets for a package, use package_parameter_enabled under flutter_gen > assets > outputs.
   #  assets:

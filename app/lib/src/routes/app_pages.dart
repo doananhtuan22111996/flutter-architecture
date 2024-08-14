@@ -1,4 +1,3 @@
-import 'package:app/src/pages/avatar/avatar_controller.dart';
 import 'package:app/src/pages/badge/badge_controller.dart';
 import 'package:app/src/pages/button/button_controller.dart';
 import 'package:app/src/pages/datePicker/date_picker_controller.dart';
@@ -43,11 +42,6 @@ class AppPages {
       name: Routes.button,
       page: () => const ButtonPage(),
       binding: ButtonBinding(),
-    ),
-    GetPage(
-      name: Routes.avatar,
-      page: () => const AvatarPage(),
-      binding: AvatarBinding(),
     ),
     GetPage(
       name: Routes.datePicker,

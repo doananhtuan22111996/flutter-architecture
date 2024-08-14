@@ -8,7 +8,6 @@ class Routes {
   static const login = '/login';
   static const button = '/button';
   static const text = '/text';
-  static const avatar = '/avatar';
   static const datePicker = '/date-picker';
   static const dialog = '/dialog';
   static const progress = '/progress';

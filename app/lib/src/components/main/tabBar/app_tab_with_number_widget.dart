@@ -34,15 +34,11 @@ class AppTabWithNumberWidget extends AppTabBaseBuilder {
 
   Widget _withNumber(BuildContext context) {
     return isSelected == true
-        ? AppBadgeNumberWidget(
-            number: number,
-            appBadgeBaseType: AppBadgeBaseType.filled,
-            color: AppThemeExt.of.colorScheme.primary,
+        ? AppBadgeWidget.large(
+            count: number ?? 0,
+            backgroundColor: AppThemeExt.of.colorScheme.primary,
           )
-        : AppBadgeNumberWidget(
-            number: number,
-            appBadgeBaseType: AppBadgeBaseType.outlined,
-          );
+        : AppBadgeWidget.large(count: number ?? 0);
   }
 
   @override

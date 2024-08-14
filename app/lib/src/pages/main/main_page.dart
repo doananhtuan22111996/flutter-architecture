@@ -54,11 +54,6 @@ class MainPage extends GetView<MainController> {
                 ),
                 SizedBox(height: AppThemeExt.of.majorScale(2)),
                 AppFilledButtonWidget.text(
-                  label: R.strings.avatar,
-                  onPressed: () => AvatarPage.open(),
-                ),
-                SizedBox(height: AppThemeExt.of.majorScale(2)),
-                AppFilledButtonWidget.text(
                   label: R.strings.datePicker,
                   onPressed: () => DatePickerPage.open(),
                 ),
