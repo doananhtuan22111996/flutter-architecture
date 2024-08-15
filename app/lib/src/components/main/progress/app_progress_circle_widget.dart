@@ -33,8 +33,8 @@ class AppProgressCircleWidget extends AppProgressBaseBuilder {
           : Icon(Icons.close);
     }
     return appProgressSize == AppProgressSize.circleLarge
-        ? AppTextHeading4Widget(text: '${progress ?? 0 * 100}%')
-        : AppTextBody1Widget(text: '${progress ?? 0 * 100}%');
+        ? Text('${progress ?? 0 * 100}%')
+        : Text('${progress ?? 0 * 100}%');
   }
 
   Color get _progressColor {

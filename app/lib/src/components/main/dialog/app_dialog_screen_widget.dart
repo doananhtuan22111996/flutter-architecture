@@ -71,14 +71,14 @@ class AppScreenDialogWidget extends AppDialogBaseBuilder {
           Padding(
             padding:
                 EdgeInsets.symmetric(vertical: AppThemeExt.of.majorScale(3)),
-            child: AppTextHeading4Widget(
-              text: title,
+            child: Text(
+              title!,
               textAlign: TextAlign.center,
             ),
           ),
         if (content != null)
-          AppTextBody1Widget(
-            text: content,
+          Text(
+            content!,
             textAlign: TextAlign.center,
           ),
       ],

@@ -11,7 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:app/src/components/main/button/app_button_base_builder.dart';
 import 'package:app/src/components/main/page/app_main_page_base_builder.dart';
-import 'package:app/src/components/main/text/app_text_base_builder.dart';
 import 'package:app/src/pages/button/button_controller.dart';
 import 'package:app/src/pages/datePicker/date_picker_controller.dart';
 import 'package:app/src/pages/dialog/dialog_controller.dart';
@@ -65,10 +64,7 @@ class MainController extends GetxController {
       final deviceLangCode = Get.deviceLocale!.languageCode;
       executeUpdateLanguage(langCode.isEmpty ? deviceLangCode : langCode);
     } on AppException catch (e) {
-      AppToastWidget(
-              title: 'Multiple Languages',
-              message: e.message,
-              appToastType: AppToastType.error)
+      AppToastFixedWidget.message(messageText: e.message ?? "Some thing wrong")
           .show();
     }
   }
@@ -82,10 +78,7 @@ class MainController extends GetxController {
       Get.updateLocale(
           Locale(languageModel.langCode, languageModel.countryCode));
     } on AppException catch (e) {
-      AppToastWidget(
-              title: 'Multiple Languages',
-              message: e.message,
-              appToastType: AppToastType.error)
+      AppToastFixedWidget.message(messageText: e.message ?? "Some thing wrong")
           .show();
     }
   }
@@ -97,10 +90,7 @@ class MainController extends GetxController {
           Get.isDarkMode ? ThemeMode.dark.name : ThemeMode.light.name;
       executeUpdateTheme(theme.isEmpty ? deviceTheme : theme);
     } on AppException catch (e) {
-      AppToastWidget(
-              title: 'Theme Mode',
-              message: e.message,
-              appToastType: AppToastType.error)
+      AppToastFixedWidget.message(messageText: e.message ?? "Some thing wrong")
           .show();
     }
   }
@@ -116,10 +106,7 @@ class MainController extends GetxController {
           ? AppThemeExt.of.darkTheme
           : AppThemeExt.of.lightTheme);
     } on AppException catch (e) {
-      AppToastWidget(
-              title: 'Theme Mode',
-              message: e.message,
-              appToastType: AppToastType.error)
+      AppToastFixedWidget.message(messageText: e.message ?? "Some thing wrong")
           .show();
     }
   }

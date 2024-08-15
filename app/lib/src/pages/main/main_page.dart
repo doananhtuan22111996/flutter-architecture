@@ -39,7 +39,7 @@ class MainPage extends GetView<MainController> {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(vertical: AppThemeExt.of.majorScale(2)),
-          child: const AppTextHeading5Widget(text: 'UI Kit'),
+          child: Text('UI Kit', style: AppThemeExt.of.textTheme.headlineSmall),
         ),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,7 +115,8 @@ class MainPage extends GetView<MainController> {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(vertical: AppThemeExt.of.majorScale(2)),
-          child: const AppTextHeading5Widget(text: 'Flow Data'),
+          child:
+              Text('Flow Data', style: AppThemeExt.of.textTheme.headlineSmall),
         ),
         Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -138,8 +139,9 @@ class MainPage extends GetView<MainController> {
         Padding(
             padding:
                 EdgeInsets.symmetric(vertical: AppThemeExt.of.majorScale(2)),
-            child: const AppTextHeading5Widget(text: 'Theme style')),
-        AppTextBody2Widget(text: R.strings.changeLanguage),
+            child: Text('Theme style',
+                style: AppThemeExt.of.textTheme.headlineSmall)),
+        Text(R.strings.changeLanguage),
         Obx(
           () => ToggleButtons(
             isSelected: [
@@ -153,12 +155,13 @@ class MainPage extends GetView<MainController> {
               controller.executeUpdateLanguage(langCode);
             },
             children: controller.languages
-                .map((e) => AppTextBody1Widget(text: e.name))
+                .map((e) =>
+                    Text(e.name, style: AppThemeExt.of.textTheme.bodyMedium))
                 .toList(),
           ),
         ),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
-        AppTextBody2Widget(text: R.strings.changeTheme),
+        Text(R.strings.changeTheme),
         Obx(
           () => ToggleButtons(
             isSelected: [

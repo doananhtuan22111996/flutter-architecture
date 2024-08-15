@@ -39,7 +39,7 @@ class AppCheckBoxWidget extends AppSelectionControlBaseBuilder {
                     onValueChanged?.call(value);
                   },
           ),
-          if (label != null) AppTextBody2Widget(text: label)
+          if (label != null) Text(label!)
         ],
       ),
     );

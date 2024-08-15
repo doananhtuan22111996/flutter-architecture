@@ -38,7 +38,7 @@ class TabBarPage extends GetView<TabBarController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AppTextBody1Widget(text: 'Text Only Medium'),
+        const Text('Text Only Medium'),
         Obx(
           () => AppTabBarWidget(
             tabs: controller.mediumTabs,
@@ -54,7 +54,7 @@ class TabBarPage extends GetView<TabBarController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AppTextBody1Widget(text: 'Text Only Large'),
+        const Text('Text Only Large'),
         Obx(
           () => AppTabBarWidget(
             tabs: controller.largeTabs,
@@ -70,7 +70,7 @@ class TabBarPage extends GetView<TabBarController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AppTextBody1Widget(text: 'With Icon Large'),
+        const Text('With Icon Large'),
         Obx(
           () => AppTabBarWidget(
             tabs: controller.iconTabs,
@@ -86,7 +86,7 @@ class TabBarPage extends GetView<TabBarController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AppTextBody1Widget(text: 'With Number Large'),
+        const Text('With Number Large'),
         Obx(
           () => AppTabBarWidget(
             tabs: controller.numberTabs,

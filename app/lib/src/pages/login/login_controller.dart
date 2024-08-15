@@ -44,11 +44,8 @@ class LoginController extends GetxController {
       HomePage.open();
     } on AppException catch (e) {
       AppLoadingOverlayWidget.dismiss();
-      AppToastWidget(
-        title: 'Login Page',
-        message: e.message,
-        appToastType: AppToastType.error,
-      ).show();
+      AppToastFixedWidget.message(messageText: e.message ?? "Some thing wrong")
+          .show();
     }
   }
 }

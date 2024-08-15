@@ -13,19 +13,19 @@ class AppProgressBasicWidget extends AppProgressBaseBuilder {
   @override
   Widget build(BuildContext context) {
     double lineHeight = AppThemeExt.of.majorScale(2);
-    Widget? trailing = AppTextBody2Widget(
-      text: '${(progress ?? 0) * 100}%',
+    Widget? trailing = Text(
+      '${(progress ?? 0) * 100}%',
     );
     if (appProgressSize == AppProgressSize.basicSmall) {
       lineHeight = AppThemeExt.of.majorScale(6 / 4);
-      trailing = AppTextBody3Widget(
-        text: '${(progress ?? 0) * 100}%',
+      trailing = Text(
+        '${(progress ?? 0) * 100}%',
       );
     }
     if (appProgressSize == AppProgressSize.basicMedium) {
       lineHeight = AppThemeExt.of.majorScale(2 / 4);
-      trailing = AppTextBody3Widget(
-        text: '${(progress ?? 0) * 100}%',
+      trailing = Text(
+        '${(progress ?? 0) * 100}%',
       );
     }
 

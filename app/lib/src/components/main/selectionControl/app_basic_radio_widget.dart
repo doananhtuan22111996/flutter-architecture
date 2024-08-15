@@ -51,7 +51,7 @@ class AppBasicRadioWidget<T> extends AppSelectionControlBaseBuilder<T> {
                     onValueChanged?.call(value);
                   },
           ),
-          if (label != null) AppTextBody2Widget(text: label)
+          if (label != null) Text(label!)
         ],
       ),
     );

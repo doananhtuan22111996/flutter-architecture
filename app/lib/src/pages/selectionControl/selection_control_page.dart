@@ -47,7 +47,7 @@ class SelectionControlPage extends GetWidget<SelectionControlController> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AppTextHeading4Widget(text: 'CheckBox'),
+        const Text('CheckBox'),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         const AppCheckBoxWidget(
           fieldKey: 'checkBox1',
@@ -71,7 +71,7 @@ class SelectionControlPage extends GetWidget<SelectionControlController> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AppTextHeading4Widget(text: 'Checkbox No Label'),
+        const Text('Checkbox No Label'),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         const AppCheckBoxWidget.noLabel(fieldKey: 'checkBox4', value: true),
         const AppCheckBoxWidget.noLabel(fieldKey: 'checkBox5', value: false),
@@ -89,7 +89,7 @@ class SelectionControlPage extends GetWidget<SelectionControlController> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AppTextHeading4Widget(text: 'Radio'),
+        const Text('Radio'),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         const AppBasicRadioWidget(
             fieldKey: 'radio1', label: 'Radio', value: true),
@@ -110,7 +110,7 @@ class SelectionControlPage extends GetWidget<SelectionControlController> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AppTextHeading4Widget(text: 'Radio No Label'),
+        const Text('Radio No Label'),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         const AppBasicRadioWidget.noLabel(fieldKey: 'radio1', value: true),
         const AppBasicRadioWidget.noLabel(fieldKey: 'radio2', value: false),

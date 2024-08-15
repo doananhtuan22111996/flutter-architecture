@@ -1,4 +1,3 @@
-import 'package:app/src/components/main/text/app_text_base_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 

@@ -1,5 +1,4 @@
 import 'package:app/src/components/main/badge/app_badge_base_builder.dart';
-import 'package:app/src/components/main/text/app_text_base_builder.dart';
 import 'package:app/src/config/app_theme_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -57,8 +56,8 @@ abstract class AppTabBaseBuilder extends StatelessWidget {
 
   Widget textBase(BuildContext context) {
     return appTabSize == AppTabSize.large
-        ? AppTextBody1Widget(text: label, textStyle: textStyle(context))
-        : AppTextBody2Widget(text: label, textStyle: textStyle(context));
+        ? Text(label ?? "", style: textStyle(context))
+        : Text(label ?? "", style: textStyle(context));
   }
 
   TextStyle? textStyle(BuildContext context) => appTabSize == AppTabSize.large

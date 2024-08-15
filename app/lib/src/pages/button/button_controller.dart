@@ -1,7 +1,5 @@
 import 'package:app/src/components/main/button/app_button_base_builder.dart';
-import 'package:app/src/components/main/iconButton/app_icon_button_base_builder.dart';
 import 'package:app/src/components/main/page/app_main_page_base_builder.dart';
-import 'package:app/src/components/main/text/app_text_base_builder.dart';
 import 'package:app/src/components/main/toast/app_toast_base_builder.dart';
 import 'package:app/src/routes/app_pages.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +15,6 @@ part 'button_page.dart';
 
 class ButtonController extends GetxController {
   void toast() {
-    const AppToastWidget(title: 'Clicked', appToastType: AppToastType.info)
-        .show();
+    const AppToastFixedWidget.message(messageText: 'Clicked').show();
   }
 }

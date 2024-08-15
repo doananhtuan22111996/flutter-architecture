@@ -57,7 +57,7 @@ class ProgressPage extends GetView<ProgressController> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AppTextHeading4Widget(text: 'Basic'),
+        const Text('Basic'),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         const AppProgressBasicWidget(progress: 0.3),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
@@ -75,10 +75,8 @@ class ProgressPage extends GetView<ProgressController> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AppTextHeading4Widget(
-            text: 'Basic With Number',
-            maxLines: 1,
-            textOverflow: TextOverflow.ellipsis),
+        const Text('Basic With Number',
+            maxLines: 1, overflow: TextOverflow.ellipsis),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         const AppProgressBasicWidget(progress: 0.3, isWithNumber: true),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
@@ -101,10 +99,10 @@ class ProgressPage extends GetView<ProgressController> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AppTextHeading4Widget(
-          text: 'Line Medium',
+        const Text(
+          'Line Medium',
           maxLines: 1,
-          textOverflow: TextOverflow.ellipsis,
+          overflow: TextOverflow.ellipsis,
         ),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         const AppProgressLineWidget(
@@ -133,10 +131,7 @@ class ProgressPage extends GetView<ProgressController> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AppTextHeading4Widget(
-            text: 'Line Large',
-            maxLines: 1,
-            textOverflow: TextOverflow.ellipsis),
+        const Text('Line Large', maxLines: 1, overflow: TextOverflow.ellipsis),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         const AppProgressLineWidget(
             progress: 0.3,
@@ -162,10 +157,10 @@ class ProgressPage extends GetView<ProgressController> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AppTextHeading4Widget(
-          text: 'Circle Medium',
+        const Text(
+          'Circle Medium',
           maxLines: 1,
-          textOverflow: TextOverflow.ellipsis,
+          overflow: TextOverflow.ellipsis,
         ),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         const AppProgressCircleWidget(
@@ -194,10 +189,10 @@ class ProgressPage extends GetView<ProgressController> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AppTextHeading4Widget(
-          text: 'Circle Large',
+        const Text(
+          'Circle Large',
           maxLines: 1,
-          textOverflow: TextOverflow.ellipsis,
+          overflow: TextOverflow.ellipsis,
         ),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         const AppProgressCircleWidget(

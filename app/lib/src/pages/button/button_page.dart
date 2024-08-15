@@ -56,7 +56,7 @@ class ButtonPage extends GetView<ButtonController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AppTextBody1Widget(text: 'Filled Button'),
+        const Text('Filled Button'),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         AppFilledButtonWidget.text(
           label: R.strings.button,
@@ -87,7 +87,7 @@ class ButtonPage extends GetView<ButtonController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AppTextBody1Widget(text: 'Outlined Button'),
+        const Text('Outlined Button'),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         AppOutlinedButtonWidget.text(
           label: R.strings.button,
@@ -118,7 +118,7 @@ class ButtonPage extends GetView<ButtonController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AppTextBody1Widget(text: 'Text Button'),
+        const Text('Text Button'),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         AppTextButtonWidget.text(
           label: R.strings.button,
@@ -149,7 +149,7 @@ class ButtonPage extends GetView<ButtonController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AppTextBody1Widget(text: 'Elevated Button'),
+        const Text('Elevated Button'),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         AppElevatedButtonWidget.text(
           label: R.strings.button,
@@ -180,7 +180,7 @@ class ButtonPage extends GetView<ButtonController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const AppTextBody1Widget(text: 'Tonal Button'),
+        const Text('Tonal Button'),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
         AppTonalButtonWidget.text(
           label: R.strings.button,

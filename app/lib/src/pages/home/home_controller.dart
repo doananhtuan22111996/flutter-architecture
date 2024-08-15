@@ -48,10 +48,7 @@ class HomeController extends GetxController {
       final deviceLangCode = Get.deviceLocale!.languageCode;
       langCode.value = lang.isEmpty ? deviceLangCode : lang;
     } on AppException catch (e) {
-      AppToastWidget(
-              title: 'Multiple Languages',
-              message: e.message,
-              appToastType: AppToastType.error)
+      AppToastFixedWidget.message(messageText: e.message ?? "Some thing wrong")
           .show();
     }
   }

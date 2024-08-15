@@ -1,10 +1,8 @@
 import 'package:app/src/components/main/button/app_button_base_builder.dart';
-import 'package:app/src/components/main/text/app_text_base_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../config/app_theme_ext.dart';
-import '../../../exts/R.dart';
 
 part 'app_dialog_default_widget.dart';
 
