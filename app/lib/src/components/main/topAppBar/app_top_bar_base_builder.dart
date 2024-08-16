@@ -34,7 +34,4 @@ abstract class AppTopBarBaseBuilder extends StatelessWidget {
     this.floating = false,
     this.snap = false,
   });
-
-  @override
-  Widget build(BuildContext context);
 }

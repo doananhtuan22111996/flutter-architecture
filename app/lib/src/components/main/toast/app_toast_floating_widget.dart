@@ -24,6 +24,7 @@ class AppToastFloatingWidget extends AppToastBaseBuilder {
       behavior: SnackBarBehavior.floating,
       action: action,
       actionOverflowThreshold: actionOverflowThreshold,
+
     );
     ScaffoldMessenger.of(Get.context!).showSnackBar(snackBar);
   }

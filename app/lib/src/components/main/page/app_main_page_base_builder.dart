@@ -8,6 +8,12 @@ abstract class AppMainPageBaseBuilder extends StatelessWidget {
   @protected
   final NestedScrollViewHeaderSliversBuilder headerSliverBuilder;
   @protected
+  final Widget? bottomAppBar;
+  @protected
+  final Widget? floatingActionButton;
+  @protected
+  final FloatingActionButtonLocation? floatingActionButtonLocation;
+  @protected
   final Widget? endDrawer;
   @protected
   final void Function(bool)? onEndDrawerChanged;
@@ -16,6 +22,9 @@ abstract class AppMainPageBaseBuilder extends StatelessWidget {
     super.key,
     required this.headerSliverBuilder,
     required this.body,
+    this.bottomAppBar,
+    this.floatingActionButton,
+    this.floatingActionButtonLocation,
     this.endDrawer,
     this.onEndDrawerChanged,
   });

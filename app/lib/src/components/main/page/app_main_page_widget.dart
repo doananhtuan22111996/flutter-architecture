@@ -5,6 +5,10 @@ class AppMainPageWidget extends AppMainPageBaseBuilder {
     super.key,
     required super.body,
     required super.headerSliverBuilder,
+    super.bottomAppBar,
+    super.floatingActionButton,
+    super.floatingActionButtonLocation =
+        FloatingActionButtonLocation.centerDocked,
     super.endDrawer,
     super.onEndDrawerChanged,
   });
@@ -18,6 +22,9 @@ class AppMainPageWidget extends AppMainPageBaseBuilder {
         endDrawer: endDrawer,
         endDrawerEnableOpenDragGesture: false,
         onEndDrawerChanged: onEndDrawerChanged,
+        bottomNavigationBar: bottomAppBar,
+        floatingActionButton: floatingActionButton,
+        floatingActionButtonLocation: floatingActionButtonLocation,
         body: NestedScrollView(
           headerSliverBuilder: headerSliverBuilder,
           body: body,

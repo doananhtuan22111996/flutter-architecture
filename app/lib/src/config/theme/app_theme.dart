@@ -16,33 +16,36 @@ class _AppThemeData {
     /// Use Default MaterialDesign FontFamily (Roboto)
     /// Only modify them color
     return ThemeData(
-      // Use Material Design version 3
-      useMaterial3: true,
-      brightness: colorScheme.brightness,
-      colorScheme: colorScheme,
-      textTheme: _AppTextStyle.textTheme.apply(
-        fontFamily: R.roboto,
-        displayColor: colorScheme.onSurface,
-        bodyColor: colorScheme.onSurface,
-        decorationColor: colorScheme.onSurface,
-      ),
-      scaffoldBackgroundColor: colorScheme.surface,
-      canvasColor: colorScheme.surface,
-      filledButtonTheme:
-          FilledButtonThemeData(style: _AppButtonStyle.filledButtonStyle),
-      textButtonTheme:
-          TextButtonThemeData(style: _AppButtonStyle.textButtonStyle),
-      outlinedButtonTheme:
-          OutlinedButtonThemeData(style: _AppButtonStyle.outlinedButtonStyle),
-      elevatedButtonTheme:
-          ElevatedButtonThemeData(style: _AppButtonStyle.elevatedButtonStyle),
-      // textSelectionTheme: TextSelectionThemeData(
-      //   cursorColor: appColor.primaryColor,
-      //   selectionColor: appColor.primaryColor,
-      //   selectionHandleColor: appColor.primaryColor,
-      // ),
-      // cupertinoOverrideTheme:
-      //     CupertinoThemeData(primaryColor: appColor.primaryColor),
-    );
+        // Use Material Design version 3
+        useMaterial3: true,
+        brightness: colorScheme.brightness,
+        colorScheme: colorScheme,
+        primaryTextTheme: _AppTextStyle.textTheme.apply(
+          fontFamily: R.roboto,
+          displayColor: colorScheme.onSurface,
+          bodyColor: colorScheme.onSurface,
+          decorationColor: colorScheme.onSurface,
+        ),
+        textTheme: _AppTextStyle.textTheme.apply(
+          fontFamily: R.roboto,
+          displayColor: colorScheme.onSurface,
+          bodyColor: colorScheme.onSurface,
+          decorationColor: colorScheme.onSurface,
+        ),
+        scaffoldBackgroundColor: colorScheme.surface,
+        canvasColor: colorScheme.surface,
+        filledButtonTheme:
+            FilledButtonThemeData(style: _AppButtonStyle.filledButtonStyle),
+        textButtonTheme:
+            TextButtonThemeData(style: _AppButtonStyle.textButtonStyle),
+        outlinedButtonTheme:
+            OutlinedButtonThemeData(style: _AppButtonStyle.outlinedButtonStyle),
+        elevatedButtonTheme:
+            ElevatedButtonThemeData(style: _AppButtonStyle.elevatedButtonStyle),
+        bottomAppBarTheme: BottomAppBarTheme(
+          color: colorScheme.surfaceContainer,
+          surfaceTintColor: colorScheme.surfaceTint,
+          shadowColor: colorScheme.shadow,
+        ));
   }
 }

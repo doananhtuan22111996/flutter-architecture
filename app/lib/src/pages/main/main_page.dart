@@ -13,6 +13,25 @@ class MainPage extends GetView<MainController> {
           forceElevated: innerBoxIsScrolled,
         ),
       ],
+      bottomAppBar: AppBottomBarWidget(
+        child: Row(
+          children: [
+            AppIconButtonWidget(icon: Icons.more_vert, onPressed: () => {}),
+            AppIconButtonWidget(icon: Icons.search, onPressed: () => {}),
+            AppIconButtonWidget(icon: Icons.favorite, onPressed: () => {}),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => AppToastFloatingWidget.action(
+            messageText:
+                "Two-line snackbar with action and close affordance, Two-line snackbar with action and close affordance",
+            action: SnackBarAction(
+              label: R.strings.submit,
+              onPressed: () => {},
+            )).show(),
+        child: const AppIconWidget(icon: Icons.add),
+      ),
       body: _body(context),
     );
   }
