@@ -14,11 +14,11 @@ class AppLoadingOverlayWidget {
       ..indicatorType = EasyLoadingIndicatorType.circle
       ..indicatorSize = AppThemeExt.of.majorScale(12)
       ..radius = AppThemeExt.of.majorScale(2)
-      ..backgroundColor = AppThemeExt.of.colorScheme.surface
-      ..indicatorColor = AppThemeExt.of.colorScheme.primary
-      ..progressColor = AppThemeExt.of.colorScheme.primary.withOpacity(0.6)
-      ..textColor = AppThemeExt.of.colorScheme.surface
-      ..maskColor = AppThemeExt.of.colorScheme.surface.withOpacity(0.6)
+      ..backgroundColor = Theme.of(context).colorScheme.surface
+      ..indicatorColor = Theme.of(context).colorScheme.primary
+      ..progressColor = Theme.of(context).colorScheme.primary.withOpacity(0.6)
+      ..textColor = Theme.of(context).colorScheme.surface
+      ..maskColor = Theme.of(context).colorScheme.surface.withOpacity(0.6)
       ..userInteractions = false
       ..dismissOnTap = false;
   }

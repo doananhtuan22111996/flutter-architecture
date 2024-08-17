@@ -1,7 +1,7 @@
 part of 'main_controller.dart';
 
 class MainPage extends GetView<MainController> {
-  const MainPage({super.key});
+   const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class MainPage extends GetView<MainController> {
         ),
       ],
       drawer: AppNavigationDrawerWidget(
-        children: controller.drawerItems,
+        children: controller.drawerItems(Theme.of(context)),
       ),
       bottomAppBar: AppBottomBarWidget(
         child: Row(
@@ -65,7 +65,8 @@ class MainPage extends GetView<MainController> {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(vertical: AppThemeExt.of.majorScale(2)),
-          child: Text('UI Kit', style: AppThemeExt.of.textTheme.headlineSmall),
+          child:
+              Text('UI Kit', style: Theme.of(context).textTheme.headlineSmall),
         ),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -141,8 +142,8 @@ class MainPage extends GetView<MainController> {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(vertical: AppThemeExt.of.majorScale(2)),
-          child:
-              Text('Flow Data', style: AppThemeExt.of.textTheme.headlineSmall),
+          child: Text('Flow Data',
+              style: Theme.of(context).textTheme.headlineSmall),
         ),
         Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -163,10 +164,12 @@ class MainPage extends GetView<MainController> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-            padding:
-                EdgeInsets.symmetric(vertical: AppThemeExt.of.majorScale(2)),
-            child: Text('Theme style',
-                style: AppThemeExt.of.textTheme.headlineSmall)),
+          padding: EdgeInsets.symmetric(vertical: AppThemeExt.of.majorScale(2)),
+          child: Text(
+            'Theme style',
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+        ),
         Text(R.strings.changeLanguage),
         Obx(
           () => ToggleButtons(
@@ -182,7 +185,7 @@ class MainPage extends GetView<MainController> {
             },
             children: controller.languages
                 .map((e) =>
-                    Text(e.name, style: AppThemeExt.of.textTheme.bodyMedium))
+                    Text(e.name, style: Theme.of(context).textTheme.bodyMedium))
                 .toList(),
           ),
         ),

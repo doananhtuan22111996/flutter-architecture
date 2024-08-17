@@ -13,7 +13,7 @@ class AppTooltipWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return JustTheTooltip(
-      backgroundColor: AppThemeExt.of.colorScheme.surface,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       triggerMode: TooltipTriggerMode.tap,
       content: Padding(
           padding: EdgeInsets.symmetric(
@@ -21,8 +21,10 @@ class AppTooltipWidget extends StatelessWidget {
               horizontal: AppThemeExt.of.majorScale(3)),
           child: Text(
             message,
-            style: AppThemeExt.of.textTheme.bodyMedium
-                ?.copyWith(color: AppThemeExt.of.colorScheme.onSurface),
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium
+                ?.copyWith(color: Theme.of(context).colorScheme.onSurface),
           )),
       child: child,
     );

@@ -29,12 +29,14 @@ class BadgePage extends GetView<BadgeController> {
           const AppBadgeWidget.small(),
           SizedBox(height: AppThemeExt.of.majorScale(2)),
           AppBadgeWidget.small(
-              backgroundColor: AppThemeExt.of.colorScheme.primary),
+              backgroundColor: Theme.of(context).colorScheme.primary),
           SizedBox(height: AppThemeExt.of.majorScale(2)),
           const AppBadgeWidget.large(count: 13),
           SizedBox(height: AppThemeExt.of.majorScale(2)),
           AppBadgeWidget.large(
-              count: 15, backgroundColor: AppThemeExt.of.colorScheme.primary),
+            count: 15,
+            backgroundColor: Theme.of(context).colorScheme.primary,
+          ),
         ],
       ),
     );

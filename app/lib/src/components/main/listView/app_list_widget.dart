@@ -49,7 +49,7 @@ class AppListWidget<BM extends BaseModel, BC extends AppListController<BM>>
             child: Text(
               R.strings.emptyMessage,
               textAlign: TextAlign.center,
-              style: AppThemeExt.of.textTheme.headlineMedium,
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
           )
         : ListView.builder(
@@ -75,7 +75,7 @@ class AppListWidget<BM extends BaseModel, BC extends AppListController<BM>>
           child: Text(
             R.strings.serverError,
             textAlign: TextAlign.center,
-            style: AppThemeExt.of.textTheme.headlineMedium,
+            style: Theme.of(context).textTheme.headlineMedium,
           ),
         ),
         AppFilledButtonWidget.text(

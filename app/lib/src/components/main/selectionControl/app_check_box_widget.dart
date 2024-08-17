@@ -46,14 +46,14 @@ class AppCheckBoxWidget extends AppSelectionControlBaseBuilder {
   }
 
   Color? get _activeColor => isDisabled == true
-      ? AppThemeExt.of.colorScheme.surface
-      : AppThemeExt.of.colorScheme.primary;
+      ? Theme.of(Get.context!).colorScheme.surface
+      : Theme.of(Get.context!).colorScheme.primary;
 
   Color get _sideColor => isDisabled == true
-      ? AppThemeExt.of.colorScheme.surface
-      : AppThemeExt.of.colorScheme.onSurface;
+      ? Theme.of(Get.context!).colorScheme.surface
+      : Theme.of(Get.context!).colorScheme.onSurface;
 
   Color? get _labelColor => isDisabled == true
-      ? AppThemeExt.of.colorScheme.onSurface
-      : AppThemeExt.of.colorScheme.primary;
+      ? Theme.of(Get.context!).colorScheme.onSurface
+      : Theme.of(Get.context!).colorScheme.primary;
 }

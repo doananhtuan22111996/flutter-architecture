@@ -34,8 +34,8 @@ class AppProgressBasicWidget extends AppProgressBaseBuilder {
       lineHeight: lineHeight,
       percent: progress ?? 0,
       barRadius: Radius.circular(AppThemeExt.of.majorScale(25)),
-      backgroundColor: AppThemeExt.of.colorScheme.surface,
-      progressColor: AppThemeExt.of.colorScheme.primary,
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      progressColor: Theme.of(context).colorScheme.primary,
       trailing: isWithNumber == true ? trailing : null,
     );
   }

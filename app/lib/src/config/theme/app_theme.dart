@@ -20,12 +20,6 @@ class _AppThemeData {
         useMaterial3: true,
         brightness: colorScheme.brightness,
         colorScheme: colorScheme,
-        primaryTextTheme: _AppTextStyle.textTheme.apply(
-          fontFamily: R.roboto,
-          displayColor: colorScheme.onSurface,
-          bodyColor: colorScheme.onSurface,
-          decorationColor: colorScheme.onSurface,
-        ),
         textTheme: _AppTextStyle.textTheme.apply(
           fontFamily: R.roboto,
           displayColor: colorScheme.onSurface,

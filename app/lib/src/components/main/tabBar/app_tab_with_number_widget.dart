@@ -36,7 +36,7 @@ class AppTabWithNumberWidget extends AppTabBaseBuilder {
     return isSelected == true
         ? AppBadgeWidget.large(
             count: number ?? 0,
-            backgroundColor: AppThemeExt.of.colorScheme.primary,
+            backgroundColor: Theme.of(context).colorScheme.primary,
           )
         : AppBadgeWidget.large(count: number ?? 0);
   }

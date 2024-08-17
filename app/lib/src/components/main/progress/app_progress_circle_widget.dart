@@ -16,7 +16,7 @@ class AppProgressCircleWidget extends AppProgressBaseBuilder {
       percent: progress ?? 0,
       center: _center(context),
       progressColor: _progressColor,
-      backgroundColor: AppThemeExt.of.colorScheme.onSurface,
+      backgroundColor: Theme.of(context).colorScheme.onSurface,
       circularStrokeCap: CircularStrokeCap.round,
     );
   }
@@ -39,12 +39,12 @@ class AppProgressCircleWidget extends AppProgressBaseBuilder {
 
   Color get _progressColor {
     if (appProgressType == AppProgressType.error) {
-      return AppThemeExt.of.colorScheme.error;
+      return Theme.of(Get.context!).colorScheme.error;
     }
     if (appProgressType == AppProgressType.success) {
-      return AppThemeExt.of.colorScheme.primary;
+      return Theme.of(Get.context!).colorScheme.primary;
     }
-    return AppThemeExt.of.colorScheme.secondary;
+    return Theme.of(Get.context!).colorScheme.secondary;
   }
 
   double get _progressSize {

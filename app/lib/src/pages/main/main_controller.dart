@@ -38,29 +38,31 @@ class MainController extends GetxController {
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final RxList<AppNavigationDrawerItemWidget> drawerItems = [
-    AppNavigationDrawerItemWidget(
-      icon: const AppIconWidget(icon: Icons.widgets_outlined),
-      label: Text(
-        "Messages",
-        style: AppThemeExt.of.textTheme.bodyLarge,
+  RxList<AppNavigationDrawerItemWidget> drawerItems(ThemeData themeData) {
+    return [
+      AppNavigationDrawerItemWidget(
+        icon: const AppIconWidget(icon: Icons.widgets_outlined),
+        label: Text(
+          "Messages",
+          style: themeData.textTheme.bodyLarge,
+        ),
       ),
-    ),
-    AppNavigationDrawerItemWidget(
-      icon: const AppIconWidget(icon: Icons.format_paint_outlined),
-      label: Text(
-        "Profile",
-        style: AppThemeExt.of.textTheme.bodyLarge,
+      AppNavigationDrawerItemWidget(
+        icon: const AppIconWidget(icon: Icons.format_paint_outlined),
+        label: Text(
+          "Profile",
+          style: themeData.textTheme.bodyLarge,
+        ),
       ),
-    ),
-    AppNavigationDrawerItemWidget(
-      icon: const AppIconWidget(icon: Icons.settings_outlined),
-      label: Text(
-        "Settings",
-        style: AppThemeExt.of.textTheme.bodyLarge,
+      AppNavigationDrawerItemWidget(
+        icon: const AppIconWidget(icon: Icons.settings_outlined),
+        label: Text(
+          "Settings",
+          style: themeData.textTheme.bodyLarge,
+        ),
       ),
-    ),
-  ].obs;
+    ].obs;
+  }
 
   final List<LanguageModel> languages = [
     LanguageModel(
@@ -138,9 +140,11 @@ class MainController extends GetxController {
           ThemeMode.values.firstWhere((element) => element.name == theme);
       await _appUseCase.setThemeMode(theme);
       Get.changeThemeMode(themeMode);
-      Get.changeTheme(themeMode == ThemeMode.dark
-          ? AppThemeExt.of.darkTheme
-          : AppThemeExt.of.lightTheme);
+      Get.changeTheme(
+        themeMode == ThemeMode.dark
+            ? AppThemeExt.of.darkTheme
+            : AppThemeExt.of.lightTheme,
+      );
     } on AppException catch (e) {
       AppToastFixedWidget.message(messageText: e.message ?? "Some thing wrong")
           .show();

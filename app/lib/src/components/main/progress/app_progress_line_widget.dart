@@ -21,7 +21,7 @@ class AppProgressLineWidget extends AppProgressBaseBuilder {
       lineHeight: lineHeight,
       percent: progress ?? 0,
       barRadius: Radius.circular(AppThemeExt.of.majorScale(25)),
-      backgroundColor: AppThemeExt.of.colorScheme.onSurface,
+      backgroundColor: Theme.of(context).colorScheme.onSurface,
       progressColor: _progressColor,
       trailing: _trainingW(context),
     );
@@ -46,11 +46,11 @@ class AppProgressLineWidget extends AppProgressBaseBuilder {
 
   Color get _progressColor {
     if (appProgressType == AppProgressType.error) {
-      return AppThemeExt.of.colorScheme.error;
+      return Theme.of(Get.context!).colorScheme.error;
     }
     if (appProgressType == AppProgressType.success) {
-      return AppThemeExt.of.colorScheme.primary;
+      return Theme.of(Get.context!).colorScheme.primary;
     }
-    return AppThemeExt.of.colorScheme.secondary;
+    return Theme.of(Get.context!).colorScheme.secondary;
   }
 }

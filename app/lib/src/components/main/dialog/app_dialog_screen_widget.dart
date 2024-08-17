@@ -19,7 +19,7 @@ class AppScreenDialogWidget extends _AppDialogBaseBuilder {
             : Icon(Icons.warning);
     return Dialog.fullscreen(
       child: Container(
-        color: AppThemeExt.of.colorScheme.primary,
+        color: Theme.of(context).colorScheme.primary,
         padding: EdgeInsets.all(AppThemeExt.of.majorScale(6)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

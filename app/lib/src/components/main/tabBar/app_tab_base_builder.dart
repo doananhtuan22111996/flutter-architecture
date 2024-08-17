@@ -63,14 +63,14 @@ abstract class AppTabBaseBuilder extends StatelessWidget {
   TextStyle? textStyle(BuildContext context) => appTabSize == AppTabSize.large
       ? isSelected == true
           ? context.textTheme.bodyLarge?.copyWith(color: colorBase)
-          : AppThemeExt.of.textTheme.bodyMedium?.copyWith(color: colorBase)
+          : Theme.of(context).textTheme.bodyMedium?.copyWith(color: colorBase)
       : isSelected == true
           ? context.textTheme.bodyMedium?.copyWith(color: colorBase)
-          : AppThemeExt.of.textTheme.bodyMedium?.copyWith(color: colorBase);
+          : Theme.of(context).textTheme.bodyMedium?.copyWith(color: colorBase);
 
   Color? get colorBase => isSelected == true
-      ? AppThemeExt.of.colorScheme.primary
-      : AppThemeExt.of.colorScheme.secondary;
+      ? Theme.of(Get.context!).colorScheme.primary
+      : Theme.of(Get.context!).colorScheme.secondary;
 
   EdgeInsetsGeometry get paddingBase => appTabSize == AppTabSize.large
       ? EdgeInsets.symmetric(

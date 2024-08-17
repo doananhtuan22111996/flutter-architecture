@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../exts/R.dart';
 
@@ -22,15 +21,6 @@ class AppThemeExt {
   final lightTheme = _AppThemeData.lightTheme;
 
   final darkTheme = _AppThemeData.darkTheme;
-
-  final colorScheme = Get.theme.colorScheme;
-
-  final textTheme = Get.theme.textTheme.apply(
-    fontFamily: R.roboto,
-    displayColor: Get.theme.colorScheme.onSurface,
-    bodyColor: Get.theme.colorScheme.onSurface,
-    decorationColor: Get.theme.colorScheme.onSurface,
-  );
 
   double Function(num x) get majorScale => (x) => _sizeBase * x;
 }

@@ -1,6 +1,7 @@
 import 'package:app/src/config/app_theme_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:get/get.dart';
 
 part 'app_check_box_widget.dart';
 

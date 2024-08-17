@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 import '../../../config/app_theme_ext.dart';
-import '../../../exts/R.dart';
 
 part 'app_progress_basic_widget.dart';
 

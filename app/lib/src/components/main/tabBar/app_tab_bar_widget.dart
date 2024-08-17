@@ -84,7 +84,7 @@ class _AppTabBarWidgetState extends State<AppTabBarWidget>
         padding: EdgeInsets.zero,
         labelPadding: EdgeInsets.zero,
         dividerColor: Colors.transparent,
-        indicatorColor: AppThemeExt.of.colorScheme.primary,
+        indicatorColor: Theme.of(context).colorScheme.primary,
         indicatorPadding: EdgeInsets.zero,
         indicatorSize: TabBarIndicatorSize.tab,
         // overlayColor: MaterialStateProperty.resolveWith<Color?>(

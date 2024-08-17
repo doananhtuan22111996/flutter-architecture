@@ -58,6 +58,6 @@ class AppBasicRadioWidget<T> extends AppSelectionControlBaseBuilder<T> {
   }
 
   Color? get _labelColor => isDisabled == true
-      ? AppThemeExt.of.colorScheme.onSurfaceVariant
-      : AppThemeExt.of.colorScheme.primary;
+      ? Theme.of(Get.context!).colorScheme.onSurfaceVariant
+      : Theme.of(Get.context!).colorScheme.primary;
 }
