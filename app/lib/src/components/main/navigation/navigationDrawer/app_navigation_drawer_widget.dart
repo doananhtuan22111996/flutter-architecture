@@ -1,20 +1,20 @@
-part of 'app_navigation_bar_base_builder.dart';
+part of 'app_navigation_drawer_base_builder.dart';
 
-class AppNavigationBarWidget extends _AppNavigationBarBaseBuilder {
-  AppNavigationBarWidget({
+class AppNavigationDrawerWidget extends _AppNavigationDrawerBaseBuilder {
+  const AppNavigationDrawerWidget({
     super.key,
-    required super.destinations,
+    required super.children,
     super.selectedIndex,
     super.onDestinationSelected,
   });
 
   @override
   Widget build(BuildContext context) {
-    return NavigationBar(
+    return NavigationDrawer(
       key: key,
-      destinations: destinations,
       selectedIndex: selectedIndex,
       onDestinationSelected: onDestinationSelected,
+      children: children,
     );
   }
 }

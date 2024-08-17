@@ -3,12 +3,15 @@ part of 'app_main_page_base_builder.dart';
 class AppMainPageWidget extends AppMainPageBaseBuilder {
   const AppMainPageWidget({
     super.key,
+    super.scaffoldKey,
     required super.body,
     required super.headerSliverBuilder,
     super.bottomAppBar,
     super.floatingActionButton,
     super.floatingActionButtonLocation =
         FloatingActionButtonLocation.centerDocked,
+    super.drawer,
+    super.onDrawerChanged,
     super.endDrawer,
     super.onEndDrawerChanged,
   });
@@ -18,7 +21,10 @@ class AppMainPageWidget extends AppMainPageBaseBuilder {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        key: key,
+        key: scaffoldKey,
+        drawer: drawer,
+        onDrawerChanged: onDrawerChanged,
+        drawerEnableOpenDragGesture: false,
         endDrawer: endDrawer,
         endDrawerEnableOpenDragGesture: false,
         onEndDrawerChanged: onEndDrawerChanged,

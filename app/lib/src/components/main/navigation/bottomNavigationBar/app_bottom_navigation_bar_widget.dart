@@ -1,6 +1,6 @@
 part of 'app_bottom_navigation_bar_base_builder.dart';
 
-class AppBottomNavigationBarWidget extends AppBottomNavigationBarBaseBuilder {
+class AppBottomNavigationBarWidget extends _AppBottomNavigationBarBaseBuilder {
   const AppBottomNavigationBarWidget({
     super.key,
     required super.items,
@@ -8,6 +8,6 @@ class AppBottomNavigationBarWidget extends AppBottomNavigationBarBaseBuilder {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(items: items);
+    return BottomNavigationBar(key: key, items: items);
   }
 }

@@ -1,23 +1,22 @@
-part of 'app_navigation_bar_item_base_builder.dart';
+part of 'app_navigation_drawer_item_base_builder.dart';
 
-class AppNavigationBarItemWidget extends _AppNavigationBarItemBaseBuilder {
-  const AppNavigationBarItemWidget({
+class AppNavigationDrawerItemWidget
+    extends _AppNavigationDrawerItemBaseBuilder {
+  const AppNavigationDrawerItemWidget({
     required super.icon,
     required super.label,
     super.enabled,
     super.selectedIcon,
-    super.tooltip,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return NavigationDestination(
+    return NavigationDrawerDestination(
       key: key,
       icon: icon,
       selectedIcon: selectedIcon,
       label: label,
-      tooltip: tooltip,
       enabled: enabled,
     );
   }

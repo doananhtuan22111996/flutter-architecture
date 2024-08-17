@@ -6,13 +6,20 @@ class MainPage extends GetView<MainController> {
   @override
   Widget build(BuildContext context) {
     return AppMainPageWidget(
+      scaffoldKey: controller.scaffoldKey,
       headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
         AppTopBarWidget.large(
           title: R.strings.homeView,
-          leading: const AppIconButtonWidget(icon: Icons.menu),
+          leading: AppIconButtonWidget(
+            icon: Icons.menu,
+            onPressed: () => controller.scaffoldKey.currentState?.openDrawer(),
+          ),
           forceElevated: innerBoxIsScrolled,
         ),
       ],
+      drawer: AppNavigationDrawerWidget(
+        children: controller.drawerItems,
+      ),
       bottomAppBar: AppBottomBarWidget(
         child: Row(
           children: [
