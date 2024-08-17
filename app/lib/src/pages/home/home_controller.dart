@@ -1,3 +1,8 @@
+import 'package:app/src/components/main/bottomNavigationBar/app_bottom_navigation_bar_base_builder.dart';
+import 'package:app/src/components/main/bottomNavigationBar/item/app_bottom_navigation_bar_item_base_builder.dart';
+import 'package:app/src/components/main/icon/app_icon_base_builder.dart';
+import 'package:app/src/components/main/navigationBar/app_navigation_bar_base_builder.dart';
+import 'package:app/src/components/main/navigationBar/item/app_navigation_bar_item_base_builder.dart';
 import 'package:app/src/components/main/page/app_main_page_base_builder.dart';
 import 'package:app/src/components/main/tabBar/app_tab_base_builder.dart';
 import 'package:app/src/pages/home/view/paging/paging_controller.dart';
@@ -19,6 +24,28 @@ class HomeController extends GetxController {
   late final AppUseCase _appUseCase;
 
   HomeController(this._appUseCase);
+
+  final RxList<AppBottomNavigationBarItemWidget> bottomTabs = [
+    AppBottomNavigationBarItemWidget(
+      icon: const AppIconWidget(icon: Icons.home),
+      label: "Home",
+    ),
+    AppBottomNavigationBarItemWidget(
+      icon: const AppIconWidget(icon: Icons.notifications),
+      label: "Notification",
+    ),
+  ].obs;
+
+  final RxList<AppNavigationBarItemWidget> destinationTabs = [
+    const AppNavigationBarItemWidget(
+      icon: AppIconWidget(icon: Icons.home),
+      label: "Home",
+    ),
+    const AppNavigationBarItemWidget(
+      icon: AppIconWidget(icon: Icons.notifications),
+      label: "Notification",
+    ),
+  ].obs;
 
   final RxList<AppTabWithNumberWidget> numberTabs = [
     const AppTabWithNumberWidget(

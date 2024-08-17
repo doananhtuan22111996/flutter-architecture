@@ -16,6 +16,8 @@ class HomePage extends GetView<HomeController> {
           forceElevated: innerBoxIsScrolled,
         )
       ],
+      bottomAppBar:
+          AppNavigationBarWidget(destinations: controller.destinationTabs),
       body: _body(context),
     );
   }

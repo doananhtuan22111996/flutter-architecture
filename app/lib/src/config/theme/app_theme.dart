@@ -43,8 +43,11 @@ class _AppThemeData {
         elevatedButtonTheme:
             ElevatedButtonThemeData(style: _AppButtonStyle.elevatedButtonStyle),
         bottomAppBarTheme: BottomAppBarTheme(
-          color: colorScheme.surfaceContainer,
-          surfaceTintColor: colorScheme.surfaceTint,
+          elevation: 8,
+          shadowColor: colorScheme.shadow,
+        ),
+        navigationBarTheme: NavigationBarThemeData(
+          elevation: 8,
           shadowColor: colorScheme.shadow,
         ));
   }

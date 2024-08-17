@@ -9,10 +9,13 @@ abstract class AppBadgeBaseBuilder extends StatelessWidget {
   final int count;
   @protected
   final Color? backgroundColor;
+  @protected
+  final Widget? child;
 
   const AppBadgeBaseBuilder({
     super.key,
     required this.backgroundColor,
     this.count = 0,
+    this.child,
   });
 }
