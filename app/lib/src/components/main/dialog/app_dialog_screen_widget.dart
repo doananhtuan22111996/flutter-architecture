@@ -3,85 +3,51 @@ part of 'app_dialog_base_builder.dart';
 class AppScreenDialogWidget extends _AppDialogBaseBuilder {
   const AppScreenDialogWidget({
     super.key,
-    super.title,
-    super.content,
-    super.positiveText,
-    super.negativeText,
-    super.appDialogType,
+    required super.icon,
+    required super.title,
+    required super.content,
+    super.actions,
   });
 
   @override
   Widget build(BuildContext context) {
-    Widget icon = appDialogType == AppDialogType.success
-        ? Icon(Icons.check)
-        : appDialogType == AppDialogType.error
-            ? Icon(Icons.error)
-            : Icon(Icons.warning);
     return Dialog.fullscreen(
-      child: Container(
-        color: Theme.of(context).colorScheme.primary,
-        padding: EdgeInsets.all(AppThemeExt.of.majorScale(6)),
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: AppThemeExt.of.majorScale(6)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
           children: [
-            Expanded(child: _container(context, icon)),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                if (negativeText != null)
-                  Expanded(
-                    child: AppOutlinedButtonWidget.text(
-                      label: negativeText!,
-                      onPressed: () {
-                        Get.back();
-                        onNegative?.call();
-                      },
-                    ),
-                  ),
-                if (negativeText != null)
-                  SizedBox(width: AppThemeExt.of.majorScale(3)),
-                if (positiveText != null)
-                  Expanded(
-                    child: AppFilledButtonWidget.text(
-                      label: positiveText!,
-                      onPressed: () {
-                        Get.back();
-                        onPositive?.call();
-                      },
-                    ).build(context),
-                  ),
-              ],
+            icon,
+            SizedBox(height: AppThemeExt.of.majorScale(4)),
+            Text(
+              title,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
+            if (content != null)
+              Padding(
+                padding: EdgeInsets.all(AppThemeExt.of.majorScale(2)),
+                child: Text(
+                  content!,
+                  style: Theme.of(context).textTheme.bodySmall,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            for (final item in actions ??
+                [
+                  SizedBox(
+                    width: double.infinity,
+                    child: AppFilledButtonWidget.text(
+                      label: R.strings.close,
+                      onPressed: () => Get.back(),
+                    ),
+                  )
+                ])
+              item
           ],
         ),
       ),
-    );
-  }
-
-  Widget _container(BuildContext context, Widget icon) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        SizedBox(height: AppThemeExt.of.majorScale(2)),
-        icon,
-        if (title != null)
-          Padding(
-            padding:
-                EdgeInsets.symmetric(vertical: AppThemeExt.of.majorScale(3)),
-            child: Text(
-              title!,
-              textAlign: TextAlign.center,
-            ),
-          ),
-        if (content != null)
-          Text(
-            content!,
-            textAlign: TextAlign.center,
-          ),
-      ],
     );
   }
 }

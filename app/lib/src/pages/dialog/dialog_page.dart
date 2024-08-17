@@ -31,41 +31,16 @@ class DialogPage extends GetView<DialogController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AppFilledButtonWidget.text(
-                label: 'Dialog Success',
-                onPressed: () => controller.dialogSuccess(),
+                label: 'Dialog Alert',
+                onPressed: () => controller.dialogAlert(),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(
                     vertical: AppThemeExt.of.majorScale(2)),
                 child: AppFilledButtonWidget.text(
-                  label: 'Dialog error',
-                  onPressed: () => controller.dialogError(),
+                  label: 'Dialog Full Screen',
+                  onPressed: () => controller.dialogFullScreen(),
                 ),
-              ),
-              AppFilledButtonWidget.text(
-                label: 'Dialog confirm',
-                onPressed: () => controller.dialogConfirm(),
-              ),
-            ],
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              AppFilledButtonWidget.text(
-                label: 'Dialog Screen Success',
-                onPressed: () => controller.dialogScreenSuccess(),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                    vertical: AppThemeExt.of.majorScale(2)),
-                child: AppFilledButtonWidget.text(
-                  label: 'Dialog Screen error',
-                  onPressed: () => controller.dialogScreenError(),
-                ),
-              ),
-              AppFilledButtonWidget.text(
-                label: 'Dialog Screen confirm',
-                onPressed: () => controller.dialogScreenConfirm(),
               ),
             ],
           ),

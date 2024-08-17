@@ -1,48 +1,31 @@
 import 'package:app/src/components/main/button/app_button_base_builder.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../config/app_theme_ext.dart';
+import '../../../exts/R.dart';
 
-part 'app_dialog_default_widget.dart';
+part 'app_alert_dialog_widget.dart';
 
 part 'app_dialog_screen_widget.dart';
 
-enum AppDialogType {
-  success(type: 'success'),
-  error(type: 'error'),
-  confirm(type: 'confirm');
-
-  final String type;
-
-  const AppDialogType({required this.type});
-}
-
-abstract class _AppDialogBaseBuilder extends Dialog {
+abstract class _AppDialogBaseBuilder extends StatelessWidget {
   @protected
-  final String? title;
+  final Widget icon;
+  @protected
+  final String title;
   @protected
   final String? content;
   @protected
-  final String? positiveText;
-  @protected
-  final String? negativeText;
-  @protected
-  final AppDialogType? appDialogType;
-  @protected
-  final void Function()? onPositive;
-  @protected
-  final void Function()? onNegative;
+  final List<Widget>? actions;
 
   const _AppDialogBaseBuilder({
     super.key,
-    this.title,
-    this.content,
-    this.positiveText,
-    this.negativeText,
-    this.appDialogType,
-    this.onPositive,
-    this.onNegative,
+    required this.icon,
+    required this.title,
+    required this.content,
+    this.actions,
   });
 
   void show() {
