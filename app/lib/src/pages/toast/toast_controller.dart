@@ -5,7 +5,7 @@ import 'package:app/src/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../components/main/topAppBar/app_top_bar_base_builder.dart';
+import '../../components/main/appBar/topAppBar/app_top_bar_base_builder.dart';
 import '../../config/app_theme_ext.dart';
 
 part 'toast_binding.dart';

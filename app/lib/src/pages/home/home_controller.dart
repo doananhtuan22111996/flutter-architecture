@@ -1,8 +1,6 @@
-import 'package:app/src/components/main/bottomNavigationBar/app_bottom_navigation_bar_base_builder.dart';
-import 'package:app/src/components/main/bottomNavigationBar/item/app_bottom_navigation_bar_item_base_builder.dart';
 import 'package:app/src/components/main/icon/app_icon_base_builder.dart';
-import 'package:app/src/components/main/navigationBar/app_navigation_bar_base_builder.dart';
-import 'package:app/src/components/main/navigationBar/item/app_navigation_bar_item_base_builder.dart';
+import 'package:app/src/components/main/navigation/navigationBar/app_navigation_bar_base_builder.dart';
+import 'package:app/src/components/main/navigation/navigationBar/item/app_navigation_bar_item_base_builder.dart';
 import 'package:app/src/components/main/page/app_main_page_base_builder.dart';
 import 'package:app/src/components/main/tabBar/app_tab_base_builder.dart';
 import 'package:app/src/pages/home/view/paging/paging_controller.dart';
@@ -12,8 +10,9 @@ import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../components/main/navigation/bottomNavigationBar/item/app_bottom_navigation_bar_item_base_builder.dart';
 import '../../components/main/toast/app_toast_base_builder.dart';
-import '../../components/main/topAppBar/app_top_bar_base_builder.dart';
+import '../../components/main/appBar/topAppBar/app_top_bar_base_builder.dart';
 import '../../exts/R.dart';
 
 part 'home_binding.dart';

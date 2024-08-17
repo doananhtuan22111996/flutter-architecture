@@ -11,7 +11,7 @@ import 'package:utilities/utilities.dart';
 
 import '../../components/main/loading/app_loading_overlay_indicator.dart';
 import '../../components/main/toast/app_toast_base_builder.dart';
-import '../../components/main/topAppBar/app_top_bar_base_builder.dart';
+import '../../components/main/appBar/topAppBar/app_top_bar_base_builder.dart';
 import '../../config/app_theme_ext.dart';
 import '../../exts/R.dart';
 

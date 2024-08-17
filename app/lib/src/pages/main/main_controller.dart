@@ -1,4 +1,4 @@
-import 'package:app/src/components/main/bottomAppBar/app_bottom_bar_base_builder.dart';
+import 'package:app/src/components/main/appBar/bottomAppBar/app_bottom_bar_base_builder.dart';
 import 'package:app/src/components/main/icon/app_icon_base_builder.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
@@ -21,7 +21,7 @@ import 'package:app/src/pages/selectionControl/selection_control_controller.dart
 import 'package:app/src/pages/textField/text_field_controller.dart';
 
 import '../../components/main/iconButton/app_icon_button_base_builder.dart';
-import '../../components/main/topAppBar/app_top_bar_base_builder.dart';
+import '../../components/main/appBar/topAppBar/app_top_bar_base_builder.dart';
 import '../../config/app_theme_ext.dart';
 import '../../exts/R.dart';
 
