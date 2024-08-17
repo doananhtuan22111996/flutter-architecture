@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 part 'app_icon_widget.dart';
 
-abstract class AppIconBaseBuilder extends StatelessWidget {
+abstract class _AppIconBaseBuilder extends StatelessWidget {
   @protected
   final IconData icon;
 
-  const AppIconBaseBuilder({
+  const _AppIconBaseBuilder({
     super.key,
     required this.icon,
   });

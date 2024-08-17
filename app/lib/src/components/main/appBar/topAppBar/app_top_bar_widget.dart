@@ -1,6 +1,6 @@
 part of 'app_top_bar_base_builder.dart';
 
-class AppTopBarWidget extends AppTopBarBaseBuilder {
+class AppTopBarWidget extends _AppTopBarBaseBuilder {
   const AppTopBarWidget({
     super.key,
     required super.title,

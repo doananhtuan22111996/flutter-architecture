@@ -1,6 +1,6 @@
 part of 'app_button_base_builder.dart';
 
-class AppFilledButtonWidget extends AppButtonBaseBuilder {
+class AppFilledButtonWidget extends _AppButtonBaseBuilder {
   const AppFilledButtonWidget.text({
     super.key,
     required super.label,

@@ -8,7 +8,7 @@ part 'app_date_range_picker_widget.dart';
 
 part 'app_time_picker_widget.dart';
 
-abstract class AppDatePickerBaseBuilder<T> extends StatelessWidget {
+abstract class _AppDatePickerBaseBuilder<T> extends StatelessWidget {
   @protected
   final GlobalKey<FormBuilderFieldState>? fieldState;
 
@@ -42,7 +42,7 @@ abstract class AppDatePickerBaseBuilder<T> extends StatelessWidget {
 
   final ValueNotifier<String?> _errorNotifier = ValueNotifier<String?>(null);
 
-  AppDatePickerBaseBuilder({
+  _AppDatePickerBaseBuilder({
     super.key,
     required this.fieldKey,
     required this.labelText,

@@ -1,4 +1,3 @@
-import 'package:app/src/config/app_theme_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -9,7 +8,7 @@ part 'app_text_field_widget.dart';
 
 enum _AppTextFieldType { filled, outlined }
 
-abstract class AppTextFieldBaseBuilder extends StatelessWidget {
+abstract class _AppTextFieldBaseBuilder extends StatelessWidget {
   @protected
   final GlobalKey<FormBuilderFieldState>? fieldState;
 
@@ -57,7 +56,7 @@ abstract class AppTextFieldBaseBuilder extends StatelessWidget {
   @protected
   final void Function(String?)? onSaved;
 
-  AppTextFieldBaseBuilder({
+  _AppTextFieldBaseBuilder({
     super.key,
     required this.fieldKey,
     required this.labelText,

@@ -1,6 +1,6 @@
 part of 'app_dialog_base_builder.dart';
 
-class AppScreenDialogWidget extends AppDialogBaseBuilder {
+class AppScreenDialogWidget extends _AppDialogBaseBuilder {
   const AppScreenDialogWidget({
     super.key,
     super.title,

@@ -1,6 +1,6 @@
 part of 'app_dialog_base_builder.dart';
 
-class AppDefaultDialogWidget extends AppDialogBaseBuilder {
+class AppDefaultDialogWidget extends _AppDialogBaseBuilder {
   const AppDefaultDialogWidget({
     super.key,
     super.title,

@@ -10,7 +10,7 @@ part 'app_elevated_button_widget.dart';
 
 part 'app_tonal_button_widget.dart';
 
-abstract class AppButtonBaseBuilder extends StatelessWidget {
+abstract class _AppButtonBaseBuilder extends StatelessWidget {
   @protected
   final String label;
   @protected
@@ -20,7 +20,7 @@ abstract class AppButtonBaseBuilder extends StatelessWidget {
   @protected
   final void Function()? onPressed;
 
-  const AppButtonBaseBuilder({
+  const _AppButtonBaseBuilder({
     super.key,
     required this.label,
     this.icon,

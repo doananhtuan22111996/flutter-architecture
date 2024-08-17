@@ -1,6 +1,6 @@
 part of 'app_button_base_builder.dart';
 
-class AppElevatedButtonWidget extends AppButtonBaseBuilder {
+class AppElevatedButtonWidget extends _AppButtonBaseBuilder {
   const AppElevatedButtonWidget.text({
     super.key,
     required super.label,

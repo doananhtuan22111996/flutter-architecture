@@ -1,6 +1,6 @@
 part of 'app_text_field_base_builder.dart';
 
-class AppTextFieldWidget extends AppTextFieldBaseBuilder {
+class AppTextFieldWidget extends _AppTextFieldBaseBuilder {
   AppTextFieldWidget.filled({
     super.key,
     required super.fieldKey,

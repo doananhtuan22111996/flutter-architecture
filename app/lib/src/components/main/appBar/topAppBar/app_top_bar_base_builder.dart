@@ -8,7 +8,7 @@ enum _AppTopBarType {
   large;
 }
 
-abstract class AppTopBarBaseBuilder extends StatelessWidget {
+abstract class _AppTopBarBaseBuilder extends StatelessWidget {
   @protected
   final String title;
   @protected
@@ -24,7 +24,7 @@ abstract class AppTopBarBaseBuilder extends StatelessWidget {
   @protected
   final bool snap;
 
-  const AppTopBarBaseBuilder({
+  const _AppTopBarBaseBuilder({
     super.key,
     required this.title,
     this.leading,

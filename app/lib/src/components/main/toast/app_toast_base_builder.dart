@@ -5,7 +5,7 @@ part 'app_toast_fixed_widget.dart';
 
 part 'app_toast_floating_widget.dart';
 
-abstract class AppToastBaseBuilder {
+abstract class _AppToastBaseBuilder {
   @protected
   final bool? showCloseIcon;
   @protected
@@ -15,7 +15,7 @@ abstract class AppToastBaseBuilder {
   @protected
   final double? actionOverflowThreshold;
 
-  const AppToastBaseBuilder({
+  const _AppToastBaseBuilder({
     required this.messageText,
     this.showCloseIcon,
     this.action,

@@ -1,6 +1,6 @@
 part of 'app_bottom_bar_base_builder.dart';
 
-class AppBottomBarWidget extends AppBottomBarBaseBuilder {
+class AppBottomBarWidget extends _AppBottomBarBaseBuilder {
   const AppBottomBarWidget({
     super.key,
     required super.child,

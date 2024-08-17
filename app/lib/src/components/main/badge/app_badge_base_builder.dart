@@ -4,7 +4,7 @@ part 'app_badge_widget.dart';
 
 enum _AppBadgeType { small, large }
 
-abstract class AppBadgeBaseBuilder extends StatelessWidget {
+abstract class _AppBadgeBaseBuilder extends StatelessWidget {
   @protected
   final int count;
   @protected
@@ -12,7 +12,7 @@ abstract class AppBadgeBaseBuilder extends StatelessWidget {
   @protected
   final Widget? child;
 
-  const AppBadgeBaseBuilder({
+  const _AppBadgeBaseBuilder({
     super.key,
     required this.backgroundColor,
     this.count = 0,

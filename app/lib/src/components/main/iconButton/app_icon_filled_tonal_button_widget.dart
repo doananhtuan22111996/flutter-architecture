@@ -1,6 +1,6 @@
 part of 'app_icon_button_base_builder.dart';
 
-class AppIconFilledTonalButtonWidget extends AppIconButtonBaseBuilder {
+class AppIconFilledTonalButtonWidget extends _AppIconButtonBaseBuilder {
   const AppIconFilledTonalButtonWidget({
     super.key,
     required super.icon,

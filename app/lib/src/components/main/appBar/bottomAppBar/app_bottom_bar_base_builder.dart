@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 part 'app_bottom_bar_widget.dart';
 
-abstract class AppBottomBarBaseBuilder extends StatelessWidget {
+abstract class _AppBottomBarBaseBuilder extends StatelessWidget {
   @protected
   final Widget child;
 
-  const AppBottomBarBaseBuilder({
+  const _AppBottomBarBaseBuilder({
     super.key,
     required this.child,
   });

@@ -1,6 +1,6 @@
 part of 'app_button_base_builder.dart';
 
-class AppOutlinedButtonWidget extends AppButtonBaseBuilder {
+class AppOutlinedButtonWidget extends _AppButtonBaseBuilder {
   const AppOutlinedButtonWidget.text({
     super.key,
     required super.label,

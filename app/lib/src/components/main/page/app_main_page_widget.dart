@@ -1,6 +1,6 @@
 part of 'app_main_page_base_builder.dart';
 
-class AppMainPageWidget extends AppMainPageBaseBuilder {
+class AppMainPageWidget extends _AppMainPageBaseBuilder {
   const AppMainPageWidget({
     super.key,
     super.scaffoldKey,

@@ -1,6 +1,6 @@
 part of 'app_icon_base_builder.dart';
 
-class AppIconWidget extends AppIconBaseBuilder {
+class AppIconWidget extends _AppIconBaseBuilder {
   const AppIconWidget({
     super.key,
     required super.icon,

@@ -1,6 +1,6 @@
 part of 'app_toast_base_builder.dart';
 
-class AppToastFloatingWidget extends AppToastBaseBuilder {
+class AppToastFloatingWidget extends _AppToastBaseBuilder {
   const AppToastFloatingWidget.message({
     required super.messageText,
     super.showCloseIcon,
@@ -24,7 +24,6 @@ class AppToastFloatingWidget extends AppToastBaseBuilder {
       behavior: SnackBarBehavior.floating,
       action: action,
       actionOverflowThreshold: actionOverflowThreshold,
-
     );
     ScaffoldMessenger.of(Get.context!).showSnackBar(snackBar);
   }

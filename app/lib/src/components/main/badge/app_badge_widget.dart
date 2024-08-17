@@ -1,6 +1,6 @@
 part of 'app_badge_base_builder.dart';
 
-class AppBadgeWidget extends AppBadgeBaseBuilder {
+class AppBadgeWidget extends _AppBadgeBaseBuilder {
   const AppBadgeWidget.small({
     super.key,
     super.backgroundColor,

@@ -1,6 +1,6 @@
 part of 'app_button_base_builder.dart';
 
-class AppTonalButtonWidget extends AppButtonBaseBuilder {
+class AppTonalButtonWidget extends _AppButtonBaseBuilder {
   const AppTonalButtonWidget.text({
     super.key,
     required super.label,

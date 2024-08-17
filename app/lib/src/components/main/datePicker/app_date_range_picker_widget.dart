@@ -1,6 +1,7 @@
 part of 'app_date_picker_base_builder.dart';
 
-class AppDateRangePickerWidget extends AppDatePickerBaseBuilder<DateTimeRange> {
+class AppDateRangePickerWidget
+    extends _AppDatePickerBaseBuilder<DateTimeRange> {
   AppDateRangePickerWidget({
     required super.fieldKey,
     required super.labelText,

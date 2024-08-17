@@ -18,7 +18,7 @@ enum AppDialogType {
   const AppDialogType({required this.type});
 }
 
-abstract class AppDialogBaseBuilder extends Dialog {
+abstract class _AppDialogBaseBuilder extends Dialog {
   @protected
   final String? title;
   @protected
@@ -34,7 +34,7 @@ abstract class AppDialogBaseBuilder extends Dialog {
   @protected
   final void Function()? onNegative;
 
-  const AppDialogBaseBuilder({
+  const _AppDialogBaseBuilder({
     super.key,
     this.title,
     this.content,

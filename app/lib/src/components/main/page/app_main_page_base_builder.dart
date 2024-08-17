@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 part 'app_main_page_widget.dart';
 
-abstract class AppMainPageBaseBuilder extends StatelessWidget {
+abstract class _AppMainPageBaseBuilder extends StatelessWidget {
   @protected
   final Key? scaffoldKey;
   @protected
@@ -24,7 +24,7 @@ abstract class AppMainPageBaseBuilder extends StatelessWidget {
   @protected
   final void Function(bool)? onEndDrawerChanged;
 
-  const AppMainPageBaseBuilder({
+  const _AppMainPageBaseBuilder({
     super.key,
     this.scaffoldKey,
     required this.headerSliverBuilder,

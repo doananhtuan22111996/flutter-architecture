@@ -1,6 +1,6 @@
 part of 'app_toast_base_builder.dart';
 
-class AppToastFixedWidget extends AppToastBaseBuilder {
+class AppToastFixedWidget extends _AppToastBaseBuilder {
   const AppToastFixedWidget.message({
     required super.messageText,
     super.showCloseIcon,
