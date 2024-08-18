@@ -1,7 +1,7 @@
 part of 'main_controller.dart';
 
 class MainPage extends GetView<MainController> {
-   const MainPage({super.key});
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -117,11 +117,6 @@ class MainPage extends GetView<MainController> {
                 AppFilledButtonWidget.text(
                   label: R.strings.selectionControl,
                   onPressed: () => SelectionControlPage.open(),
-                ),
-                SizedBox(height: AppThemeExt.of.majorScale(2)),
-                AppFilledButtonWidget.text(
-                  label: 'TabBar',
-                  onPressed: () => TabBarPage.open(),
                 ),
                 SizedBox(height: AppThemeExt.of.majorScale(2)),
                 AppFilledButtonWidget.text(

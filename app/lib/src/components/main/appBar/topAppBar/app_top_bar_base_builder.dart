@@ -23,6 +23,8 @@ abstract class _AppTopBarBaseBuilder extends StatelessWidget {
   final bool floating;
   @protected
   final bool snap;
+  @protected
+  final PreferredSizeWidget? bottom;
 
   const _AppTopBarBaseBuilder({
     super.key,
@@ -33,5 +35,6 @@ abstract class _AppTopBarBaseBuilder extends StatelessWidget {
     this.pinned = true,
     this.floating = false,
     this.snap = false,
+    this.bottom,
   });
 }

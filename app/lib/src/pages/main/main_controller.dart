@@ -7,7 +7,6 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:app/src/components/main/toast/app_toast_base_builder.dart';
 import 'package:app/src/pages/badge/badge_controller.dart';
 import 'package:app/src/pages/login/login_controller.dart';
-import 'package:app/src/pages/tabBar/tab_bar_controller.dart';
 import 'package:app/src/pages/toast/toast_controller.dart';
 import 'package:app/src/pages/tooltip/tooltip_controller.dart';
 import 'package:domain/domain.dart';

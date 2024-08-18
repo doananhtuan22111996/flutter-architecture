@@ -7,7 +7,6 @@ import 'package:app/src/pages/login/login_controller.dart';
 import 'package:app/src/pages/main/main_controller.dart';
 import 'package:app/src/pages/progress/progress_controller.dart';
 import 'package:app/src/pages/selectionControl/selection_control_controller.dart';
-import 'package:app/src/pages/tabBar/tab_bar_controller.dart';
 import 'package:app/src/pages/textField/text_field_controller.dart';
 import 'package:app/src/pages/toast/toast_controller.dart';
 import 'package:app/src/pages/tooltip/tooltip_controller.dart';
@@ -67,11 +66,6 @@ class AppPages {
       name: Routes.textField,
       page: () => const TextFieldPage(),
       binding: TextFieldBinding(),
-    ),
-    GetPage(
-      name: Routes.tabBar,
-      page: () => const TabBarPage(),
-      binding: TabBarBinding(),
     ),
     GetPage(
       name: Routes.badge,

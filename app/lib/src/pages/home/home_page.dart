@@ -1,10 +1,24 @@
 part of 'home_controller.dart';
 
-class HomePage extends GetView<HomeController> {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   static void open() {
     Get.toNamed(Routes.home);
+  }
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  final controller = Get.find<HomeController>();
+  late TabController tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    tabController = TabController(length: 2, vsync: this);
   }
 
   @override
@@ -14,24 +28,20 @@ class HomePage extends GetView<HomeController> {
         AppTopBarWidget(
           title: R.strings.homeView,
           forceElevated: innerBoxIsScrolled,
-        )
+          bottom: AppTabBarWidget(
+            controller: tabController,
+            tabs: controller.tabs,
+          ),
+        ),
       ],
       bottomAppBar:
           AppNavigationBarWidget(destinations: controller.destinationTabs),
-      body: _body(context),
-    );
-  }
-
-  Widget _body(BuildContext context) {
-    return Obx(
-      () => AppTabBarWidget(
-        tabs: [...controller.numberTabs],
-        index: controller.numberIndex.value,
-        pages: const [
+      body: AppTabBarViewWidget(
+        controller: tabController,
+        children: const [
           PagingView(),
           PagingLocalView(),
         ],
-        onTap: (index) => controller.numberIndex.value = index,
       ),
     );
   }
