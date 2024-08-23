@@ -36,6 +36,7 @@
   "dialog": "Dialog",
   "progress": "Progress",
   "selectionControl": "Selection Control",
+  "radioButton": "Radio Button",
   "textField": "Text Field",
   "submit": "Submit"
 }

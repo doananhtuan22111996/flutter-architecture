@@ -120,6 +120,11 @@ class MainPage extends GetView<MainController> {
                 ),
                 SizedBox(height: AppThemeExt.of.majorScale(2)),
                 AppFilledButtonWidget.text(
+                  label: R.strings.radioButton,
+                  onPressed: () => RadioButtonPage.open(),
+                ),
+                SizedBox(height: AppThemeExt.of.majorScale(2)),
+                AppFilledButtonWidget.text(
                   label: 'Tooltip',
                   onPressed: () => TooltipPage.open(),
                 ),

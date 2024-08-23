@@ -6,6 +6,7 @@ import 'package:app/src/pages/home/home_controller.dart';
 import 'package:app/src/pages/login/login_controller.dart';
 import 'package:app/src/pages/main/main_controller.dart';
 import 'package:app/src/pages/progress/progress_controller.dart';
+import 'package:app/src/pages/radioButton/radio_button_controller.dart';
 import 'package:app/src/pages/selectionControl/selection_control_controller.dart';
 import 'package:app/src/pages/textField/text_field_controller.dart';
 import 'package:app/src/pages/toast/toast_controller.dart';
@@ -61,6 +62,10 @@ class AppPages {
       name: Routes.selectionControl,
       page: () => const SelectionControlPage(),
       binding: SelectionControlBinding(),
+    ),  GetPage(
+      name: Routes.radioButton,
+      page: () => const RadioButtonPage(),
+      binding: RadioButtonBinding(),
     ),
     GetPage(
       name: Routes.textField,
