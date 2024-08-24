@@ -1,5 +1,6 @@
 import 'package:app/src/pages/badge/badge_controller.dart';
 import 'package:app/src/pages/button/button_controller.dart';
+import 'package:app/src/pages/checkbox/checkbox_controller.dart';
 import 'package:app/src/pages/datePicker/date_picker_controller.dart';
 import 'package:app/src/pages/dialog/dialog_controller.dart';
 import 'package:app/src/pages/home/home_controller.dart';
@@ -7,7 +8,6 @@ import 'package:app/src/pages/login/login_controller.dart';
 import 'package:app/src/pages/main/main_controller.dart';
 import 'package:app/src/pages/progress/progress_controller.dart';
 import 'package:app/src/pages/radioButton/radio_button_controller.dart';
-import 'package:app/src/pages/selectionControl/selection_control_controller.dart';
 import 'package:app/src/pages/textField/text_field_controller.dart';
 import 'package:app/src/pages/toast/toast_controller.dart';
 import 'package:app/src/pages/tooltip/tooltip_controller.dart';
@@ -59,10 +59,11 @@ class AppPages {
       binding: ProgressBinding(),
     ),
     GetPage(
-      name: Routes.selectionControl,
-      page: () => const SelectionControlPage(),
-      binding: SelectionControlBinding(),
-    ),  GetPage(
+      name: Routes.checkbox,
+      page: () => const CheckboxPage(),
+      binding: CheckboxBinding(),
+    ),
+    GetPage(
       name: Routes.radioButton,
       page: () => const RadioButtonPage(),
       binding: RadioButtonBinding(),

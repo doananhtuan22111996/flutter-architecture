@@ -34,7 +34,7 @@
   "timePickerHint": "Time picker",
   "dialog": "Dialog",
   "progress": "Progress",
-  "selectionControl": "Selection Control",
+  "checkbox": "Checkbox",
   "radioButton": "Radio Button",
   "textField": "Text Field",
   "submit": "Nộp"

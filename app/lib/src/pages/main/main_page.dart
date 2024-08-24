@@ -115,8 +115,8 @@ class MainPage extends GetView<MainController> {
                 ),
                 SizedBox(height: AppThemeExt.of.majorScale(2)),
                 AppFilledButtonWidget.text(
-                  label: R.strings.selectionControl,
-                  onPressed: () => SelectionControlPage.open(),
+                  label: R.strings.checkbox,
+                  onPressed: () => CheckboxPage.open(),
                 ),
                 SizedBox(height: AppThemeExt.of.majorScale(2)),
                 AppFilledButtonWidget.text(

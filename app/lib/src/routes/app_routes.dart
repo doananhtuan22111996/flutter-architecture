@@ -11,7 +11,7 @@ class Routes {
   static const datePicker = '/date-picker';
   static const dialog = '/dialog';
   static const progress = '/progress';
-  static const selectionControl = '/selection-control';
+  static const checkbox = '/checkbox';
   static const radioButton = '/radio-button';
   static const textField = '/text-field';
   static const badge = '/badge';

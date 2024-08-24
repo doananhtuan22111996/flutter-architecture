@@ -2,6 +2,7 @@ import 'package:app/src/components/main/appBar/bottomAppBar/app_bottom_bar_base_
 import 'package:app/src/components/main/icon/app_icon_base_builder.dart';
 import 'package:app/src/components/main/navigation/navigationDrawer/app_navigation_drawer_base_builder.dart';
 import 'package:app/src/components/main/navigation/navigationDrawer/item/app_navigation_drawer_item_base_builder.dart';
+import 'package:app/src/pages/checkbox/checkbox_controller.dart';
 import 'package:app/src/pages/radioButton/radio_button_controller.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
@@ -19,7 +20,6 @@ import 'package:app/src/pages/button/button_controller.dart';
 import 'package:app/src/pages/datePicker/date_picker_controller.dart';
 import 'package:app/src/pages/dialog/dialog_controller.dart';
 import 'package:app/src/pages/progress/progress_controller.dart';
-import 'package:app/src/pages/selectionControl/selection_control_controller.dart';
 import 'package:app/src/pages/textField/text_field_controller.dart';
 
 import '../../components/main/iconButton/app_icon_button_base_builder.dart';
