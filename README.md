@@ -31,6 +31,7 @@ and implement robust architectural patterns in their Flutter projects.
 - Dart
 - GetX (state management and dependency injection)
 - Dio (networking)
+- Flutter Material icons - Recommended
 
 ## Getting Started
 
@@ -133,3 +134,4 @@ code_
 - [Flutter_slidable](https://pub.dev/packages/flutter_slidable)
 - [Dropdown Button](https://pub.dev/packages/dropdown_button2)
 - [Flutter DateTime Picker](https://pub.dev/packages/flutter_datetime_picker)
+- [Flutter Icon](https://www.fluttericon.com/)

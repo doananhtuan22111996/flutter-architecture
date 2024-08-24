@@ -26,10 +26,6 @@ class PagingLocalController extends AppListController<UserModel> {
   void onInit() {
     super.onInit();
     Logs.d('on Init PagingLocalController');
-    data.listen((value) {
-      Get.find<HomeController>()
-          .onNumberChanged(index: 1, number: value.length);
-    });
   }
 
   @override

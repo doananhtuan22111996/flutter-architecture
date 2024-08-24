@@ -1,27 +1,29 @@
+import 'package:app/src/components/main/appBar/bottomAppBar/app_bottom_bar_base_builder.dart';
+import 'package:app/src/components/main/icon/app_icon_base_builder.dart';
+import 'package:app/src/components/main/navigation/navigationDrawer/app_navigation_drawer_base_builder.dart';
+import 'package:app/src/components/main/navigation/navigationDrawer/item/app_navigation_drawer_item_base_builder.dart';
+import 'package:app/src/pages/checkbox/checkbox_controller.dart';
+import 'package:app/src/pages/radioButton/radio_button_controller.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 import 'package:app/src/components/main/toast/app_toast_base_builder.dart';
 import 'package:app/src/pages/badge/badge_controller.dart';
 import 'package:app/src/pages/login/login_controller.dart';
-import 'package:app/src/pages/tabBar/tab_bar_controller.dart';
 import 'package:app/src/pages/toast/toast_controller.dart';
-import 'package:app/src/pages/tooltip/tooltip_controller.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:app/src/components/main/appBar/app_bar_base_builder.dart';
 import 'package:app/src/components/main/button/app_button_base_builder.dart';
 import 'package:app/src/components/main/page/app_main_page_base_builder.dart';
-import 'package:app/src/components/main/text/app_text_base_builder.dart';
-import 'package:app/src/config/app_theme.dart';
-import 'package:app/src/pages/avatar/avatar_controller.dart';
 import 'package:app/src/pages/button/button_controller.dart';
 import 'package:app/src/pages/datePicker/date_picker_controller.dart';
 import 'package:app/src/pages/dialog/dialog_controller.dart';
 import 'package:app/src/pages/progress/progress_controller.dart';
-import 'package:app/src/pages/selectionControl/selection_control_controller.dart';
 import 'package:app/src/pages/textField/text_field_controller.dart';
 
+import '../../components/main/iconButton/app_icon_button_base_builder.dart';
+import '../../components/main/appBar/topAppBar/app_top_bar_base_builder.dart';
+import '../../config/app_theme_ext.dart';
 import '../../exts/R.dart';
 
 part 'main_binding.dart';
@@ -32,6 +34,34 @@ class MainController extends GetxController {
   late final AppUseCase _appUseCase;
 
   MainController(this._appUseCase);
+
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
+  RxList<AppNavigationDrawerItemWidget> drawerItems(ThemeData themeData) {
+    return [
+      AppNavigationDrawerItemWidget(
+        icon: const AppIconWidget(icon: Icons.widgets_outlined),
+        label: Text(
+          "Messages",
+          style: themeData.textTheme.bodyLarge,
+        ),
+      ),
+      AppNavigationDrawerItemWidget(
+        icon: const AppIconWidget(icon: Icons.format_paint_outlined),
+        label: Text(
+          "Profile",
+          style: themeData.textTheme.bodyLarge,
+        ),
+      ),
+      AppNavigationDrawerItemWidget(
+        icon: const AppIconWidget(icon: Icons.settings_outlined),
+        label: Text(
+          "Settings",
+          style: themeData.textTheme.bodyLarge,
+        ),
+      ),
+    ].obs;
+  }
 
   final List<LanguageModel> languages = [
     LanguageModel(
@@ -59,16 +89,19 @@ class MainController extends GetxController {
     executeGetTheme();
   }
 
+  @override
+  void onClose() {
+    super.onClose();
+    scaffoldKey.currentState?.dispose();
+  }
+
   void executeGetLanguage() async {
     try {
       final langCode = await _appUseCase.getLanguageCode();
       final deviceLangCode = Get.deviceLocale!.languageCode;
       executeUpdateLanguage(langCode.isEmpty ? deviceLangCode : langCode);
     } on AppException catch (e) {
-      AppToastWidget(
-              title: 'Multiple Languages',
-              message: e.message,
-              appToastType: AppToastType.error)
+      AppToastFixedWidget.message(messageText: e.message ?? "Some thing wrong")
           .show();
     }
   }
@@ -82,10 +115,7 @@ class MainController extends GetxController {
       Get.updateLocale(
           Locale(languageModel.langCode, languageModel.countryCode));
     } on AppException catch (e) {
-      AppToastWidget(
-              title: 'Multiple Languages',
-              message: e.message,
-              appToastType: AppToastType.error)
+      AppToastFixedWidget.message(messageText: e.message ?? "Some thing wrong")
           .show();
     }
   }
@@ -97,10 +127,7 @@ class MainController extends GetxController {
           Get.isDarkMode ? ThemeMode.dark.name : ThemeMode.light.name;
       executeUpdateTheme(theme.isEmpty ? deviceTheme : theme);
     } on AppException catch (e) {
-      AppToastWidget(
-              title: 'Theme Mode',
-              message: e.message,
-              appToastType: AppToastType.error)
+      AppToastFixedWidget.message(messageText: e.message ?? "Some thing wrong")
           .show();
     }
   }
@@ -112,14 +139,13 @@ class MainController extends GetxController {
           ThemeMode.values.firstWhere((element) => element.name == theme);
       await _appUseCase.setThemeMode(theme);
       Get.changeThemeMode(themeMode);
-      Get.changeTheme(themeMode == ThemeMode.dark
-          ? AppThemeData.darkTheme
-          : AppThemeData.lightTheme);
+      Get.changeTheme(
+        themeMode == ThemeMode.dark
+            ? AppThemeExt.of.darkTheme
+            : AppThemeExt.of.lightTheme,
+      );
     } on AppException catch (e) {
-      AppToastWidget(
-              title: 'Theme Mode',
-              message: e.message,
-              appToastType: AppToastType.error)
+      AppToastFixedWidget.message(messageText: e.message ?? "Some thing wrong")
           .show();
     }
   }

@@ -1,26 +1,40 @@
-import 'package:app/src/config/app_theme.dart';
 import 'package:flutter/material.dart';
 
 part 'app_main_page_widget.dart';
 
-abstract class AppMainPageBaseBuilder extends StatelessWidget {
+abstract class _AppMainPageBaseBuilder extends StatelessWidget {
   @protected
-  final Widget? body;
+  final Key? scaffoldKey;
   @protected
-  final PreferredSizeWidget? appBar;
+  final Widget body;
+  @protected
+  final NestedScrollViewHeaderSliversBuilder headerSliverBuilder;
+  @protected
+  final Widget? bottomAppBar;
+  @protected
+  final Widget? floatingActionButton;
+  @protected
+  final FloatingActionButtonLocation? floatingActionButtonLocation;
+  @protected
+  final Widget? drawer;
+  @protected
+  final void Function(bool)? onDrawerChanged;
   @protected
   final Widget? endDrawer;
   @protected
-  final Color? backgroundColor;
-  @protected
   final void Function(bool)? onEndDrawerChanged;
 
-  const AppMainPageBaseBuilder({
+  const _AppMainPageBaseBuilder({
     super.key,
-    this.body,
-    this.appBar,
+    this.scaffoldKey,
+    required this.headerSliverBuilder,
+    required this.body,
+    this.bottomAppBar,
+    this.floatingActionButton,
+    this.floatingActionButtonLocation,
+    this.drawer,
+    this.onDrawerChanged,
     this.endDrawer,
-    this.backgroundColor,
     this.onEndDrawerChanged,
   });
 }

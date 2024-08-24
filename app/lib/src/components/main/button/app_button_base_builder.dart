@@ -1,6 +1,4 @@
-import 'package:app/src/config/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 part 'app_filled_button_widget.dart';
 
@@ -8,53 +6,25 @@ part 'app_outlined_button_widget.dart';
 
 part 'app_text_button_widget.dart';
 
-part 'app_button_app_bar_widget.dart';
+part 'app_elevated_button_widget.dart';
 
-enum AppButtonSize {
-  large(size: 'large'),
-  medium(size: 'medium'),
-  small(size: 'small');
+part 'app_tonal_button_widget.dart';
 
-  final String size;
-
-  const AppButtonSize({required this.size});
-}
-
-enum AppButtonType {
-  standard(type: 'standard'),
-  danger(type: 'danger'),
-  circle(type: 'circle'),
-  square(type: 'square');
-
-  final String type;
-
-  const AppButtonType({required this.type});
-}
-
-abstract class AppButtonBaseBuilder extends StatelessWidget {
+abstract class _AppButtonBaseBuilder extends StatelessWidget {
   @protected
-  final String? buttonText;
+  final String label;
+  @protected
+  final IconData? icon;
   @protected
   final bool? isDisabled;
   @protected
-  final Widget? prefixIcon;
-  @protected
-  final TextStyle? textStyle;
-  @protected
-  final AppButtonSize? appButtonSize;
-  @protected
-  final AppButtonType? appButtonType;
-  @protected
   final void Function()? onPressed;
 
-  const AppButtonBaseBuilder({
+  const _AppButtonBaseBuilder({
     super.key,
-    this.buttonText,
+    required this.label,
+    this.icon,
     this.isDisabled,
-    this.prefixIcon,
-    this.textStyle,
-    this.appButtonSize,
-    this.appButtonType,
     this.onPressed,
   });
 }

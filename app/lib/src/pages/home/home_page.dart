@@ -1,6 +1,6 @@
 part of 'home_controller.dart';
 
-class HomePage extends GetView<HomeController> {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   static void open() {
@@ -8,25 +8,40 @@ class HomePage extends GetView<HomeController> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return AppMainPageWidget(
-      appBar: AppBarWidget(
-        headerPage: R.strings.homeView,
-      ).build(context),
-      body: _body(context),
-    );
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  final controller = Get.find<HomeController>();
+  late TabController tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    tabController = TabController(length: 2, vsync: this);
   }
 
-  Widget _body(BuildContext context) {
-    return Obx(
-      () => AppTabBarWidget(
-        tabs: [...controller.numberTabs],
-        index: controller.numberIndex.value,
-        pages: const [
+  @override
+  Widget build(BuildContext context) {
+    return AppMainPageWidget(
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
+        AppTopBarWidget(
+          title: R.strings.homeView,
+          forceElevated: innerBoxIsScrolled,
+          bottom: AppTabBarWidget(
+            controller: tabController,
+            tabs: controller.tabs,
+          ),
+        ),
+      ],
+      bottomAppBar:
+          AppNavigationBarWidget(destinations: controller.destinationTabs),
+      body: AppTabBarViewWidget(
+        controller: tabController,
+        children: const [
           PagingView(),
           PagingLocalView(),
         ],
-        onTap: (index) => controller.numberIndex.value = index,
       ),
     );
   }

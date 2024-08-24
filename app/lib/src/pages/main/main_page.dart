@@ -6,7 +6,39 @@ class MainPage extends GetView<MainController> {
   @override
   Widget build(BuildContext context) {
     return AppMainPageWidget(
-      appBar: AppBarWidget(headerPage: R.strings.homeView).build(context),
+      scaffoldKey: controller.scaffoldKey,
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
+        AppTopBarWidget.large(
+          title: R.strings.homeView,
+          leading: AppIconButtonWidget(
+            icon: Icons.menu,
+            onPressed: () => controller.scaffoldKey.currentState?.openDrawer(),
+          ),
+          forceElevated: innerBoxIsScrolled,
+        ),
+      ],
+      drawer: AppNavigationDrawerWidget(
+        children: controller.drawerItems(Theme.of(context)),
+      ),
+      bottomAppBar: AppBottomBarWidget(
+        child: Row(
+          children: [
+            AppIconButtonWidget(icon: Icons.more_vert, onPressed: () => {}),
+            AppIconButtonWidget(icon: Icons.search, onPressed: () => {}),
+            AppIconButtonWidget(icon: Icons.favorite, onPressed: () => {}),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => AppToastFloatingWidget.action(
+            messageText:
+                "Two-line snackbar with action and close affordance, Two-line snackbar with action and close affordance",
+            action: SnackBarAction(
+              label: R.strings.submit,
+              onPressed: () => {},
+            )).show(),
+        child: const AppIconWidget(icon: Icons.add),
+      ),
       body: _body(context),
     );
   }
@@ -33,7 +65,8 @@ class MainPage extends GetView<MainController> {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(vertical: AppThemeExt.of.majorScale(2)),
-          child: const AppTextHeading5Widget(text: 'UI Kit'),
+          child:
+              Text('UI Kit', style: Theme.of(context).textTheme.headlineSmall),
         ),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,33 +75,28 @@ class MainPage extends GetView<MainController> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AppFilledButtonWidget(
-                  buttonText: R.strings.button,
+                AppFilledButtonWidget.text(
+                  label: R.strings.button,
                   onPressed: () => ButtonPage.open(),
                 ),
                 SizedBox(height: AppThemeExt.of.majorScale(2)),
-                AppFilledButtonWidget(
-                  buttonText: R.strings.avatar,
-                  onPressed: () => AvatarPage.open(),
-                ),
-                SizedBox(height: AppThemeExt.of.majorScale(2)),
-                AppFilledButtonWidget(
-                  buttonText: R.strings.datePicker,
+                AppFilledButtonWidget.text(
+                  label: R.strings.datePicker,
                   onPressed: () => DatePickerPage.open(),
                 ),
                 SizedBox(height: AppThemeExt.of.majorScale(2)),
-                AppFilledButtonWidget(
-                  buttonText: R.strings.textField,
+                AppFilledButtonWidget.text(
+                  label: R.strings.textField,
                   onPressed: () => TextFieldPage.open(),
                 ),
                 SizedBox(height: AppThemeExt.of.majorScale(2)),
-                AppFilledButtonWidget(
-                  buttonText: 'Badge',
+                AppFilledButtonWidget.text(
+                  label: 'Badge',
                   onPressed: () => BadgePage.open(),
                 ),
                 SizedBox(height: AppThemeExt.of.majorScale(2)),
-                AppFilledButtonWidget(
-                  buttonText: 'Toast',
+                AppFilledButtonWidget.text(
+                  label: 'Toast',
                   onPressed: () => ToastPage.open(),
                 ),
               ],
@@ -76,29 +104,24 @@ class MainPage extends GetView<MainController> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AppFilledButtonWidget(
-                  buttonText: R.strings.dialog,
+                AppFilledButtonWidget.text(
+                  label: R.strings.dialog,
                   onPressed: () => DialogPage.open(),
                 ),
                 SizedBox(height: AppThemeExt.of.majorScale(2)),
-                AppFilledButtonWidget(
-                  buttonText: R.strings.progress,
+                AppFilledButtonWidget.text(
+                  label: R.strings.progress,
                   onPressed: () => ProgressPage.open(),
                 ),
                 SizedBox(height: AppThemeExt.of.majorScale(2)),
-                AppFilledButtonWidget(
-                  buttonText: R.strings.selectionControl,
-                  onPressed: () => SelectionControlPage.open(),
+                AppFilledButtonWidget.text(
+                  label: R.strings.checkbox,
+                  onPressed: () => CheckboxPage.open(),
                 ),
                 SizedBox(height: AppThemeExt.of.majorScale(2)),
-                AppFilledButtonWidget(
-                  buttonText: 'TabBar',
-                  onPressed: () => TabBarPage.open(),
-                ),
-                SizedBox(height: AppThemeExt.of.majorScale(2)),
-                AppFilledButtonWidget(
-                  buttonText: 'Tooltip',
-                  onPressed: () => TooltipPage.open(),
+                AppFilledButtonWidget.text(
+                  label: R.strings.radioButton,
+                  onPressed: () => RadioButtonPage.open(),
                 ),
               ],
             ),
@@ -114,14 +137,15 @@ class MainPage extends GetView<MainController> {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(vertical: AppThemeExt.of.majorScale(2)),
-          child: const AppTextHeading5Widget(text: 'Flow Data'),
+          child: Text('Flow Data',
+              style: Theme.of(context).textTheme.headlineSmall),
         ),
         Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            AppFilledButtonWidget(
-              buttonText: 'Workflow',
+            AppFilledButtonWidget.text(
+              label: 'Workflow',
               onPressed: () => LoginPage.open(),
             ),
           ],
@@ -135,10 +159,13 @@ class MainPage extends GetView<MainController> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-            padding:
-                EdgeInsets.symmetric(vertical: AppThemeExt.of.majorScale(2)),
-            child: const AppTextHeading5Widget(text: 'Theme style')),
-        AppTextBody2Widget(text: R.strings.changeLanguage),
+          padding: EdgeInsets.symmetric(vertical: AppThemeExt.of.majorScale(2)),
+          child: Text(
+            'Theme style',
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+        ),
+        Text(R.strings.changeLanguage),
         Obx(
           () => ToggleButtons(
             isSelected: [
@@ -152,12 +179,13 @@ class MainPage extends GetView<MainController> {
               controller.executeUpdateLanguage(langCode);
             },
             children: controller.languages
-                .map((e) => AppTextBody1Widget(text: e.name))
+                .map((e) =>
+                    Text(e.name, style: Theme.of(context).textTheme.bodyMedium))
                 .toList(),
           ),
         ),
         SizedBox(height: AppThemeExt.of.majorScale(2)),
-        AppTextBody2Widget(text: R.strings.changeTheme),
+        Text(R.strings.changeTheme),
         Obx(
           () => ToggleButtons(
             isSelected: [

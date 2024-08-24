@@ -10,8 +10,12 @@ class LoginPage extends GetWidget<LoginController> {
   @override
   Widget build(BuildContext context) {
     return AppMainPageWidget(
-      appBar:
-          AppBarLeadingAvatarWidget(headerPage: R.strings.login).build(context),
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
+        AppTopBarWidget(
+          title: R.strings.login,
+          forceElevated: innerBoxIsScrolled,
+        )
+      ],
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -21,8 +25,8 @@ class LoginPage extends GetWidget<LoginController> {
             padding: EdgeInsets.symmetric(
                 vertical: AppThemeExt.of.majorScale(2),
                 horizontal: AppThemeExt.of.majorScale(4)),
-            child: AppFilledButtonWidget(
-              buttonText: R.strings.login,
+            child: AppFilledButtonWidget.text(
+              label: R.strings.login,
               onPressed: () => controller.executeLogin(),
             ),
           )

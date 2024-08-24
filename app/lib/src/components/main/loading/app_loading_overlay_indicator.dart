@@ -1,6 +1,7 @@
-import 'package:app/src/config/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_loadingindicator/flutter_loadingindicator.dart';
+
+import '../../../config/app_theme_ext.dart';
 
 class AppLoadingOverlayWidget {
   static TransitionBuilder init() {
@@ -9,15 +10,15 @@ class AppLoadingOverlayWidget {
 
   static void configure(BuildContext context) {
     EasyLoading.instance
+      ..loadingStyle = EasyLoadingStyle.custom
       ..displayDuration = const Duration(milliseconds: 2000)
-      ..indicatorType = EasyLoadingIndicatorType.circle
+      ..indicatorType = EasyLoadingIndicatorType.threeBounce
       ..indicatorSize = AppThemeExt.of.majorScale(12)
       ..radius = AppThemeExt.of.majorScale(2)
-      ..backgroundColor = AppColors.of.neutralColor[3]
-      ..indicatorColor = AppColors.of.primaryColor
-      ..progressColor = AppColors.of.primaryColor.withOpacity(0.6)
-      ..textColor = AppColors.of.neutralColor[10]
-      ..maskColor = AppColors.of.neutralColor[2]?.withOpacity(0.6)
+      ..backgroundColor = Theme.of(context).colorScheme.onSurface
+      ..indicatorColor = Theme.of(context).colorScheme.primary
+      ..textColor = Theme.of(context).colorScheme.surface
+      ..maskType = EasyLoadingMaskType.black
       ..userInteractions = false
       ..dismissOnTap = false;
   }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:utilities/utilities.dart';
 
-import '../../config/app_theme.dart';
+import '../../config/app_theme_ext.dart';
 
 class PagingItemController extends GetxController {
   int index = 0;

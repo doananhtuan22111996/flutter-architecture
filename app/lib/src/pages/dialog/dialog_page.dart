@@ -1,7 +1,7 @@
 part of 'dialog_controller.dart';
 
 class DialogPage extends GetView<DialogController> {
-  const DialogPage({Key? key}) : super(key: key);
+  const DialogPage({super.key});
 
   static void open() {
     Get.toNamed(Routes.dialog);
@@ -10,9 +10,12 @@ class DialogPage extends GetView<DialogController> {
   @override
   Widget build(BuildContext context) {
     return AppMainPageWidget(
-      appBar: AppBarWidget(
-        headerPage: R.strings.dialog,
-      ).build(context),
+      headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
+        AppTopBarWidget(
+          title: R.strings.dialog,
+          forceElevated: innerBoxIsScrolled,
+        )
+      ],
       body: _body(context),
     );
   }
@@ -27,49 +30,18 @@ class DialogPage extends GetView<DialogController> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AppFilledButtonWidget(
-                buttonText: 'Dialog Success',
-                appButtonSize: AppButtonSize.small,
-                onPressed: () => controller.dialogSuccess(),
-              ).build(context),
+              AppFilledButtonWidget.text(
+                label: 'Dialog Alert',
+                onPressed: () => controller.dialogAlert(),
+              ),
               Padding(
                 padding: EdgeInsets.symmetric(
                     vertical: AppThemeExt.of.majorScale(2)),
-                child: AppFilledButtonWidget(
-                  buttonText: 'Dialog error',
-                  appButtonSize: AppButtonSize.small,
-                  onPressed: () => controller.dialogError(),
-                ).build(context),
+                child: AppFilledButtonWidget.text(
+                  label: 'Dialog Full Screen',
+                  onPressed: () => controller.dialogFullScreen(),
+                ),
               ),
-              AppFilledButtonWidget(
-                buttonText: 'Dialog confirm',
-                appButtonSize: AppButtonSize.small,
-                onPressed: () => controller.dialogConfirm(),
-              ).build(context),
-            ],
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              AppFilledButtonWidget(
-                buttonText: 'Dialog Screen Success',
-                appButtonSize: AppButtonSize.small,
-                onPressed: () => controller.dialogScreenSuccess(),
-              ).build(context),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                    vertical: AppThemeExt.of.majorScale(2)),
-                child: AppFilledButtonWidget(
-                  buttonText: 'Dialog Screen error',
-                  appButtonSize: AppButtonSize.small,
-                  onPressed: () => controller.dialogScreenError(),
-                ).build(context),
-              ),
-              AppFilledButtonWidget(
-                buttonText: 'Dialog Screen confirm',
-                appButtonSize: AppButtonSize.small,
-                onPressed: () => controller.dialogScreenConfirm(),
-              ).build(context),
             ],
           ),
         ],
