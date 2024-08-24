@@ -10,7 +10,6 @@ import 'package:app/src/components/main/toast/app_toast_base_builder.dart';
 import 'package:app/src/pages/badge/badge_controller.dart';
 import 'package:app/src/pages/login/login_controller.dart';
 import 'package:app/src/pages/toast/toast_controller.dart';
-import 'package:app/src/pages/tooltip/tooltip_controller.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
