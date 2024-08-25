@@ -42,15 +42,7 @@ scripts:
     run: melos exec --fail-fast --scope="*configs*" "dart run lib/src/env.json.dart create"
     description: Create sample env file
 
-  create-env-web:
-    run: melos exec --fail-fast --scope="*configs*" "dart run lib/src/web.json.dart create"
-    description: Create sample env file for web
-
   gen-env:
     run: melos exec --fail-fast --scope="*configs*" "dart run lib/src/env.json.dart $1"
     description: Generates env file
-
-  gen-web:
-    run: melos exec --fail-fast --scope="*configs*" "dart run lib/src/web.json.dart"
-    description: Generates web file
   ## End Configs

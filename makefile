@@ -37,3 +37,6 @@ build-android-apk:
 build-android-aab:
 	@melos gen-env $(flavor)
 	dart run scripts/build_app.dart $(flavor) aab $(buildName) $(buildNumber)
+
+create-env:
+	@melos create-env

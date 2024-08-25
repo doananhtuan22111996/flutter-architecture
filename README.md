@@ -3,6 +3,8 @@
 Welcome to the Flutter Architecture repository! This project aims to demonstrate and provide a
 reference for structuring Flutter applications using best practices in software architecture.
 
+[Demo](./demo.mov)
+
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -51,9 +53,7 @@ To get a local copy up and running, follow these simple steps.
 ### Environment
 
 - At Config module
-- `cd configs`
-- Generated: `dart run lib/src/env.json.dart create`
-- Generated: `dart run lib/src/web.json.dart create`
+- Generated: `make create-env`
 
 ### MacOs
 
@@ -61,8 +61,6 @@ To get a local copy up and running, follow these simple steps.
 - PreBuild:
     - `make pre-bootstrap`
     - `make pub-get`
-    - `make build-init`
-    - `make build-runner`
 - Run: `make run flavor=[dev|staging|prod]`
 
 ### Window
@@ -94,9 +92,9 @@ code_
     - flutter pub get
 - Run source
     - cd configs
-    - dart run lib/src/env.json.dart [dev|staging|prod]
+    - dart run lib/src/env.json.dart [dev|prod]
     - cd ..
-    - dart run scripts/build.dart [dev|staging|prod] -> Run complete and copy command on console
+    - dart run scripts/build.dart [dev|prod] -> Run complete and copy command on console
     - cd app
     - paste command and run
 
@@ -109,9 +107,7 @@ code_
     - PreBuild:
         - `make pre-bootstrap`
         - `make pub-get`
-        - `make build-init`
-        - `make build-runner`
-    - `make widget-book`
+    - `make widget-book flavor=[dev|prod]`
 
 ## References
 
