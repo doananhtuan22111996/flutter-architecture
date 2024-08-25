@@ -1,6 +1,13 @@
 <a name="unreleased"></a>
 ## [Unreleased]
 
+### Bug Fixes
+- Updated CHANGLOG.md ([#4](https://github.com/doananhtuan22111996/flutter_architecture/issues/4))
+
+### Features
+- Configuration env project ([#6](https://github.com/doananhtuan22111996/flutter_architecture/issues/6))
+- Included Theme, Styles, UI kit by Material desgin ([#5](https://github.com/doananhtuan22111996/flutter_architecture/issues/5))
+
 
 <a name="release/v3.0.0"></a>
 ## release/v3.0.0 - 2024-08-04
