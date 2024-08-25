@@ -1,54 +1,39 @@
 import 'dart:convert';
 import 'dart:io';
 
-const _webJsonConfigFilePath = './configs/.env/config.web.json';
-
-// TODO [remove] this file when create new project.
+import 'package:configs/configs.dart';
 
 void main(List<String>? args) async {
-  Map<String, dynamic>? configJson = readJsonFile(_webJsonConfigFilePath);
-  final dartDefine = _readDartDefine(configJson);
+  Map<String, dynamic> jConfig =
+      getJsonConfig(args?.first ?? stringEmpty, prefix: './configs');
+  final dart = DartGeneration(
+    outputFilePath: buildConfigPath,
+    configJson: jConfig[dartDefine],
+  );
   List<String> arguments = [
     'run',
     '-t',
     'lib/widget_book.dart',
-    dartDefine,
+    '--dart-define $apiDomain=${dart.api}',
+    '--dart-define $secureStorageName=${dart.storageName}',
     '-d',
     'chrome'
   ];
 
-  print('CMD: fvm flutter ${arguments.join(' ')}');
-  final process = await Process.start(
-    'bash',
-    ['-c', 'fvm flutter ${arguments.join(' ')}'],
-    workingDirectory: './app',
-  );
+  print('cmd: fvm flutter ${arguments.join(' ')}');
+  final process = await Process.start('fvm', ['flutter', ...arguments],
+      workingDirectory: './app', runInShell: true);
+  // Print standard output (stdout)
   process.stdout.transform(utf8.decoder).listen((data) {
-    print(data);
+    print('$data');
   });
+  // Print standard error (stderr)
   process.stderr.transform(utf8.decoder).listen((data) {
-    print(data);
+    print('$data');
   });
+
   final exitCode = await process.exitCode;
   if (exitCode != 0) {
     throw Exception('Script failed with exit code: $exitCode');
   }
-}
-
-String _readDartDefine(Map<String, dynamic> configJson) {
-  Map<String, dynamic> dartDefineJson = configJson;
-  String dartDefine = '';
-  dartDefineJson.forEach((key, value) {
-    if (key != "firebaseOptions") {
-      dartDefine += '--dart-define $key=$value ';
-    }
-  });
-  return dartDefine.trim();
-}
-
-Map<String, dynamic> readJsonFile(String filePath) {
-  final mandatoryFile = File(filePath);
-  var fileContent = mandatoryFile.readAsStringSync();
-  fileContent = fileContent.replaceAll(RegExp('.+// .+\n'), '');
-  return jsonDecode(fileContent);
 }

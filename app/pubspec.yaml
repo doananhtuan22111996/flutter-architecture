@@ -31,8 +31,7 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  configs:
-    path: ../configs
+
   domain:
     path: ../domain
   data:

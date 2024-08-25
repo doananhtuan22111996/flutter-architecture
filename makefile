@@ -46,5 +46,5 @@ build-android-aab:
 
 ## TODO [remove] command below when create new project.
 widget-book:
-	@melos gen-web
-	dart run scripts/build_widget_book.dart
+	@melos gen-env $(flavor)
+	dart run scripts/build_widget_book.dart $(flavor)

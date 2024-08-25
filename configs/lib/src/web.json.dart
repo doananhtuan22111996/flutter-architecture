@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:configs/src/method/method_generation.dart';
 import 'package:recase/recase.dart';
 
 // TODO [remove] this file when create new project.
@@ -18,19 +19,12 @@ void main(List<String>? args) {
     return;
   }
   Map<String, dynamic>? configJson;
-  configJson = readJsonFile(_webJsonConfigFilePath);
+  configJson = readFile(_webJsonConfigFilePath);
   _genEnv(configJson);
 }
 
 void _genEnv(Map<String, dynamic> configJson) {
   genDartNDefineFile(configJson);
-}
-
-Map<String, dynamic> readJsonFile(String filePath) {
-  final mandatoryFile = File(filePath);
-  var fileContent = mandatoryFile.readAsStringSync();
-  fileContent = fileContent.replaceAll(RegExp('.+// .+\n'), '');
-  return jsonDecode(fileContent);
 }
 
 void genDartNDefineFile(devConfigJson) {
