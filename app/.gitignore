@@ -47,4 +47,3 @@ app.*.map.json
 
 generated
 firebase.json
-lib/firebase_options.dart

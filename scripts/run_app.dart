@@ -4,8 +4,8 @@ import 'dart:io';
 import 'package:configs/configs.dart';
 
 void main(List<String>? args) async {
-  Map<String, dynamic> jConfig =
-      getJsonConfig(args?.first ?? stringEmpty, prefix: './configs');
+  final flavor = args?.first ?? stringEmpty;
+  Map<String, dynamic> jConfig = getJsonConfig(flavor, prefix: './configs');
   final dart = DartGeneration(
     outputFilePath: buildConfigPath,
     configJson: jConfig[dartDefine],
@@ -13,11 +13,13 @@ void main(List<String>? args) async {
   List<String> arguments = [
     'run',
     '-t',
-    'lib/widget_book.dart',
-    '--dart-define $apiDomain=${dart.api}',
-    '--dart-define $secureStorageName=${dart.storageName}',
-    '-d',
-    'chrome'
+    'lib/main.dart',
+    '--flavor',
+    '$flavor',
+    '--dart-define',
+    '$apiDomain=${dart.api}',
+    '--dart-define',
+    '$secureStorageName=${dart.storageName}',
   ];
 
   print('cmd: fvm flutter ${arguments.join(' ')}');
