@@ -11,40 +11,32 @@ pre-bootstrap:
 pub-get:
 	@melos clean --sdk-path=.fvm/flutter_sdk
 	@melos bootstrap --sdk-path=.fvm/flutter_sdk
-
-build-init: 
 	@melos gen-app-icon
 	@melos gen-app-splash
-	
-build-runner: 
 	@melos build-domain
 	@melos build-data
 	@melos build-resources
 	@melos gen-strings
 
-build-string: 
-	@melos gen-strings
-
-build-resource: 
-	@melos build-resources
-	
 run:
 	@melos gen-env $(flavor)
-	dart run scripts/build.dart $(flavor) run $(device)
+	dart run scripts/run_app.dart $(flavor)
+
+widget-book:
+	@melos gen-env $(flavor)
+	dart run scripts/run_widget_book.dart $(flavor)
 
 build-ios:
 	@melos gen-env $(flavor)
-	dart run scripts/build.dart $(flavor) build ipa $(buildName) $(buildNumber)
+	dart run scripts/build_app.dart $(flavor) ipa $(buildName) $(buildNumber)
 
 build-android-apk:
 	@melos gen-env $(flavor)
-	dart run scripts/build.dart $(flavor) build apk $(buildName) $(buildNumber)
+	dart run scripts/build_app.dart $(flavor) apk $(buildName) $(buildNumber)
 
 build-android-aab:
 	@melos gen-env $(flavor)
-	dart run scripts/build.dart $(flavor) build aab $(buildName) $(buildNumber)
+	dart run scripts/build_app.dart $(flavor) aab $(buildName) $(buildNumber)
 
-## TODO [remove] command below when create new project.
-widget-book:
-	@melos gen-web
-	dart run scripts/build_widget_book.dart
+create-env:
+	@melos create-env

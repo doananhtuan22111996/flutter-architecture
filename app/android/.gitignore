@@ -11,6 +11,5 @@ GeneratedPluginRegistrant.java
 key.properties
 **/*.keystore
 **/*.jks
-app/src/dev
-app/src/prod
+keystore.define.properties
 native.define.properties
