@@ -1,0 +1,55 @@
+name: Dev CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        # Note: This workflow uses the latest stable version of the Dart SDK.
+        # You can specify other versions if desired, see documentation here:
+        # https://github.com/dart-lang/setup-dart/blob/main/README.md
+        # - uses: dart-lang/setup-dart@v1
+      - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
+
+      - name: Download Artifact - Keystore
+        uses: timheuer/base64-to-file@v1.2
+        with:
+          filename: 'root-keystore-dev.jks'
+          fileDir: './app/android/'
+          encodedString: ${{ secrets.ROOT_KEYSTORE_DEV }}
+
+      - name: Download Artifact - env
+        uses: timheuer/base64-to-file@v1.2
+        with:
+          filename: '.env.zip'
+          fileDir: './configs/'
+          encodedString: ${{ secrets.ENV }}
+
+      - name: Unzip env
+        run: |
+          cd configs && jar xf .env.zip
+
+      - name: Setup project
+        run: |
+          echo "Accept permision..."
+          make denied
+          echo "Install bootstrap..."
+          make pre-bootstrap
+          echo "Pub get..."
+          make gh-pub-get
+
+      - name: Build Release bundle
+        run: make gh-build-android flavor=dev
+
+      - name: Sending release build to Telegram
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: 🚀 New Release Published on DEV! >>> ${{github.head_ref}}.
