@@ -13,6 +13,8 @@ void main(List<String>? args) async {
     configJson: jConfig[dartDefine],
   );
   final type = args?[1] ?? stringEmpty;
+  final buildName = args?[2] ?? stringEmpty;
+  final buildNumber = args?[3] ?? stringEmpty;
 
   List<String> arguments = [
     'build',
@@ -21,6 +23,10 @@ void main(List<String>? args) async {
     'lib/main.dart',
     '--flavor',
     '$flavor',
+    '--build-name',
+    '$buildName',
+    '--build-number',
+    '$buildNumber',
     '--dart-define',
     '$apiDomain=${dart.api}',
     '--dart-define',

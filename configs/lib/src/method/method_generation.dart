@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import '../../configs.dart';
+import '../generation/file_generation.dart';
 
 Map<String, dynamic> getJsonConfig(String flavor, {String? prefix}) =>
     readFile(jConfigFilePath(flavor, prefix: prefix));
