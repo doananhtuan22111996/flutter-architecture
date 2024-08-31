@@ -5,6 +5,9 @@
 - Updated CHANGLOG.md ([#4](https://github.com/doananhtuan22111996/flutter_architecture/issues/4))
 
 ### Features
+- Add github actions ([#8](https://github.com/doananhtuan22111996/flutter_architecture/issues/8))
+- configuration project ([#9](https://github.com/doananhtuan22111996/flutter_architecture/issues/9))
+- CHANGELOG.md ([#7](https://github.com/doananhtuan22111996/flutter_architecture/issues/7))
 - Configuration env project ([#6](https://github.com/doananhtuan22111996/flutter_architecture/issues/6))
 - Included Theme, Styles, UI kit by Material desgin ([#5](https://github.com/doananhtuan22111996/flutter_architecture/issues/5))
 
