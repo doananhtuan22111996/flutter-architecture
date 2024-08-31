@@ -1,6 +1,6 @@
 name: domain
 description: Domain Module
-version: 0.0.3
+version: 3.0.0
 publish_to: "none"
 
 environment:
@@ -20,7 +20,7 @@ dev_dependencies:
   flutter_lints: 4.0.0
   json_serializable: 6.8.0
   copy_with_extension_gen: 5.0.4
-  build_runner: 2.4.11
+  build_runner: 2.4.12
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
